@@ -1,0 +1,91 @@
+[
+  {
+    "listing": "/teaching/index.html",
+    "items": [
+      "/teaching/computing-and-society/index.html",
+      "/teaching/optimization-linear-algebra/index.html",
+      "/teaching/supervised-learning/index.html",
+      "/teaching/unsupervised-learning/index.html",
+      "/teaching/ai-ethics-2024.html",
+      "/teaching/object-oriented-programming.html",
+      "/teaching/ai-ethics-2022.html",
+      "/teaching/operational-research-2-ufrj.html",
+      "/teaching/operational-research-3-ufrj.html"
+    ]
+  },
+  {
+    "listing": "/people/mmraimundo.html",
+    "items": [
+      "/publications/mmraimundo/m2fgb-a-min-max-gradient-boosting-framework-for-subgroup-fai.html"
+    ]
+  },
+  {
+    "listing": "/people/jsbpereira.html",
+    "items": [
+      "/publications/jsbpereira/m2fgb-a-min-max-gradient-boosting-framework-for-subgroup-fai.html"
+    ]
+  },
+  {
+    "listing": "/people/gvaldrighi.html",
+    "items": [
+      "/publications/gvaldrighi/m2fgb-a-min-max-gradient-boosting-framework-for-subgroup-fai.html",
+      "/publications/gvaldrighi/granularity-at-scale-estimating-neighborhood-socioeconomic-i.html",
+      "/publications/gvaldrighi/morevis-a-visual-summary-for-spatiotemporal-moving-regions.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/teaching/computing-and-society/index.html",
+      "/teaching/optimization-linear-algebra/index.html",
+      "/teaching/supervised-learning/index.html",
+      "/teaching/unsupervised-learning/index.html",
+      "/projects/gradient-based-optimization.html",
+      "/projects/fair-credit-scoring.html",
+      "/projects/ethical-ai.html",
+      "/publications/m2fgb-a-min-max-gradient-boosting-framework-for-subgroup-fai.html"
+    ]
+  },
+  {
+    "listing": "/people/index.html",
+    "items": [
+      "/people/anegretti.html",
+      "/people/aazevedo.html",
+      "/people/ahmoliveira.html",
+      "/people/amribeiro.html",
+      "/people/bnascimento.html",
+      "/people/clima.html",
+      "/people/cporto.html",
+      "/people/cprado.html",
+      "/people/dggratti.html",
+      "/people/dmfilho.html",
+      "/people/gvaldrighi.html",
+      "/people/jsbpereira.html",
+      "/people/jguimaraes.html",
+      "/people/jvpbavanzini.html",
+      "/people/jdnieto.html",
+      "/people/kbenevides.html",
+      "/people/lokabayashi.html",
+      "/people/lbraz.html",
+      "/people/lsilveira.html",
+      "/people/lcardoso.html",
+      "/people/mmraimundo.html",
+      "/people/mcassuncao.html",
+      "/people/radamski.html"
+    ]
+  },
+  {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/gradient-based-optimization.html",
+      "/projects/fair-credit-scoring.html",
+      "/projects/ethical-ai.html"
+    ]
+  },
+  {
+    "listing": "/publications/index.html",
+    "items": [
+      "/publications/m2fgb-a-min-max-gradient-boosting-framework-for-subgroup-fai.html"
+    ]
+  }
+]

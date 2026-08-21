@@ -1,0 +1,38 @@
+---
+title: "Maria Clara Assunção"
+subtitle: "MSc Student in Mechanical Engineering"
+image: mcassuncao.webp
+description: "Machine Learning, Data Science, Condition Monitoring"
+about:
+  template: jolla
+  image-shape: round
+group: "Former Researchers"
+scholar-id: "ou0eGXAAAAAJ"
+filters:
+  - ../band-sections.lua
+---
+
+[School of Mechanical Engineering - Universidade Estadual de Campinas](https://www.fem.unicamp.br/index.php/pt-br/)
+
+::: {.profile-links}
+<a href="https://scholar.google.com/citations?user=ou0eGXAAAAAJ&hl=pt-BR&oi=ao" class="about-link" target="_blank" rel="me"><i class="bi bi-mortarboard-fill"></i> <span class="about-link-text">Google Scholar</span></a>
+<a href="https://github.com/mariaclaraav" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/in/maria-clara-assuncao-viana/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+<a href="http://lattes.cnpq.br/1524671501423548" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+:::
+
+Maria Clara Assunção is an MSc candidate in Mechanical Engineering at the School of Mechanical Engineering at the Universidade Estadual de Campinas (FEM - UNICAMP). She is co-advised by Professor Dr. Marcos Medeiros in her dissertation, which focuses on enhancing machine learning techniques for applications in Prognostics and Health Management (PHM).
+
+## Interests
+
+- Machine Learning
+- Data Science
+- Condition Monitoring
+
+## Education
+
+**MSc in Mechanical Engineering**, 2025
+Universidade Estadual de Campinas
+
+**BSc in Applied Math**, 2022
+Universidade Federal do Espírito Santo

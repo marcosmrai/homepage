@@ -1,0 +1,83 @@
+---
+title: "Marcos M. Raimundo"
+subtitle: "Professor of Machine Learning and Optimization"
+image: profile.jpg
+about:
+  template: jolla
+  image-shape: round
+filters:
+  - band-sections.lua
+
+listing:
+  - id: teaching
+    contents:
+      - teaching/computing-and-society/index.qmd
+      - teaching/optimization-linear-algebra/index.qmd
+      - teaching/supervised-learning/index.qmd
+      - teaching/unsupervised-learning/index.qmd
+    type: default
+    sort: "date desc"
+    fields: [title, description, categories]
+    max-items: 4
+  - id: projects
+    contents:
+      - projects/gradient-based-optimization.qmd
+      - projects/fair-credit-scoring.qmd
+      - projects/ethical-ai.qmd
+    type: default
+    sort: "date desc"
+    fields: [title, subtitle, description, categories]
+    max-items: 4
+  - id: publications
+    # publications-contents:start (gerado por generate_person_bibliographies.py — não editar)
+    contents: [publications/m2fgb-a-min-max-gradient-boosting-framework-for-subgroup-fai.qmd]
+    # publications-contents:end
+    type: default
+    sort: "date desc"
+    fields: [title, description]
+    max-items: 5
+---
+
+::: {.affiliation}
+[Institute of Computing - University of Campinas](https://ic.unicamp.br)
+:::
+
+::: {.profile-links}
+<a href="https://scholar.google.com.br/citations?user=ibe0jfQAAAAJ&hl=pt-BR" class="about-link" target="_blank" rel="me"><i class="bi bi-mortarboard-fill"></i> <span class="about-link-text">Google Scholar</span></a>
+<a href="https://github.com/marcosmrai" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/in/marcos-medeiros-raimundo-866b8731/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+<a href="http://lattes.cnpq.br/1605909137233786" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+<a href="https://twitter.com/marcosmrai" class="about-link" target="_blank" rel="me"><i class="bi bi-twitter-x"></i> <span class="about-link-text">Twitter</span></a>
+<a href="mailto:mraimundo@ic.unicamp.br" class="about-link"><i class="bi bi-envelope"></i> <span class="about-link-text">Email</span></a>
+:::
+
+Marcos M. Raimundo is an Assistant Professor at University of Campinas (UNICAMP), in the Institute of Computing (IC). He is also a faculty member of the REasoning for COmplex Data laboratory (Recod.ai). His research interests include Machine Learning, Multi-objective Optimization, Ethical AI, Mathematical Programming.
+
+[Full CV →](people/mmraimundo.qmd){.see-all}
+
+## Teaching
+
+::: {#teaching}
+:::
+
+[SEE ALL →](teaching/index.qmd){.see-all}
+
+## Projects
+
+::: {#projects}
+:::
+
+[SEE ALL →](projects/index.qmd){.see-all}
+
+## Latest Publications
+
+::: {#publications}
+:::
+
+[SEE ALL PUBLICATIONS →](publications/index.qmd){.see-all}
+
+::: {.column-screen .band .band-white}
+::: {.column-body .text-center}
+[Meet the team →](people/index.qmd){.btn .btn-outline-secondary}
+:::
+:::

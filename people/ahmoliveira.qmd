@@ -1,0 +1,37 @@
+---
+title: "Arthur Hendricks M. de Oliveira"
+subtitle: "MSc student in Machine Learning"
+image: ahmoliveira.jpeg
+description: "Machine Learning, AI Ethics, Explainability"
+about:
+  template: jolla
+  image-shape: round
+group: "Former Researchers"
+filters:
+  - ../band-sections.lua
+---
+
+[Institute of Computing - University of Campinas](https://ic.unicamp.br/)
+
+::: {.profile-links}
+<a href="mailto:a217048@dac.unicamp.br" class="about-link" target="_blank" rel="me"><i class="bi bi-envelope"></i> <span class="about-link-text">Email</span></a>
+<a href="https://github.com/arthurhendricks" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/arthurhendricks" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+<a href="http://lattes.cnpq.br/5481026048248453" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+:::
+
+Arthur H. Mendes de Oliveira is a Master's student at University of Campinas (UNICAMP), in the Institute of Computing (IC). His research interests includes Machine Learning, Ethical AI, Explainability.
+
+## Interests
+
+- Machine Learning
+- AI Ethics
+- Explainability
+
+## Education
+
+**MSc in Computer Science**, 2024
+University of Campinas
+
+**BSc in Electrical Engineering**, 2022
+Federal University of Campina Grande

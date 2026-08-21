@@ -1,0 +1,40 @@
+---
+title: "Juan David Nieto"
+subtitle: "PhD Student in Machine Learning"
+image: jdnieto.jpeg
+description: "Machine Learning, Data Science, Quantum Computing, AI Ethics"
+about:
+  template: jolla
+  image-shape: round
+group: "Former Researchers"
+filters:
+  - ../band-sections.lua
+---
+
+[Institute of Computing - University of Campinas](https://ic.unicamp.br/)
+
+::: {.profile-links}
+<a href="https://github.com/juandanieto" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/in/juandanieto" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+<a href="http://lattes.cnpq.br/4483538578867369" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+:::
+
+Juan David Nieto is a Ph.D. candidate in Computer Science at the Institute of Computing at the University of Campinas (IC - UNICAMP). He is a member of the Hub of Artificial Intelligence and Cognitive Architectures (H. IAAC) and also member of the REasoning for COmplex Data (Recod.ai) lab, performing research in probability and statistics for Machine Learning, AI Ethics, explainability and fairness.
+
+## Interests
+
+- Machine Learning
+- Data Science
+- Quantum Computing
+- AI Ethics
+
+## Education
+
+**Ph.D. in Computer Science**, 2026
+Institute of Computing - University of Campinas
+
+**M.Sc. in Physics**, 2022
+Physics Department - Pontifical Catholic University of Rio de Janeiro
+
+**B.Sc. in Physics**, 2019
+Physics Department - University of Atlantic (Colombia)

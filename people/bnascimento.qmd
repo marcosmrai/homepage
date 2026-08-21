@@ -1,0 +1,30 @@
+---
+title: "Beatriz Nascimento"
+subtitle: "PhD Student in Machine Learning"
+image: bnascimento.jpeg
+description: "Probabilistic Machine Learning, Optimization, AI Ethics"
+about:
+  template: jolla
+  image-shape: round
+group: "Ph.D. Students"
+filters:
+  - ../band-sections.lua
+---
+
+[Institute of Computing - University of Campinas](https://ic.unicamp.br/)
+
+Beatriz is a master's student at UNICAMP's Institute of Computing (IC) and a faculty member at Recod.ai lab. Her research focuses on applying Probabilistic Machine Learning, Riemannian Optimization, and Multi-objective Optimization in Ethical AI problems.
+
+## Interests
+
+- Probabilistic Machine Learning
+- Optimization
+- AI Ethics
+
+## Education
+
+**MS in Computer Science**, current
+Computer Science Institute - UNICAMP
+
+**BSc in Computational Mathematics**, 2022
+Institute of Exact Sciences - Universidade Federal Fluminense

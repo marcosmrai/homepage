@@ -1,0 +1,13 @@
+---
+title: "MoReVis: A visual summary for spatiotemporal moving regions"
+date: "2023-03-01"
+author: "Giovani Valdrighi, Nivan Ferreira, Jorge Poco"
+description: "Giovani Valdrighi, Nivan Ferreira, Jorge Poco (2023). IEEE Transactions on Visualization and Computer Graphics."
+---
+
+## Abstract
+
+Spatial and temporal interactions are central and fundamental in many activities in our world. A common problem faced when visualizing this type of data is how to provide an overview that helps users navigate efficiently. Traditional approaches use coordinated views or 3D metaphors like the Space-time cube to tackle this problem. However, they suffer from overplotting and often lack spatial context, hindering data exploration. More recent techniques, such as MotionRugs, propose compact temporal summaries based on 1D projection. While powerful, these techniques do not support the situation for which the spatial extent of the objects and their intersections is relevant, such as the analysis of surveillance videos or tracking weather storms. In this article, we propose MoReVis, a visual overview of spatiotemporal data that considers the objects’ spatial extent and strives to show spatial interactions among these …
+
+[Google Scholar](https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=iQXEldcAAAAJ&citation_for_view=iQXEldcAAAAJ:u-x6o8ySG0sC)
+

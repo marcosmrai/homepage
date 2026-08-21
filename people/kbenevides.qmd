@@ -1,0 +1,38 @@
+---
+title: "Kamila Benevides"
+subtitle: "Master student in Data Visualization"
+image: kbenevides.jpg
+description: "Machine Learning, Computer science in education, Data visualization"
+about:
+  template: jolla
+  image-shape: round
+group: "Master Students"
+scholar-id: "V6h2p5kAAAAJ"
+filters:
+  - ../band-sections.lua
+---
+
+[Institute of Computing - University of Campinas](https://ic.unicamp.br/)
+
+::: {.profile-links}
+<a href="https://scholar.google.com.br/citations?user=V6h2p5kAAAAJ&hl=pt-BR&oi=ao" class="about-link" target="_blank" rel="me"><i class="bi bi-mortarboard-fill"></i> <span class="about-link-text">Google Scholar</span></a>
+<a href="https://github.com/KamilaBenevides" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/in/kamila-benevides/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+<a href="http://lattes.cnpq.br/5667516041449066" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+:::
+
+Kamila Benevides is a master's student at the State University of Campinas (UNICAMP), in the Institute of Computing (IC). She is also a faculty member of the REasoning for COmplex Data (Recod.ai) lab. His research interests include machine learning, computer science in education, data visualization.
+
+## Interests
+
+- Machine Learning
+- Computer science in education
+- Data visualization
+
+## Education
+
+**MS in Computer science**, current
+Computer Science Institute - University of Campinas
+
+**BSc in Computer science**, 2022
+Federal university of alagoas

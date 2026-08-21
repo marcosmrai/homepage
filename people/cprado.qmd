@@ -1,0 +1,25 @@
+---
+title: "Caio Prado"
+subtitle: "Undergrad Research Assistant"
+image: cprado.webp
+description: "Artificial Intelligence"
+about:
+  template: jolla
+  image-shape: round
+group: "Former Researchers"
+filters:
+  - ../band-sections.lua
+---
+
+[Institute of Computing - University of Campinas]()
+
+Member of the REasoning for COmplex Data laboratory (Recod.ai), supervised by Marcos M. Raimundo.
+
+## Interests
+
+- Artificial Intelligence
+
+## Education
+
+**BSc in Computer Science**, 2024
+University of Campinas

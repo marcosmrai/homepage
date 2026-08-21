@@ -1,0 +1,11 @@
+---
+title: "{{NAME}}"
+image: {{SLUG}}.jpg
+about:
+  template: jolla
+  image-shape: round
+---
+
+::: {.profile-links}
+{{SCHOLAR_LINK_OR_COMMENT}}
+:::

@@ -1,0 +1,38 @@
+---
+title: "Luan Silveira"
+subtitle: "PhD Student in Machine Learning"
+image: lsilveira.jpeg
+description: "Machine Learning, Optimization, Data Science"
+about:
+  template: jolla
+  image-shape: round
+group: "Ph.D. Students"
+filters:
+  - ../band-sections.lua
+---
+
+[Institute of Computing - University of Campinas](https://ic.unicamp.br/)
+
+::: {.profile-links}
+<a href="https://github.com/LuanSilveir" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="http://lattes.cnpq.br/3626185560647353" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+:::
+
+Luan Silveira is a Ph.D. student at the State University of Campinas (UNICAMP), in the Institute of Computing (IC). He is also a student member of the REasoning for COmplex Data (Recod.ai) lab. His research interests include machine learning, optimization and data science.
+
+## Interests
+
+- Machine Learning
+- Optimization
+- Data Science
+
+## Education
+
+**PhD in Computer Science**, current
+Institute of Computing - University of Campinas
+
+**MS in Computer science**, 2024
+Institute of Computing - University of Campinas
+
+**BSc in Chemical Engineering**, 2021
+Federal University of Paraná

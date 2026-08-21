@@ -1,0 +1,18 @@
+---
+pagetitle: "Projects"
+listing:
+  id: projects-listing
+  contents: "*.qmd"
+  type: default
+  sort: "date desc"
+  fields: [title, subtitle, description, categories]
+---
+
+::: {.text-center}
+# Projects
+:::
+
+::: {#projects-listing}
+:::
+
+![](ic-institute.png){.page-banner}

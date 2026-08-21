@@ -1,0 +1,647 @@
+---
+title: "Aula 1: Modelos Generativos Paramétricos e Detecção de Anomalias"
+subtitle: "Aprendizado Não Supervisionado"
+author: "Marcos M. Raimundo — Instituto de Computação, UNICAMP"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-fold: false
+    fig-width: 6
+    fig-height: 3.8
+  revealjs:
+    output-file: slides.html
+    slide-number: true
+    smaller: true
+    scrollable: true
+    theme: simple
+    fig-width: 6
+    fig-height: 3.8
+jupyter: sensibleml-moo
+execute:
+  warning: false
+  message: false
+---
+
+[Slides →](slides.html){.see-all}
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+# =====================================================================
+# SETUP GLOBAL — executado uma vez, estado compartilhado pelos chunks
+# =====================================================================
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Ellipse
+from scipy import stats
+
+plt.style.use('seaborn-v0_8-whitegrid')
+plt.rcParams.update({
+    "figure.dpi": 130,
+    "font.size": 11,
+    "axes.titlesize": 12,
+    "axes.titleweight": "bold",
+    "legend.frameon": True,
+    "legend.framealpha": 0.9,
+})
+
+rng = np.random.default_rng(20260810)
+
+# --- Paleta consistente com o resto do curso -----------------------
+COR_A   = "#C0392B"   # pontos típicos
+COR_ALT = "#B9770E"   # pontos anômalos / flagados
+COR_LIM = "#117A65"   # contornos do limiar
+COR_NEU = "#5D6D7E"   # elementos neutros
+
+# --- Problema-fio da aula: dois sensores de um equipamento ----------
+# (temperatura, vibração), correlacionados sob operação normal.
+MU_TRUE = np.array([50.0, 30.0])
+SIGMA_TRUE = np.array([[16.0, 10.8], [10.8, 9.0]])
+D = 2
+N = 200
+
+X = rng.multivariate_normal(MU_TRUE, SIGMA_TRUE, size=N)
+
+
+def mahalanobis2(x, mu, sigma):
+    diff = x - mu
+    return diff @ np.linalg.inv(sigma) @ diff
+
+
+def elipse_contorno(ax, mu, sigma, raio, cor, ls="-", lw=2.0, **kw):
+    """Desenha a elipse {x : (x-mu)^T Sigma^-1 (x-mu) = raio^2}."""
+    vals, vecs = np.linalg.eigh(sigma)
+    ang = np.degrees(np.arctan2(vecs[1, -1], vecs[0, -1]))
+    ax.add_patch(Ellipse(mu, 2 * raio * np.sqrt(vals[-1]), 2 * raio * np.sqrt(vals[0]),
+                          angle=ang, fill=False, edgecolor=cor, lw=lw, ls=ls, **kw))
+```
+
+# Abertura — modelar dados sem rótulos
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Todo o curso de Aprendizado Supervisionado parte de um par
+$(\mathbf{x}, y)$: um vetor de características e um rótulo a prever. Aqui
+não há $y$ — só $\mathbf{x}_1,\dots,\mathbf{x}_N \in \mathbb{R}^d$. A
+pergunta deixa de ser "que função prevê $y$ a partir de $\mathbf{x}$" e
+passa a ser mais básica: **que forma esses dados têm?**
+
+Essa pergunta parece vaga, mas tem uma primeira resposta operacional
+direta, e é o assunto desta aula: **profiling**. Descrever o comportamento
+típico de uma população — a forma que a maioria dos pontos assume — para
+depois reconhecer o que se desvia dela. Um sensor de temperatura e um de
+vibração de uma máquina, por exemplo, variam juntos sob operação normal.
+Quando um ponto novo chega, a pergunta é: ele se parece com o que já vimos?
+
+O caminho desta aula, em uma frase: **assumir uma família teórica
+conhecida para os dados, ajustá-la, e usar a verossimilhança do modelo
+ajustado para decidir o que é típico e o que não é.**
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+Sem rótulo $y$ — só $\mathbf{x}_1,\dots,\mathbf{x}_N$.
+
+> **Que forma esses dados têm?**
+
+::: {.fragment}
+**Profiling:** descrever o comportamento típico, depois reconhecer o
+desvio. Um sensor de temperatura e um de vibração que variam juntos sob
+operação normal — um ponto novo se parece com isso?
+:::
+
+::: {.fragment}
+Caminho da aula: assumir uma família teórica → ajustar → usar a
+verossimilhança para decidir o que é típico.
+:::
+
+:::
+
+```{mermaid}
+%%| fig-align: center
+flowchart LR
+    A["dados sem rótulo"] --> B["assumir família teórica<br/>(Gaussiana multivariada)"]
+    B --> C["ajustar por máxima<br/>verossimilhança"]
+    C --> D["distância de Mahalanobis<br/>de um ponto novo"]
+    D --> E["p-valor via χ²_d"]
+    E --> F["decisão: típico ou anômalo"]
+```
+
+# Distribuição Empírica vs. Teórica
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+O objeto mais honesto que se pode construir a partir dos dados é a
+**distribuição empírica**: o próprio histograma, ou a nuvem de pontos.
+Ela nunca está "errada" — é literalmente o que foi observado. Mas tem dois
+problemas práticos: é ruidosa (poucos dados numa região dão uma estimativa
+tremendamente instável), e não diz nada sobre pontos que nunca foram
+observados.
+
+A aposta desta aula é trocar ruído por estrutura: assumir que os dados
+vieram de uma **família teórica** conhecida, com poucos parâmetros. O
+preço é que a suposição pode estar errada — um tema que volta na aula
+inteira, e no fechamento (Bloco 7).
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+**Distribuição empírica:** o histograma/a nuvem de pontos em si. Nunca
+"errada", mas ruidosa e não generaliza.
+
+::: {.fragment}
+**Aposta desta aula:** assumir uma família teórica com poucos parâmetros —
+troca ruído por estrutura, ao custo de a suposição poder estar errada.
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+fig, axes = plt.subplots(1, 2, figsize=(9.0, 3.6))
+
+ax = axes[0]
+ax.scatter(X[:, 0], X[:, 1], s=18, color=COR_A, alpha=0.5, edgecolor="none")
+ax.set_xlabel("$x_1$ — temperatura")
+ax.set_ylabel("$x_2$ — vibração")
+ax.set_title("A distribuição empírica: os dados em si")
+
+ax = axes[1]
+ax.hist(X[:, 0], bins=22, density=True, color=COR_A, alpha=0.35,
+        edgecolor="white", linewidth=0.6, label="histograma de $x_1$")
+grade = np.linspace(X[:, 0].min() - 3, X[:, 0].max() + 3, 300)
+ax.plot(grade, stats.norm.pdf(grade, X[:, 0].mean(), X[:, 0].std()),
+        color=COR_LIM, lw=2.4, label="ajuste Gaussiano de $x_1$")
+ax.set_xlabel("$x_1$ — temperatura")
+ax.set_ylabel("densidade")
+ax.set_title("A aposta: trocar o histograma por uma família teórica")
+ax.legend(fontsize=8)
+
+plt.tight_layout()
+plt.show()
+```
+
+# A Gaussiana Multivariada: Forma e Parâmetros
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+A distribuição Gaussiana (ou normal) multivariada, para um vetor
+$\mathbf{x}\in\mathbb{R}^d$, é (PRML, eq. 2.43, p. 78):
+
+$$
+\mathcal{N}(\mathbf{x}\mid\boldsymbol\mu,\Sigma) = \frac{1}{(2\pi)^{d/2}}\frac{1}{|\Sigma|^{1/2}}
+\exp\left\{-\frac12(\mathbf{x}-\boldsymbol\mu)^T\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\right\}.
+$$
+
+Dois parâmetros bastam: $\boldsymbol\mu\in\mathbb{R}^d$ (o centro) e
+$\Sigma\in\mathbb{R}^{d\times d}$ (a forma). $\Sigma$ é simétrica e
+positiva definida; seus autovetores dão a **orientação** dos eixos de
+densidade constante, e seus autovalores dão o **comprimento** desses
+eixos — as curvas de nível da Gaussiana são elipsoides centrados em
+$\boldsymbol\mu$ (PRML, pp. 80–81, Figura 2.7).
+
+::: {.callout-note}
+## Por que a Gaussiana é a escolha natural (citado, não provado aqui)
+
+Duas razões clássicas, ambas em PRML §2.3, p. 78: **(1)** é a distribuição
+de entropia máxima dada média e covariância fixas — a suposição menos
+comprometida possível além desses dois momentos; **(2)** pelo Teorema
+Central do Limite, a soma de muitas variáveis aleatórias tende a uma
+Gaussiana, o que a torna plausível como modelo de ruído agregado ou de
+medições que resultam de muitos efeitos pequenos somados. Nenhuma das duas
+provas é feita aqui — ambas voltam com mais detalhe em cursos futuros.
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+$$
+\mathcal{N}(\mathbf{x}\mid\boldsymbol\mu,\Sigma) = \frac{1}{(2\pi)^{d/2}|\Sigma|^{1/2}}
+\exp\left\{-\tfrac12(\mathbf{x}-\boldsymbol\mu)^T\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\right\}
+$$
+
+- $\boldsymbol\mu$: centro. $\Sigma$: forma (autovetores = orientação, autovalores = comprimento dos eixos).
+- Curvas de nível = elipsoides centrados em $\boldsymbol\mu$.
+
+::: {.fragment}
+**Por que a Gaussiana?** Máxima entropia dada média/covariância; Teorema
+Central do Limite (soma de muitos efeitos pequenos).
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+mu_hat = X.mean(axis=0)
+Sigma_hat = np.cov(X.T, bias=True)     # MLE, /N (PRML eq. 2.122)
+Sigma_tilde = np.cov(X.T, bias=False)  # corrigido, /(N-1) (PRML eq. 2.125)
+
+fig, ax = plt.subplots(figsize=(5.0, 4.6))
+ax.scatter(X[:, 0], X[:, 1], s=16, color=COR_A, alpha=0.45, edgecolor="none")
+for r, ls in zip([1, 2, 3], ["-", "--", ":"]):
+    elipse_contorno(ax, mu_hat, Sigma_hat, r, COR_LIM, ls=ls, lw=1.8)
+
+vals, vecs = np.linalg.eigh(Sigma_hat)
+for i in (0, 1):
+    v = vecs[:, i] * np.sqrt(vals[i]) * 2
+    ax.annotate("", xy=mu_hat + v, xytext=mu_hat,
+                arrowprops=dict(arrowstyle="->", color=COR_NEU, lw=1.8))
+ax.plot(*mu_hat, "o", color=COR_NEU, ms=7, zorder=5)
+ax.set_xlabel("$x_1$ — temperatura")
+ax.set_ylabel("$x_2$ — vibração")
+ax.set_title("Elipses de densidade constante (1, 2, 3 desvios) e eixos principais de $\\hat\\Sigma$")
+ax.set_aspect("equal")
+plt.tight_layout()
+plt.show()
+```
+
+# Ajuste por Máxima Verossimilhança
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Dado um conjunto $\mathbf{x}_1,\dots,\mathbf{x}_N$ assumido i.i.d. de
+$\mathcal{N}(\boldsymbol\mu,\Sigma)$, a máxima verossimilhança dá (PRML
+§2.3.4, eqs. 2.118–2.122, pp. 93–94):
+
+$$
+\hat{\boldsymbol\mu} = \frac1N\sum_{n=1}^N \mathbf{x}_n, \qquad
+\hat\Sigma_{\text{ML}} = \frac1N\sum_{n=1}^N(\mathbf{x}_n-\hat{\boldsymbol\mu})(\mathbf{x}_n-\hat{\boldsymbol\mu})^T.
+$$
+
+::: {.callout-important}
+## Armadilha prática: $\hat\Sigma_{\text{ML}}$ é viesada, e precisa de $N>d$
+
+Duas coisas para anunciar antes que a turma descubra sozinha. Primeira:
+$\mathbb{E}[\hat\Sigma_{\text{ML}}] = \frac{N-1}{N}\Sigma$ — subestima a
+covariância verdadeira (PRML, eqs. 2.123–2.124, p. 94). A correção padrão
+divide por $N-1$ em vez de $N$:
+$\tilde\Sigma = \frac{1}{N-1}\sum_n(\mathbf{x}_n-\hat{\boldsymbol\mu})(\mathbf{x}_n-\hat{\boldsymbol\mu})^T$
+(PRML, eq. 2.125, p. 94) — é exatamente o `np.cov` padrão do NumPy.
+Segunda, mais grave: **se $N \le d$, $\hat\Sigma$ não é invertível**
+(posto no máximo $N-1$, precisa de posto $d$). Sem $\Sigma^{-1}$, não há
+distância de Mahalanobis, não há verossimilhança bem definida — o resto da
+aula trava. Guarde isso: é exatamente a maldição da dimensionalidade que
+abre a Aula 2.
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+$$ \hat{\boldsymbol\mu} = \frac1N\sum_n \mathbf{x}_n \qquad \hat\Sigma_{\text{ML}} = \frac1N\sum_n(\mathbf{x}_n-\hat{\boldsymbol\mu})(\mathbf{x}_n-\hat{\boldsymbol\mu})^T $$
+
+::: {.fragment}
+**Viés:** $\mathbb{E}[\hat\Sigma_{\text{ML}}] = \frac{N-1}{N}\Sigma$.
+Correção: dividir por $N-1$ (`np.cov` padrão).
+:::
+
+::: {.fragment}
+**Se $N\le d$:** $\hat\Sigma$ não é invertível. Sem inversa, sem Mahalanobis,
+sem verossimilhança. Antecipa a maldição da dimensionalidade da Aula 2.
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+fig, ax = plt.subplots(figsize=(4.6, 2.6))
+ax.axis("off")
+txt = (f"$\\hat\\mu = [{mu_hat[0]:.2f}, {mu_hat[1]:.2f}]$\n\n"
+       f"$|\\hat\\Sigma_{{ML}}| = {np.linalg.det(Sigma_hat):.2f}$ "
+       f"(dividido por $N={N}$)\n\n"
+       f"$|\\tilde\\Sigma| = {np.linalg.det(Sigma_tilde):.2f}$ "
+       f"(dividido por $N-1={N-1}$)\n\n"
+       f"Razão $|\\tilde\\Sigma|/|\\hat\\Sigma_{{ML}}| = "
+       f"{np.linalg.det(Sigma_tilde)/np.linalg.det(Sigma_hat):.4f}$ "
+       f"$\\approx \\left(\\frac{{N}}{{N-1}}\\right)^d = {(N/(N-1))**D:.4f}$")
+ax.text(0.02, 0.5, txt, fontsize=10, va="center")
+plt.tight_layout()
+plt.show()
+```
+
+# Da Verossimilhança à Distância de Mahalanobis
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Comparar $p(\mathbf{x})$ com um limiar é equivalente a comparar o termo
+que está no expoente — a única parte que depende de $\mathbf{x}$. Essa
+quantidade é a **distância de Mahalanobis** (PRML, eq. 2.44, p. 80):
+
+$$
+D_M(\mathbf{x})^2 = (\mathbf{x}-\hat{\boldsymbol\mu})^T\hat\Sigma^{-1}(\mathbf{x}-\hat{\boldsymbol\mu}),
+$$
+
+que "reduz à distância Euclidiana quando $\Sigma$ é a identidade" (PRML,
+p. 80) — mas em geral não é a Euclidiana, e a diferença é o ponto todo
+desta aula. $\Sigma^{-1}$ **estica** o espaço nas direções de baixa
+variância e **comprime** nas de alta variância: um deslocamento ao longo
+do eixo de alta correlação "custa pouco" em Mahalanobis, mesmo que pareça
+grande em unidades brutas; um deslocamento perpendicular a esse eixo
+"custa muito", mesmo que pareça pequeno.
+
+Dois pontos novos tornam isso concreto — nenhum dos dois é o típico
+"outlier evidente":
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+$$ D_M(\mathbf{x})^2 = (\mathbf{x}-\hat{\boldsymbol\mu})^T\hat\Sigma^{-1}(\mathbf{x}-\hat{\boldsymbol\mu}) $$
+
+"Reduz à Euclidiana quando $\Sigma=I$" — em geral, não é a Euclidiana.
+
+::: {.fragment}
+$\Sigma^{-1}$ **estica** nas direções de baixa variância, **comprime** nas
+de alta variância.
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+vals, vecs = np.linalg.eigh(Sigma_hat)
+eixo_forte, eixo_fraco = vecs[:, 1], vecs[:, 0]   # maior e menor autovalor
+
+# Ponto B: 2 desvios ao longo do eixo de ALTA variância (a "crista")
+ponto_B = mu_hat + 2 * np.sqrt(vals[1]) * eixo_forte
+# Ponto C: 3 desvios ao longo do eixo de BAIXA variância (perpendicular à crista)
+ponto_C = mu_hat + 3 * np.sqrt(vals[0]) * eixo_fraco
+
+dB_eucl, dB_maha = np.linalg.norm(ponto_B - mu_hat), np.sqrt(mahalanobis2(ponto_B, mu_hat, Sigma_hat))
+dC_eucl, dC_maha = np.linalg.norm(ponto_C - mu_hat), np.sqrt(mahalanobis2(ponto_C, mu_hat, Sigma_hat))
+
+fig, ax = plt.subplots(figsize=(5.2, 4.8))
+ax.scatter(X[:, 0], X[:, 1], s=14, color=COR_A, alpha=0.35, edgecolor="none", label="dados normais")
+for r in (1, 2, 3):
+    elipse_contorno(ax, mu_hat, Sigma_hat, r, COR_LIM, ls="--", lw=1.2, alpha=0.6)
+ax.plot(*mu_hat, "o", color=COR_NEU, ms=6)
+ax.plot(*ponto_B, "s", color=COR_NEU, ms=10, mfc="none", mew=2.2,
+        label=f"B: Eucl.={dB_eucl:.2f}, Mahal.={dB_maha:.2f}")
+ax.plot(*ponto_C, "^", color=COR_ALT, ms=11, mfc="none", mew=2.2,
+        label=f"C: Eucl.={dC_eucl:.2f}, Mahal.={dC_maha:.2f}")
+ax.set_xlabel("$x_1$ — temperatura")
+ax.set_ylabel("$x_2$ — vibração")
+ax.set_title("Longe na crista (B) vs. perto mas fora da crista (C)")
+ax.set_aspect("equal")
+ax.legend(fontsize=8, loc="upper left")
+plt.tight_layout()
+plt.show()
+```
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+O ponto **B** está longe do centro em unidades brutas (ao longo da crista
+de alta correlação), mas sua distância de Mahalanobis é modesta — é
+exatamente o tipo de desvio que a correlação prevê. O ponto **C** está
+próximo do centro em unidades brutas, mas fora da crista — sua distância
+de Mahalanobis é maior, porque ele quebra a relação entre as duas
+variáveis, não porque esteja "longe" no sentido ingênuo. Guarde os dois:
+o próximo bloco transforma essas distâncias em probabilidades, e o
+contraste entre B e C é exatamente onde a suposição de independência entre
+dimensões vai errar em direções opostas.
+
+:::
+
+# Da Posição ao $p$-valor
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+## Do limiar fixo ao escore contínuo
+
+Se $\mathbf{x}\sim\mathcal{N}(\boldsymbol\mu,\Sigma)$, então
+$D_M(\mathbf{x})^2 \sim \chi^2_d$ — soma de $d$ quadrados de normais
+padrão independentes, que é a própria definição da qui-quadrado. *(Este
+resultado é estatística multivariada clássica; não está em PRML ou DLFC —
+verificação: $\mathbf{Y}=\Sigma^{-1/2}(\mathbf{X}-\boldsymbol\mu)\sim\mathcal{N}(0,I_d)$,
+logo $\mathbf{Y}^T\mathbf{Y}=\sum_i Y_i^2 = D_M(\mathbf{X})^2 \sim \chi^2_d$
+por definição.)*
+
+Em vez de só "dentro/fora" de um limiar fixo, isso permite definir o
+**escore de anomalia como um $p$-valor**:
+
+$$
+p(\mathbf{x}) = P\big(D_M(\mathbf{X}')^2 \ge D_M(\mathbf{x})^2 \mid \mathbf{X}'\sim\mathcal{N}(\hat{\boldsymbol\mu},\hat\Sigma)\big)
+= 1 - F_{\chi^2_d}\big(D_M(\mathbf{x})^2\big),
+$$
+
+literalmente: **qual a probabilidade de um ponto do modelo ajustado ser tão
+extremo, ou mais, quanto $\mathbf{x}$.** O limiar fixo é o caso particular
+$p(\mathbf{x}) < \alpha$; o $p$-valor ordena todos os pontos por quão
+surpreendentes eles são, em vez de só separá-los em duas caixas.
+
+::: {.callout-warning}
+## Armadilha de interpretação
+
+$p(\mathbf{x})$ pequeno **não** significa "probabilidade de $\mathbf{x}$
+pertencer à distribuição verdadeira". Significa "probabilidade de um ponto
+*do modelo ajustado* ser tão extremo quanto $\mathbf{x}$". É uma afirmação
+sobre o modelo, condicional a ele estar certo — não é uma afirmação sobre
+a origem de $\mathbf{x}$. Se o modelo estiver errado (Bloco 7), o
+$p$-valor também estará.
+:::
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+## Do limiar ao $p$-valor
+
+$D_M(\mathbf{x})^2 \sim \chi^2_d$ *(resultado clássico, verificado no
+`01-fontes.md`, não vem de PRML/DLFC)*.
+
+$$ p(\mathbf{x}) = 1 - F_{\chi^2_d}\big(D_M(\mathbf{x})^2\big) $$
+
+"Probabilidade de um ponto do modelo ajustado ser tão extremo quanto
+$\mathbf{x}$" — não "probabilidade de $\mathbf{x}$ vir do modelo certo".
+
+::: {.fragment}
+**Limiar fixo = caso particular** $p(\mathbf{x})<\alpha$. $p$-valor ordena
+por surpresa em vez de só separar em duas caixas.
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+chi2d = stats.chi2(df=D)
+p_B = chi2d.sf(dB_maha**2)
+p_C = chi2d.sf(dC_maha**2)
+
+fig, ax = plt.subplots(figsize=(5.4, 4.8))
+ax.scatter(X[:, 0], X[:, 1], s=14, color=COR_A, alpha=0.3, edgecolor="none")
+alphas = [0.10, 0.05, 0.01]
+cores_a = ["#F5B041", "#E67E22", "#922B21"]
+for al, c in zip(alphas, cores_a):
+    r = np.sqrt(chi2d.ppf(1 - al))
+    elipse_contorno(ax, mu_hat, Sigma_hat, r, c, lw=1.8, label=f"$\\alpha={al}$")
+ax.plot(*ponto_B, "s", color=COR_NEU, ms=11, mfc="none", mew=2.4,
+        label=f"B: $p={p_B:.3f}$")
+ax.plot(*ponto_C, "^", color=COR_ALT, ms=12, mfc="none", mew=2.4,
+        label=f"C: $p={p_C:.3f}$")
+ax.set_xlabel("$x_1$ — temperatura")
+ax.set_ylabel("$x_2$ — vibração")
+ax.set_title("Contornos de $\\chi^2_2$ e os $p$-valores de B e C")
+ax.set_aspect("equal")
+ax.legend(fontsize=8, loc="upper left")
+plt.tight_layout()
+plt.show()
+```
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+## Conjunta vs. por dimensão — o mesmo trade-off do Naive Bayes, agora em teste de hipótese
+
+Calcular $D_M$ exige estimar e inverter $\hat\Sigma$ — $d(d+1)/2$
+parâmetros, caro e instável quando $N$ não é $\gg d$ (a armadilha do
+Bloco 4). A alternativa mais barata: supor independência entre dimensões
+(PRML discute exatamente essa restrição — $\Sigma$ diagonal — em §2.3,
+p. 84, como uma forma de "tornar a inversão da matriz de covariância uma
+operação muito mais rápida", ao custo de "limitar a capacidade do modelo
+de capturar correlações interessantes nos dados"). Sob essa suposição,
+calcula-se um $p$-valor **por dimensão**,
+$p_i(x_i) = P(|Z_i|\ge|z_i|)$ usando só a marginal
+$\mathcal{N}(\hat\mu_i,\hat\sigma_i^2)$ — $d$ parâmetros, não
+$d(d+1)/2$ — e combinam-se os $d$ $p$-valores independentes pelo teste de
+Fisher, $-2\sum_i\ln p_i(x_i) \sim \chi^2_{2d}$ *(também estatística
+clássica, não coberta por PRML/DLFC — combinação padrão de $p$-valores
+independentes)*.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+## Conjunta vs. por dimensão
+
+$\hat\Sigma$ diagonal = supor independência (PRML p. 84: mais rápido de
+inverter, mas "limita a capacidade de capturar correlações interessantes").
+
+::: {.fragment}
+Por dimensão: $p_i(x_i)$ da marginal $\mathcal{N}(\hat\mu_i,\hat\sigma_i^2)$.
+Combinado por Fisher: $-2\sum_i\ln p_i \sim \chi^2_{2d}$.
+:::
+
+:::
+
+```{mermaid}
+%%| fig-align: center
+flowchart TD
+    X["ponto novo x"] --> Q{"supor independência<br/>entre dimensões?"}
+    Q -->|"sim"| M1["p-valor por dimensão<br/>(d parâmetros)"]
+    M1 --> F1["combinar via Fisher<br/>-2 Σ ln p_i ~ χ²_2d"]
+    Q -->|"não"| M2["distância de Mahalanobis<br/>(d(d+1)/2 parâmetros)"]
+    M2 --> F2["p-valor conjunto<br/>via χ²_d"]
+    F1 --> R["cego à correlação entre dimensões"]
+    F2 --> R2["sensível à correlação — mais caro"]
+```
+
+```{python}
+#| echo: false
+#| fig-align: center
+
+sigma_diag = np.sqrt(np.diag(Sigma_hat))
+z_B = np.abs(ponto_B - mu_hat) / sigma_diag
+z_C = np.abs(ponto_C - mu_hat) / sigma_diag
+p_marg_B = 2 * stats.norm.sf(z_B)
+p_marg_C = 2 * stats.norm.sf(z_C)
+fisher_B = stats.chi2(df=2 * D).sf(-2 * np.sum(np.log(p_marg_B)))
+fisher_C = stats.chi2(df=2 * D).sf(-2 * np.sum(np.log(p_marg_C)))
+
+fig, ax = plt.subplots(figsize=(5.6, 3.0))
+xpos = np.arange(2)
+ax.bar(xpos - 0.18, [fisher_B, fisher_C], width=0.35, color=COR_NEU, alpha=0.85,
+       label="por dimensão + Fisher (supõe independência)")
+ax.bar(xpos + 0.18, [p_B, p_C], width=0.35, color=COR_LIM, alpha=0.85,
+       label="conjunto (Mahalanobis + $\\chi^2_d$)")
+ax.set_xticks(xpos)
+ax.set_xticklabels(["Ponto B\n(longe na crista)", "Ponto C\n(fora da crista)"])
+ax.set_ylabel("$p$-valor")
+ax.set_title("Onde a suposição de independência erra — nas duas direções")
+ax.legend(fontsize=8)
+for i, (f, j) in enumerate([(fisher_B, p_B), (fisher_C, p_C)]):
+    ax.text(i - 0.18, f + 0.01, f"{f:.3f}", ha="center", fontsize=8)
+    ax.text(i + 0.18, j + 0.01, f"{j:.3f}", ha="center", fontsize=8)
+plt.tight_layout()
+plt.show()
+```
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+O gráfico mostra o erro nas duas direções. No ponto **B**, cada
+coordenada isolada já parece grande (o teste por dimensão dá um $p$-valor
+baixo), mas a combinação é exatamente o que a correlação prevê — o teste
+**conjunto** reconhece isso e dá um $p$-valor bem maior: **falso alarme do
+teste por dimensão**. No ponto **C**, cada coordenada isolada parece
+perfeitamente normal (o teste por dimensão dá um $p$-valor alto,
+tranquilizador), mas a combinação quebra a correlação — o teste conjunto
+enxerga isso e dá um $p$-valor baixo: **anomalia real que o teste por
+dimensão deixa passar**. Nenhum dos dois testes está "certo" em geral; a
+suposição de independência é uma escolha, com um preço que depende de
+onde a anomalia acontece — a mesma lição do preço da suposição de
+independência do Naive Bayes, agora em teste de hipótese em vez de
+classificação.
+
+:::
+
+# Armadilhas e Ponte para a Aula 2
+
+::: {.content-visible when-format="html" unless-format="revealjs"}
+
+Dois jeitos de essa receita quebrar, nenhum deles resolvido nesta aula:
+
+1.  **Dados genuinamente multimodais.** Se a população real tem duas
+    subpopulações distintas (por exemplo, dois regimes de operação da
+    máquina), uma única Gaussiana ajustada é uma média cega entre os dois
+    modos — o ajuste "funciona" no sentido de que a matemática produz
+    $\hat{\boldsymbol\mu}$ e $\hat\Sigma$ válidos, e mesmo assim a
+    descrição resultante mente sobre a forma real dos dados.
+2.  **Outliers no próprio conjunto de ajuste.** $\hat{\boldsymbol\mu}$ e
+    $\hat\Sigma$ são médias — poucos pontos extremos os deslocam e
+    **inflam** $\hat\Sigma$, o que aumenta o limiar e esconde exatamente
+    o que se queria detectar. Isso não é resolvido aqui; é um problema de
+    robustez (estimadores robustos de locação/escala) fora do escopo desta
+    aula.
+
+### Ponte para a Aula 2 {.unnumbered}
+
+Toda a aula assumiu que uma única forma paramétrica — a Gaussiana — descreve
+os dados. A Aula 2 relaxa essa suposição pelo lado não-paramétrico: em vez
+de assumir uma família, estimar a densidade diretamente dos vizinhos mais
+próximos ($k$-NN) e suavizar com Estimação de Densidade por Kernel (KDE).
+O preço dessa liberdade — a maldição da dimensionalidade, já anunciada no
+Bloco 4 — é o assunto de lá.
+
+:::
+
+::: {.content-visible when-format="revealjs"}
+
+1. **Multimodalidade:** uma Gaussiana só descreve uma média cega entre
+   subpopulações distintas.
+2. **Outliers no ajuste:** inflam $\hat\Sigma$, escondem o que se queria
+   detectar. Problema de robustez, não resolvido aqui.
+
+::: {.fragment}
+### Ponte para a Aula 2
+
+Relaxar a suposição de família única: $k$-NN e KDE, densidade
+não-paramétrica. Preço: a maldição da dimensionalidade.
+:::
+
+:::

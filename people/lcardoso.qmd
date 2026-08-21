@@ -1,0 +1,36 @@
+---
+title: "Lucas Cardoso"
+subtitle: "Undergrad Research Assistant in Machine Learning"
+image: lcardoso.jpeg
+description: "Large Language Models, AI Ethics, Software Testing, Design Thinking"
+about:
+  template: jolla
+  image-shape: round
+group: "Former Researchers"
+filters:
+  - ../band-sections.lua
+---
+
+[Institute of Computing - University of Campinas](https://ic.unicamp.br/)
+
+::: {.profile-links}
+<a href="https://github.com/lcardosott" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/in/lucas-cardoso-a57681260/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+:::
+
+Lucas Cardoso is an Undergrad Research Assistant in Computer Science at the Institute of Computing at the University of Campinas (IC - UNICAMP). He is a member of Recod.ai, performing research in Code Generation using Large Language Models, mainly in the area of Software Testing.
+
+## Interests
+
+- Large Language Models
+- AI Ethics
+- Software Testing
+- Design Thinking
+
+## Education
+
+**Bachelor in Computer Engineering**, 2022
+Institute of Computing - University of Campinas
+
+**Technical Course in Electronics**, 2019
+Technical High School of Campinas (COTUCA)

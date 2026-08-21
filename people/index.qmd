@@ -1,0 +1,10 @@
+---
+title: "Researchers"
+css: team-theme.css
+listing:
+  id: people
+  contents: "*.qmd"
+  type: custom
+  template: team-theme.ejs.md
+  fields: [image, title, subtitle, description, group]
+---

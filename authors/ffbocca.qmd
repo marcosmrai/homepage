@@ -1,0 +1,11 @@
+---
+title: "Felipe F. Bocca"
+image: ffbocca.jpg
+about:
+  template: jolla
+  image-shape: round
+---
+
+::: {.profile-links}
+<!-- Sem link de Google Scholar conhecido para esta pessoa ainda. -->
+:::

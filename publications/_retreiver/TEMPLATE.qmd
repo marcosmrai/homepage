@@ -1,0 +1,18 @@
+---
+title: "{{TITLE}}"
+date: "{{DATE_ISO}}"
+author: "{{AUTHORS_COMMA_SEPARATED}}"
+author-ids: [{{AUTHOR_ID_1}}, {{AUTHOR_ID_2}}]
+description: "{{AUTHORS_COMMA_SEPARATED}} ({{YEAR}}). {{VENUE}}."
+categories: [{{CATEGORIES_COMMA_SEPARATED}}]
+---
+
+## Abstract
+
+{{ABSTRACT}}
+
+[{{SOURCE_LABEL}}]({{SOURCE_URL}})
+
+## Authors
+
+{{AUTHORS_WITH_PHOTOS}}

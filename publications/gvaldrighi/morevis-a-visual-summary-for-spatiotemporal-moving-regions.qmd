@@ -1,0 +1,1 @@
+../_external/gvaldrighi/morevis-a-visual-summary-for-spatiotemporal-moving-regions.qmd

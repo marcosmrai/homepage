@@ -1,0 +1,34 @@
+---
+title: "Caio Porto"
+subtitle: "Undergraduate researcher in Machine Learning and Finance"
+image: cporto.jpg
+description: "Machine Learning, Data Science, Survival Analysis, Credit scoring"
+about:
+  template: jolla
+  image-shape: round
+group: "Undergrad Research Assistants"
+filters:
+  - ../band-sections.lua
+---
+
+[Institute of Computing - University of Campinas](https://ic.unicamp.br/)
+
+::: {.profile-links}
+<a href="https://github.com/lcaioporto" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/in/lcaioporto/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+<a href="http://lattes.cnpq.br/9905374205266875" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+:::
+
+Caio Porto is an Undergraduate student of Computer Engineering at the Institute of Computing at the University of Campinas (IC - UNICAMP). He is a member of the Hub of Artificial Intelligence and Cognitive Architectures (HIAAC), performing scientific initiation research in Machine Learning and Survival Analysis applied to credit scoring.
+
+## Interests
+
+- Machine Learning
+- Data Science
+- Survival Analysis
+- Credit scoring
+
+## Education
+
+**BSc in Computer Engineering**, 2026
+Institute of Computing - University of Campinas

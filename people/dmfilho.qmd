@@ -1,0 +1,42 @@
+---
+title: "Decio Miranda Filho"
+subtitle: "MSc Researcher"
+image: dmfilho.jpg
+description: "Machine Learning, Statistical Modeling, XAI (Explainable AI), Ecometrics and Financial Data, Neural Networks"
+about:
+  template: jolla
+  image-shape: round
+group: "Master Students"
+filters:
+  - ../band-sections.lua
+---
+
+[Institute of Computing - University of Campinas](https://ic.unicamp.br/)
+
+::: {.profile-links}
+<a href="mailto:d236087@dac.unicamp.br" class="about-link" target="_blank" rel="me"><i class="bi bi-envelope"></i> <span class="about-link-text">Email</span></a>
+<a href="https://github.com/DecMF" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/in/decio-miranda-filho/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+<a href="http://lattes.cnpq.br/8467397740657197" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+:::
+
+Decio Miranda Filho is a researcher at University of Campinas (UNICAMP) and artificial intelligence hub and cognitive architectures (H.IAAC), in the Institute of Computing (IC). He is also a member of the REasoning for COmplex Data laboratory (Recod.ai). His research interests includes Machine Learning, Statistical Modeling, Explainable and Ethical AI and Econometrics.
+
+## Interests
+
+- Machine Learning
+- Statistical Modeling
+- XAI (Explainable AI)
+- Ecometrics and Financial Data
+- Neural Networks
+
+## Education
+
+**MSc in Computer Science (information engineering)**, course completion forecast 2025
+Institute of Computing - University of Campinas
+
+**BSc in Statistics**, course completion forecast 2025
+IMECC - University of Campinas
+
+**BSc in Economics**, 2023
+Strong Business School/FGV

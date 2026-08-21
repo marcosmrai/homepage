@@ -1,0 +1,43 @@
+---
+title: "Athyrson M. Ribeiro"
+subtitle: "PhD Student in Machine Learning"
+image: amribeiro.jpg
+description: "Credit Scoring, Reject Inference, Data Science, Ethical AI"
+about:
+  template: jolla
+  image-shape: round
+group: "Ph.D. Students"
+scholar-id: "lTwSfXYAAAAJ"
+filters:
+  - ../band-sections.lua
+---
+
+[Institute of Computing - University of Campinas](https://ic.unicamp.br/)
+
+::: {.profile-links}
+<a href="https://www.instagram.com/athyrson06" class="about-link" target="_blank" rel="me"><i class="bi bi-instagram"></i> <span class="about-link-text">Instagram</span></a>
+<a href="https://scholar.google.com.br/citations?user=lTwSfXYAAAAJ&hl=en&oi=sra" class="about-link" target="_blank" rel="me"><i class="bi bi-mortarboard-fill"></i> <span class="about-link-text">Google Scholar</span></a>
+<a href="https://github.com/athyrson06" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/in/athyrson06/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+<a href="https://lattes.cnpq.br/8910332182361384" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+:::
+
+Athyrson M. Ribeiro is a Ph.D. candidate in Computer Science at the Institute of Computing at the University of Campinas (IC - UNICAMP). He is a member of the Recod.ai lab. He is also a member of the Hub of Artificial Intelligence and Cognitive Architectures (HIAAC), performing research in Trusthyworth AI, mainly in the area of reject inference and explainability.
+
+## Interests
+
+- Credit Scoring
+- Reject Inference
+- Data Science
+- Ethical AI
+
+## Education
+
+**PhD in Computer Science**, 2028
+Institute of Computing - University of Campinas
+
+**MS in Computer Science**, 2024
+Institute of Computing - University of Campinas
+
+**BSc in Computer Science**, 2019
+State University of Piauí

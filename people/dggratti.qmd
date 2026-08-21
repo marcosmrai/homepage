@@ -1,0 +1,40 @@
+---
+title: "Daniel G. Gratti"
+subtitle: "PhD Student in Machine Learning"
+image: dggratti.jpeg
+description: "Machine Learning, Reinforcement Learning, Optimization, Deep Learning"
+about:
+  template: jolla
+  image-shape: round
+group: "Ph.D. Students"
+scholar-id: "6jgRU94AAAAJ"
+filters:
+  - ../band-sections.lua
+---
+
+[Institute of Computing - University of Campinas](https://ic.unicamp.br/)
+
+::: {.profile-links}
+<a href="mailto:d214729@dac.unicamp.br" class="about-link" target="_blank" rel="me"><i class="bi bi-envelope"></i> <span class="about-link-text">Email</span></a>
+<a href="https://scholar.google.com.br/citations?user=6jgRU94AAAAJ&hl=pt-BR" class="about-link" target="_blank" rel="me"><i class="bi bi-mortarboard-fill"></i> <span class="about-link-text">Google Scholar</span></a>
+<a href="https://github.com/DanielGardin" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/in/danielgardin/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+<a href="http://lattes.cnpq.br/9581043941982632" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+:::
+
+Daniel Gardin is a master’s student at the Institute of Computing at the University of Campinas (IC - UNICAMP). He is also a faculty member of the REasoning for COmplex Data (Recod.ai) lab. Mostly interested in Reinforcement Learning, Operational Research and Optimization.
+
+## Interests
+
+- Machine Learning
+- Reinforcement Learning
+- Optimization
+- Deep Learning
+
+## Education
+
+**MSc in Computer Science**, current
+Institute of Computing - University of Campinas
+
+**BSc in Applied Mathematics**, 2022
+Institute of Mathematics, Statistics and Scientific Computing - University of Campinas

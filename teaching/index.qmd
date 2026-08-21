@@ -1,0 +1,20 @@
+---
+pagetitle: "Teaching"
+listing:
+  id: teaching-listing
+  contents:
+    - "*.qmd"
+    - "*/index.qmd"
+  type: default
+  sort: "date desc"
+  fields: [title, description, categories]
+---
+
+![](ic-institute.jpg){.page-banner}
+
+::: {.text-center}
+# Latest Courses
+:::
+
+::: {#teaching-listing}
+:::

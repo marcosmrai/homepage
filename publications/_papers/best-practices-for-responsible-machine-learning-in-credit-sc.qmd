@@ -1,0 +1,29 @@
+---
+title: "Best practices for responsible machine learning in credit scoring"
+date: "2025-09-01"
+author: "Giovani Valdrighi, Athyrson M. Ribeiro, Jansen SB Pereira, Vitoria Guardieiro, Arthur Hendricks, Décio Miranda Filho, Juan David Nieto Garcia, Felipe F. Bocca, Thalita B. Veronese, Lucas Wanner, Marcos Medeiros Raimundo"
+author-ids: [gvaldrighi, amribeiro, jsbpereira, vguardieiro, ahmoliveira, dmfilho, jdnieto, ffbocca, tbveronese, lwanner, mmraimundo]
+description: "Giovani Valdrighi, Athyrson M. Ribeiro, Jansen SB Pereira, Vitoria Guardieiro, Arthur Hendricks, Décio Miranda Filho, Juan David Nieto Garcia, Felipe F. Bocca, Thalita B. Veronese, Lucas Wanner, Marcos Medeiros Raimundo (2025). Neural Computing and Applications."
+---
+
+## Abstract
+
+The widespread use of machine learning in credit scoring has brought significant advancements in risk assessment and decision-making. However, it has also raised concerns about potential biases, discrimination, and lack of transparency in these automated systems. This tutorial paper performed a non-systematic literature review to guide best practices for developing responsible machine learning models in credit scoring, focusing on fairness, reject inference, and explainability. We discuss definitions, metrics, and techniques for mitigating biases and ensuring equitable outcomes across different groups. Additionally, we address the issue of limited data representativeness by exploring reject inference methods that incorporate information from rejected loan applications. Finally, we emphasize the importance of transparency and explainability in credit models, discussing techniques that provide insights into the …
+
+[Google Scholar](https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=iQXEldcAAAAJ&citation_for_view=iQXEldcAAAAJ:UeHWp8X0CEIC)
+
+## Authors
+
+::: {.paper-authors}
+<a href="../people/gvaldrighi.html"><img src="../people/gvaldrighi.jpeg" alt="Giovani Valdrighi"><span>Giovani Valdrighi</span></a>
+<a href="../people/amribeiro.html"><img src="../people/amribeiro.jpg" alt="Athyrson M. Ribeiro"><span>Athyrson M. Ribeiro</span></a>
+<a href="../people/jsbpereira.html"><img src="../people/jsbpereira.jpeg" alt="Jansen SB Pereira"><span>Jansen SB Pereira</span></a>
+<a href="../authors/vguardieiro.html"><img src="../authors/vguardieiro.jpg" alt="Vitoria Guardieiro"><span>Vitoria Guardieiro</span></a>
+<a href="../people/ahmoliveira.html"><img src="../people/ahmoliveira.jpeg" alt="Arthur Hendricks"><span>Arthur Hendricks</span></a>
+<a href="../people/dmfilho.html"><img src="../people/dmfilho.jpg" alt="Décio Miranda Filho"><span>Décio Miranda Filho</span></a>
+<a href="../people/jdnieto.html"><img src="../people/jdnieto.jpeg" alt="Juan David Nieto Garcia"><span>Juan David Nieto Garcia</span></a>
+<a href="../authors/ffbocca.html"><img src="../authors/ffbocca.jpg" alt="Felipe F. Bocca"><span>Felipe F. Bocca</span></a>
+<a href="../authors/tbveronese.html"><img src="../authors/tbveronese.jpg" alt="Thalita B. Veronese"><span>Thalita B. Veronese</span></a>
+<a href="../authors/lwanner.html"><img src="../authors/lwanner.jpg" alt="Lucas Wanner"><span>Lucas Wanner</span></a>
+<a href="../people/mmraimundo.html"><img src="../people/mmraimundo.jpg" alt="Marcos Medeiros Raimundo"><span>Marcos Medeiros Raimundo</span></a>
+:::

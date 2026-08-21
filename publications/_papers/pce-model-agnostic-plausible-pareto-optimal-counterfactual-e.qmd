@@ -1,0 +1,21 @@
+---
+title: "PCE: Model-Agnostic Plausible Pareto-Optimal Counterfactual Explanations"
+date: "2026-06-16"
+author: "Arthur Hendricks Mendes de Oliveira, Giovani Valdrighi, Marcos Medeiros Raimundo"
+author-ids: [ahmoliveira, gvaldrighi, mmraimundo]
+description: "Arthur Hendricks Mendes de Oliveira, Giovani Valdrighi, Marcos Medeiros Raimundo (2026). arXiv preprint arXiv:2606.18418."
+---
+
+## Abstract
+
+The increasing use of machine learning algorithms in social applications has raised concerns about fairness and transparency, leading to the development of counterfactual explanations. These explanations supports individuals to understand and potentially alter unfavorable decisions in areas such as loan applications, job selections, and more, by providing actionable changes to input features that would lead to a desired outcome. Existing methods often struggle to balance feasibility, plausibility, and computational efficiency. To address this, we introduce PCE, an algorithm for generating plausible Pareto-optimal counterfactual explanations, offering users a diverse set of optimal trade-offs between different notions of feasibility. PCE employs an auxiliary isolation forest outlier detector to ensure that explanations are in accordance with the data distribution and leverages SHAP values to obtain optimal results with short computing times, regardless of the underlying model. Our algorithm was empirically evaluated on three datasets, demonstrating superior performance in terms of both solution quality and computational efficiency compared to related techniques.
+
+[Google Scholar](https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=iQXEldcAAAAJ&citation_for_view=iQXEldcAAAAJ:eQOLeE2rZwMC)
+
+## Authors
+
+::: {.paper-authors}
+<a href="../people/ahmoliveira.html"><img src="../people/ahmoliveira.jpeg" alt="Arthur Hendricks Mendes de Oliveira"><span>Arthur Hendricks Mendes de Oliveira</span></a>
+<a href="../people/gvaldrighi.html"><img src="../people/gvaldrighi.jpeg" alt="Giovani Valdrighi"><span>Giovani Valdrighi</span></a>
+<a href="../people/mmraimundo.html"><img src="../people/mmraimundo.jpg" alt="Marcos Medeiros Raimundo"><span>Marcos Medeiros Raimundo</span></a>
+:::

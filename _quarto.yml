@@ -1,0 +1,37 @@
+project:
+  type: website
+  output-dir: _site
+  pre-render: publications/generate_person_bibliographies.py
+  render:
+    - "*.qmd"
+    - "**/*.qmd"
+    - "!old/"
+
+website:
+  title: "Marcos M. Raimundo"
+  navbar:
+    right:
+      - text: "Teaching"
+        href: teaching/index.qmd
+      - text: "Projects"
+        href: projects/index.qmd
+      - text: "Publications"
+        href: publications/index.qmd
+      - text: "People"
+        href: people/index.qmd
+      - text: "Contact"
+        href: contact.qmd
+      - icon: github
+        href: https://github.com/marcosmrai
+      - icon: mortarboard-fill
+        href: https://scholar.google.com.br/citations?user=ibe0jfQAAAAJ&hl=pt-BR
+  page-footer:
+    center: >-
+      © 2026 Marcos M. Raimundo. This work is licensed under
+      [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+format:
+  html:
+    theme: [flatly, custom.scss]
+    css: styles.css
+    toc: false

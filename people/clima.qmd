@@ -1,0 +1,39 @@
+---
+title: "Caio Lima"
+subtitle: "M.Sc student in Machine Learning"
+image: clima.jpeg
+description: "Machine Learning, AI Ethics, Data visualization"
+about:
+  template: jolla
+  image-shape: round
+group: "Master Students"
+filters:
+  - ../band-sections.lua
+---
+
+[Institute of Computing - University of Campinas](https://ic.unicamp.br/)
+
+::: {.profile-links}
+<a href="https://github.com/caiolimaa" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/caio-lima1" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+<a href="https://lattes.cnpq.br/0681485929291002" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+:::
+
+Caio Lima is a M.Sc student at the Faculty of Electrical and Computer Engineering (FEEC). His research interests includes Machine Learning, Uncertainty and Ethical AI.
+
+## Interests
+
+- Machine Learning
+- AI Ethics
+- Data visualization
+
+## Education
+
+**MS in Computer Engineering**, 2025
+School of Electrical and Computer Engineering - University of Campinas
+
+**Postgraduate in Data Science**, 2024
+Federal Institute of Education, Science and Technology of São Paulo - IFSP
+
+**Technologist in Systems Analysis and Development**, 2020
+University of Campinas

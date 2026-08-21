@@ -1,0 +1,99 @@
+---
+title: "Marcos M. Raimundo"
+subtitle: "Professor of Machine Learning and Optimization"
+image: ../profile.jpg
+description: "Machine Learning, Multi-objective Optimization, AI Ethics, Mathematical Programming"
+about:
+  template: jolla
+  image-shape: round
+group: "Principal Investigator"
+scholar-id: "ibe0jfQAAAAJ"
+filters:
+  - ../band-sections.lua
+# publications-listing:start (gerado por generate_person_bibliographies.py — não editar)
+listing:
+  id: publications
+  contents: "../publications/mmraimundo/*.qmd"
+  type: default
+  sort: "date desc"
+  fields: [title, description]
+# publications-listing:end
+---
+
+[Institute of Computing - University of Campinas](https://ic.unicamp.br)
+
+::: {.profile-links}
+<a href="https://scholar.google.com.br/citations?user=ibe0jfQAAAAJ&hl=pt-BR" class="about-link" target="_blank" rel="me"><i class="bi bi-mortarboard-fill"></i> <span class="about-link-text">Google Scholar</span></a>
+<a href="https://github.com/marcosmrai" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/in/marcos-medeiros-raimundo-866b8731/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+<a href="http://lattes.cnpq.br/1605909137233786" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+<a href="https://twitter.com/marcosmrai" class="about-link" target="_blank" rel="me"><i class="bi bi-twitter-x"></i> <span class="about-link-text">Twitter</span></a>
+<a href="mailto:mraimundo@ic.unicamp.br" class="about-link"><i class="bi bi-envelope"></i> <span class="about-link-text">Email</span></a>
+:::
+
+Marcos M. Raimundo is an Assistant Professor at University of Campinas (UNICAMP), in the Institute of Computing (IC). He is also a faculty member of the REasoning for COmplex Data laboratory (Recod.ai). His research interests include Machine Learning, Multi-objective Optimization, Ethical AI, Mathematical Programming.
+
+## Interests
+
+- Machine Learning
+- Multi-objective Optimization
+- AI Ethics
+- Mathematical Programming
+
+## Education
+
+**Ph.D. in Computer Engineering**, 2018
+School of Electrical and Computer Engineering, University of Campinas
+
+**M.Sc. in Computer Engineering**, 2014
+School of Electrical and Computer Engineering, University of Campinas
+
+**B.Sc. in Computer Engineering**, 2011
+University of Campinas
+
+## Experience
+
+::: {.experience-item}
+**Adjunct Professor** — Institute of Computing, University of Campinas
+
+Campinas · May 2022 – present
+
+Teaching of Computing and Machine Learning for Computer Science and Engineering. Research and Graduate Students advising. Extension Programs. Administrative Roles.
+:::
+
+::: {.experience-item}
+**Adjunct Professor** — Federal University of Rio de Janeiro
+
+Rio de Janeiro · Sep 2021 – May 2022
+
+Teaching of Statistics and Operations Research for Production and Gas Engineering. Research and Graduate Students advising. Extension Programs. Administrative Roles.
+:::
+
+::: {.experience-item}
+**Postdoctoral Researcher** — School of Applied Mathematics, FGV
+
+Rio de Janeiro · Oct 2019 – Aug 2021
+
+Developed a project analyzing criminality in São Paulo and Rio de Janeiro using Machine Learning, Visualization and Optimization tools, including an interpretability tool that creates counterfactual scenarios to reduce criminality, built using combinatorial optimization and machine learning, plus a visualization tool for exploring counterfactual scenarios across multiple, similar regions.
+:::
+
+::: {.experience-item}
+**Data Scientist** — Tech - Inovação Tecnológica para a Agropecuária
+
+Piracicaba · May 2019 – Sep 2019
+
+Data Analysis. Optimization Modeling. Staff training in Machine Learning. Software Engineering.
+:::
+
+::: {.experience-item}
+**Research Assistant** — University of Campinas
+
+Campinas · 2012 – Dec 2018
+
+Operations research applied to inventory and vehicle routing management, multiobjective optimization, machine learning applied to detection of epileptic seizures and ant genera identification, and applications of multiobjective optimization in multi-class, multi-label, transfer, multi-task, and multi-view learning.
+:::
+
+## Publications
+
+::: {#publications}
+:::
