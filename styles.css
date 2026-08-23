@@ -122,8 +122,8 @@ h2 {
 #quarto-margin-sidebar:has(.quarto-listing-category) {
   position: fixed;
   top: 6rem;
-  right: 2vw;
-  width: min(220px, 9vw);
+  right: 1vw;
+  width: min(260px, 11vw);
   max-height: calc(100vh - 8rem);
   overflow-y: auto;
 }
@@ -313,6 +313,29 @@ h2 {
 #teaching-listing .quarto-grid-item.card {
   border-radius: 0.75rem;
   overflow: hidden;
+}
+
+/* Publications também é uma listing "grid" de uma coluna, mas sem `id:`
+   próprio no front matter (por isso o seletor usa o id padrão gerado
+   pelo Quarto, "listing-listing", em vez de algo como
+   "#publications-listing"). Os cards herdavam o padding padrão do
+   Bootstrap (.card-body: 1rem) somado à margem inferior padrão de
+   parágrafo (<p>: margin-bottom: 1rem) dentro da descrição — como cada
+   entrada é só título + pastilhas de categoria + uma linha de autor/
+   venue, essas duas margens somadas deixavam a caixa bem maior que o
+   próprio texto. Comprimimos o padding do card, zeramos a margem do
+   parágrafo (o próprio padding do card já dá o respiro necessário) e
+   reduzimos o espaço entre um card e o próximo. */
+#listing-listing .list.grid {
+  gap: 0.6rem;
+}
+
+#listing-listing .card-body {
+  padding: 0.6rem 0.9rem;
+}
+
+#listing-listing .card-text.listing-description p {
+  margin-bottom: 0;
 }
 
 /* Zebra branco/cinza entre os cards da listagem de teaching (um card por

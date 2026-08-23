@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Marcos M. Raimundo">
-<meta name="dcterms.date" content="2026-07-23">
+<meta name="dcterms.date" content="2024-06-03">
 
-<title>Supervised Learning – Marcos M. Raimundo</title>
+<title>Aprendizado de Máquina Ético (Ethical Machine Learning) – Marcos M. Raimundo</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -145,13 +145,11 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Supervised Learning</h1>
+<h1 class="title">Aprendizado de Máquina Ético (Ethical Machine Learning)</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Disciplines</div>
     <div class="quarto-category">AI</div>
     <div class="quarto-category">Machine Learning</div>
-    <div class="quarto-category">Supervised Learning</div>
-    <div class="quarto-category">Statistics</div>
   </div>
   </div>
 
@@ -169,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 23, 2026</p>
+      <p class="date">June 3, 2024</p>
     </div>
   </div>
   
@@ -181,117 +179,85 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This course explores the foundations of Supervised Machine Learning through a rigorous probabilistic and statistical lens. Students will learn how to predict labels and continuous targets from observed data, treating each algorithm not as a black box but as an estimator with explicit distributional assumptions, an associated likelihood, and quantifiable error behavior.</p>
-<section id="final-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="final-objectives">Final Objectives</h2>
-<p>The goal is to provide a deep understanding of how supervised algorithms learn a mapping from inputs to outputs, and why they work. By the end of this course, students will be able to bridge algorithmic concepts like decision trees, regularization, ensembles, and neural networks with their theoretical statistical roots, including maximum likelihood estimation, Bayesian inference, the bias-variance decomposition, and constrained optimization.</p>
+<p>Esta página consolida as duas edições da disciplina de Aprendizado de Máquina Ético que lecionei: a primeira, em 2022/2023, em português e com o conteúdo completo; e uma segunda, em 2024, em inglês e com o conteúdo condensado. A disciplina capacita os alunos a identificar e mitigar impactos negativos de dados e ferramentas de aprendizado de máquina sobre grupos vulneráveis, promovendo transparência e soluções éticas. Envolve análise de dados, aplicação de modelos de aprendizado de máquina e compreensão de problemas de otimização.</p>
+<section id="objetivos-terminais" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos-terminais">Objetivos Terminais</h2>
+<p>O aluno deverá ser capaz de identificar o uso de dados e de ferramentas de aprendizado de máquina que gerem danos a indivíduos e grupos vulneráveis, e de utilizar e propor ferramentas que reduzam o impacto e aumentem a transparência de tais dados e ferramentas.</p>
 </section>
-<section id="course-content" class="level2">
-<h2 class="anchored" data-anchor-id="course-content">Course Content</h2>
-<p><em>Click on each lesson to access its detailed planning and study materials.</em></p>
-<section id="part-1-foundations-of-probability-and-partitioning" class="level3">
-<h3 class="anchored" data-anchor-id="part-1-foundations-of-probability-and-partitioning">Part 1: Foundations of Probability and Partitioning</h3>
+<section id="pré-requisitos" class="level2">
+<h2 class="anchored" data-anchor-id="pré-requisitos">Pré-requisitos</h2>
+<p>Abaixo estão listadas as capacidades desejáveis para o aluno; não são mandatórias, mas aumentam a probabilidade de boa absorção do conteúdo.</p>
 <ul>
-<li><a href="../../teaching/supervised-learning/aula01/index.html"><strong>Lesson 1: Data, Distributions, and Anomaly Detection</strong></a>
+<li>Ser capaz de realizar uma análise descritiva de dados (estatísticas básicas, visualização de dados).</li>
+<li>Ser capaz de aplicar e descrever características de modelos de aprendizado de máquina (regressão logística, árvores de decisão e ensembles) em dados tabelados.</li>
+<li>Ser capaz de aplicar modelos de aprendizado profundo em dados de natureza diversa.</li>
+<li>Ser capaz de entender e modelar problemas de otimização no contexto de aprendizado de máquina.</li>
+</ul>
+</section>
+<section id="avaliação-diagnóstica" class="level2">
+<h2 class="anchored" data-anchor-id="avaliação-diagnóstica">Avaliação diagnóstica</h2>
+<p>Na primeira edição (2022/2023), o início do semestre incluiu uma avaliação diagnóstica dos pré-requisitos da turma:</p>
 <ul>
-<li><strong>ML Concept:</strong> One-dimensional binary classification and outlier detection.</li>
-<li><strong>Statistical Concept:</strong> Fitting continuous densities to bounded data (Beta distribution) and defining decision thresholds from low-probability regions. The unavoidable trade-off between Type I and Type II errors as a consequence of overlapping class-conditional densities.</li>
-<li><strong>Objectives:</strong> Understand classification as a comparison between fitted densities, and thresholds as statistical decisions with explicit error costs.</li>
-<li><strong>Expected Competencies:</strong> Ability to fit a Beta distribution to observed data, place a decision threshold based on tail probabilities, and quantify the resulting Type I and Type II error rates.</li>
+<li>Projeto executado entre a primeira e a segunda semana, com tarefas que induzissem a demonstração de cada um dos desempenhos listados acima.</li>
+<li>Exercício prático individual, no mesmo período, com o mesmo objetivo.</li>
+<li>Quatro aulas adicionais, por videoconferência/híbrido, uma para cada tópico, para nivelar o desempenho mínimo em cada conhecimento requerido.</li>
+</ul>
+</section>
+<section id="conteúdos" class="level2">
+<h2 class="anchored" data-anchor-id="conteúdos">Conteúdos</h2>
+<ul>
+<li><strong>Unidade 1. Introdução</strong> — Leis de dados, criando confiança, ciclo de ML e segurança. (2 semanas; presente só na edição de 2022/2023)
+<ul>
+<li>Objetivo: enumerar os principais atributos desejáveis de um modelo de aprendizado de máquina ético, transparente e confiável.</li>
 </ul></li>
-<li><a href="../../teaching/supervised-learning/aula02/index.html"><strong>Lesson 2: Conditional Distributions and Generative Models</strong></a>
+<li><strong>Unidade 2. Dados</strong> — Fontes de dados, modalidades, vieses, privacidade e consentimento. (1 semana)
 <ul>
-<li><strong>ML Concept:</strong> Multidimensional classification under the assumption of feature independence (Naive Bayes), and the general theory of statistical decision-making for K classes.</li>
-<li><strong>Statistical Concept:</strong> Bayes’ theorem decomposed into prior, likelihood, and posterior. The distinction between joint and conditional distributions, and the conditional independence assumption as a deliberate simplification to mitigate the curse of dimensionality. Formal decision theory — loss functions, posterior risk, and Bayes risk — as the general framework that recovers the binary cost-sensitive threshold of Lesson 1 as a special case.</li>
-<li><strong>Objectives:</strong> Understand the generative approach to classification, the cost-benefit of independence assumptions in high dimensions, and decision-making as risk minimization rather than an ad-hoc rule.</li>
-<li><strong>Expected Competencies:</strong> Ability to derive the Naive Bayes classifier from Bayes’ theorem, explain when the independence assumption degrades — or fails to degrade — predictive performance, and formulate a general Bayes decision rule (including the rejection option) from an arbitrary loss matrix.</li>
+<li>Objetivo: preparar dados confiáveis e menos enviesados, preservando privacidade e consentimento do usuário.</li>
 </ul></li>
-<li><a href="../../teaching/supervised-learning/aula03/index.html"><strong>Lesson 3: Decision Trees — Greedy Partitioning</strong></a>
+<li><strong>Unidade 3. Modelagem básica</strong> — Conceitos básicos de aprendizado de máquina, aprendizado supervisionado, modelos causais. (1–2 semanas)
 <ul>
-<li><strong>ML Concept:</strong> The CART algorithm for classification and regression.</li>
-<li><strong>Statistical Concept:</strong> Non-parametric estimation of the conditional density as a piecewise-constant function. Impurity measures (Entropy and Gini) interpreted as the uncertainty of categorical distributions, and splits understood as the greedy maximization of a profile log-likelihood.</li>
-<li><strong>Objectives:</strong> Reinterpret recursive partitioning as a likelihood-driven, non-parametric estimation procedure rather than a heuristic.</li>
-<li><strong>Expected Competencies:</strong> Ability to implement CART, compute impurity gains, and justify split criteria in terms of log-likelihood maximization.</li>
+<li>Objetivo: escolher e potencialmente criar modelos de aprendizado de máquina mais adequados aos dados preparados.</li>
 </ul></li>
-<li><strong>Lesson 4: Model Selection and Resampling Techniques</strong>
+<li><strong>Unidade 4. Confiabilidade e Imparcialidade</strong> — Detecção e promoção de imparcialidade em máquinas de aprendizado, manutenção de confiabilidade sob mudança ou ataque. (3 semanas na edição de 2022; 5 na de 2024)
 <ul>
-<li><strong>ML Concept:</strong> Model validation and overfitting prevention.</li>
-<li><strong>Statistical Concept:</strong> Empirical error versus expected generalization error. Cross-validation framed as a simulation of repeated samples from the joint distribution \(P(X,Y)\), and the Bootstrap as a tool for estimating the sampling variance of an estimator.</li>
-<li><strong>Objectives:</strong> Treat validation as statistical estimation of an unobservable quantity, not as a bookkeeping step.</li>
-<li><strong>Expected Competencies:</strong> Ability to design sound cross-validation schemes and apply the Bootstrap to quantify the uncertainty of a performance estimate.</li>
+<li>Objetivo: escolher e potencialmente criar/modificar modelos de aprendizado de máquina mais confiáveis e imparciais.</li>
+</ul></li>
+<li><strong>Unidade 5. Interação</strong> — Interpretabilidade em aprendizado de máquina, e criação de mecanismos de intervenção. (3 semanas na edição de 2022; 5 na de 2024)
+<ul>
+<li>Objetivo: detectar e modificar uma máquina de aprendizado que falhe em empoderar tomadores de decisão a compreendê-la e a detectar falhas na sua confiabilidade e imparcialidade.</li>
+</ul></li>
+<li><strong>Unidade 6. Propósito</strong> — Bem social, influência dos tomadores de decisão no desenho de produtos de aprendizado de máquina, desafios em aprendizado de máquina. (1 semana; presente só na edição de 2022/2023)
+<ul>
+<li>Objetivo: enumerar os problemas éticos no contexto de aplicação, harmonizar com o ambiente em que está inserido, e conceber um arcabouço que reduza tais problemas em busca do bem social.</li>
 </ul></li>
 </ul>
-<hr>
+<p>Na edição de 2024, condensada e ministrada em inglês, as Unidades 1 e 6 foram incorporadas às demais, e o curso foi reorganizado em três partes: <strong>Data and Models</strong> (Unidades 2–3), <strong>Fairness</strong> (Unidade 4) e <strong>Explainability</strong> (Unidade 5).</p>
 </section>
-<section id="part-2-the-parametric-linear-story" class="level3">
-<h3 class="anchored" data-anchor-id="part-2-the-parametric-linear-story">Part 2: The Parametric Linear Story</h3>
+<section id="referências" class="level2">
+<h2 class="anchored" data-anchor-id="referências">Referências</h2>
 <ul>
-<li><strong>Lesson 5: Linear Regression and Maximum Likelihood</strong>
+<li>Divulgação geral:
 <ul>
-<li><strong>ML Concept:</strong> Prediction of continuous targets via hyperplanes.</li>
-<li><strong>Statistical Concept:</strong> The homoscedastic Gaussian noise model \(Y X (^T X, ^2)\), the construction of the likelihood function, and the mathematical proof that Ordinary Least Squares (OLS) and Maximum Likelihood Estimation (MLE) coincide under normality.</li>
-<li><strong>Objectives:</strong> Establish maximum likelihood as the unifying principle underlying the entire parametric part of the course.</li>
-<li><strong>Expected Competencies:</strong> Ability to write the likelihood of a linear model and derive the OLS solution as its maximizer.</li>
+<li><a href="https://www.amazon.com.br/Algoritmos-Destrui%C3%A7%C3%A3o-Massa-Cathy-ONeil/dp/6586460026/ref=sr_1_2?keywords=weapons+of+math+destruction&amp;qid=1652104295&amp;sprefix=weapons+%2Caps%2C314&amp;sr=8-2">Algoritmos de Destruição em Massa</a>: livro que apresenta diversos exemplos de algoritmos anti-éticos (edição original em inglês: <em>Weapons of Math Destruction</em>, Cathy O’Neil).</li>
+<li><a href="https://www.amazon.com.br/Ethical-Algorithm-Science-Socially-English-ebook/dp/B07XLTXBXV/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&amp;crid=1RJ20GQLALC4A&amp;keywords=The+Ethical+Algorithm&amp;qid=1652104305&amp;sprefix=the+ethical+algorithm%2Caps%2C213&amp;sr=8-1&amp;ufe=app_do%3Aamzn1.fos.6121c6c4-c969-43ae-92f7-cc248fc6181d">The Ethical Algorithm</a>: <em>The Science of Socially Aware Algorithm Design</em> — apresenta as principais áreas de ética em ML (fairness, transparency e privacy) para o público geral.</li>
+<li><a href="https://www.netflix.com/title/81328723">Coded Bias</a>: documentário da Netflix que pode servir de motivação para o curso.</li>
 </ul></li>
-<li><strong>Lesson 6: Logistic Regression and the GLM Framework</strong>
+<li>Referência principal:
 <ul>
-<li><strong>ML Concept:</strong> Parametric binary classification.</li>
-<li><strong>Statistical Concept:</strong> The Bernoulli distribution, the link function (<em>logit</em>) that maps a linear combination into a valid probability, and the derivation of cross-entropy loss directly from the Bernoulli log-likelihood.</li>
-<li><strong>Objectives:</strong> Understand classification losses as log-likelihoods of a chosen response distribution, and place logistic regression within the wider GLM family.</li>
-<li><strong>Expected Competencies:</strong> Ability to derive cross-entropy from first principles and generalize the construction to other exponential-family responses.</li>
+<li><a href="http://www.trustworthymachinelearning.com/">Trustworthy Machine Learning</a>: aborda, de forma geral, conceitos de fairness e transparency.</li>
 </ul></li>
-<li><strong>Lesson 7: Regularization and Bayesian MAP Estimation</strong>
+<li>Referências adicionais:
 <ul>
-<li><strong>ML Concept:</strong> Ridge (\(L_2\)) and Lasso (\(L_1\)) penalties for complexity control.</li>
-<li><strong>Statistical Concept:</strong> The transition from frequentist to Bayesian thinking (parameters as random variables), Maximum A Posteriori (MAP) estimation, and the equivalence of Ridge to a Gaussian prior and of Lasso to a Laplace prior (which induces sparsity).</li>
-<li><strong>Objectives:</strong> Recognize regularization as prior belief made explicit rather than as an arbitrary penalty term.</li>
-<li><strong>Expected Competencies:</strong> Ability to derive Ridge and Lasso as MAP estimators and explain geometrically why the Laplace prior produces exact zeros.</li>
+<li><a href="https://fairmlbook.org/">Fairness and Machine Learning</a>: livro disponibilizado gratuitamente, feito em conjunto por três professores de universidades diferentes que dão disciplinas de Fairness ou Ética em ML; no site estão disponíveis as páginas das respectivas disciplinas.</li>
+<li><a href="https://www.oreilly.com/library/view/practical-fairness/9781492075721/">Practical Fairness</a>: livro de Fairness da O’Reilly incluído só como aviso de que não vale muito a pena — usa nomenclatura diferente da mais utilizada na literatura e não apresenta bem a parte matemática.</li>
 </ul></li>
-<li><strong>Lesson 8: The Theoretical Bias-Variance Tradeoff</strong>
+<li>Recursos gerais:
 <ul>
-<li><strong>ML Concept:</strong> Mathematical analysis of the capacity and limits of learning algorithms.</li>
-<li><strong>Statistical Concept:</strong> Formal decomposition of the expected mean squared error into three predictive components: squared bias, estimator variance, and irreducible error (\(^2\)).</li>
-<li><strong>Objectives:</strong> Provide the analytical vocabulary used throughout Part 3 to explain why ensembles and boosting work.</li>
-<li><strong>Expected Competencies:</strong> Ability to derive the decomposition and diagnose whether a given model is bias-limited or variance-limited.</li>
-</ul></li>
-</ul>
-<hr>
-</section>
-<section id="part-3-advanced-models-and-optimization" class="level3">
-<h3 class="anchored" data-anchor-id="part-3-advanced-models-and-optimization">Part 3: Advanced Models and Optimization</h3>
-<ul>
-<li><strong>Lesson 9: Ensemble Theory and Variance Reduction</strong>
-<ul>
-<li><strong>ML Concept:</strong> Bagging and Random Forests.</li>
-<li><strong>Statistical Concept:</strong> Statistical properties of the average of random variables, the variance formula for a sum of correlated variables (\(\)), and how feature subsampling mathematically breaks that correlation.</li>
-<li><strong>Objectives:</strong> Explain ensemble gains quantitatively through the variance term of the decomposition from Lesson 8.</li>
-<li><strong>Expected Competencies:</strong> Ability to derive the variance of an averaged correlated ensemble and predict how it responds to changes in tree count and feature subsampling rate.</li>
-</ul></li>
-<li><strong>Lesson 10: Gradient Boosting and Numerical Optimization</strong>
-<ul>
-<li><strong>ML Concept:</strong> AdaBoost and Gradient Boosting.</li>
-<li><strong>Statistical Concept:</strong> Sequential additive modeling aimed at bias reduction, approximation of loss functions via Taylor expansion, and the interpretation of residuals and pseudo-residuals as the negative gradient of the loss in function space.</li>
-<li><strong>Objectives:</strong> Understand boosting as gradient descent performed in the space of functions rather than parameters.</li>
-<li><strong>Expected Competencies:</strong> Ability to derive pseudo-residuals for an arbitrary differentiable loss and contrast the bias-reduction mechanism of boosting with the variance reduction of bagging.</li>
-</ul></li>
-<li><strong>Lesson 11: Support Vector Machines (SVM)</strong>
-<ul>
-<li><strong>ML Concept:</strong> Maximum-margin classifiers and the kernel trick.</li>
-<li><strong>Statistical Concept:</strong> Constrained optimization via the Lagrangian dual formulation, non-probabilistic loss functions (<em>Hinge Loss</em>, which induces sparsity in the support vectors), and the need for subsequent statistical calibration (such as Platt scaling) to recover probabilities.</li>
-<li><strong>Objectives:</strong> Examine a model deliberately built outside the likelihood framework and understand what is gained and lost by that choice.</li>
-<li><strong>Expected Competencies:</strong> Ability to formulate the dual problem, identify support vectors, and calibrate SVM scores into usable probabilities.</li>
-</ul></li>
-<li><strong>Lesson 12: Neural Networks and Representation Learning</strong>
-<ul>
-<li><strong>ML Concept:</strong> Multilayer Perceptrons (MLPs) and backpropagation.</li>
-<li><strong>Statistical Concept:</strong> Neural networks as a hierarchical, chained composition of GLMs; final activation functions (such as <em>Softmax</em>) defining the parameters of multinomial distributions; and gradient computation via the chain rule for the optimization of the global likelihood.</li>
-<li><strong>Objectives:</strong> Close the course by showing deep networks as a stacked generalization of the parametric models studied in Part 2.</li>
-<li><strong>Expected Competencies:</strong> Ability to describe an MLP as a composition of GLMs, derive backpropagation from the chain rule, and connect the output layer to an explicit likelihood.</li>
+<li><a href="https://www.trustworthyml.org/resources">Trustworthy ML Initiative</a>: diversos recursos de Trustworthy ML, como livros de divulgação geral, textbooks, documentários e sites de disciplinas.</li>
 </ul></li>
 </ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Marcos M. Raimundo">
-<meta name="dcterms.date" content="2026-07-23">
+<meta name="dcterms.date" content="2021-09-30">
 
-<title>Supervised Learning – Marcos M. Raimundo</title>
+<title>Pesquisa Operacional (UFRJ) – Marcos M. Raimundo</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -145,13 +145,11 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Supervised Learning</h1>
+<h1 class="title">Pesquisa Operacional (UFRJ)</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Disciplines</div>
-    <div class="quarto-category">AI</div>
-    <div class="quarto-category">Machine Learning</div>
-    <div class="quarto-category">Supervised Learning</div>
-    <div class="quarto-category">Statistics</div>
+    <div class="quarto-category">Optimization</div>
+    <div class="quarto-category">Operations Research</div>
   </div>
   </div>
 
@@ -169,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 23, 2026</p>
+      <p class="date">September 30, 2021</p>
     </div>
   </div>
   
@@ -181,117 +179,22 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This course explores the foundations of Supervised Machine Learning through a rigorous probabilistic and statistical lens. Students will learn how to predict labels and continuous targets from observed data, treating each algorithm not as a black box but as an estimator with explicit distributional assumptions, an associated likelihood, and quantifiable error behavior.</p>
-<section id="final-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="final-objectives">Final Objectives</h2>
-<p>The goal is to provide a deep understanding of how supervised algorithms learn a mapping from inputs to outputs, and why they work. By the end of this course, students will be able to bridge algorithmic concepts like decision trees, regularization, ensembles, and neural networks with their theoretical statistical roots, including maximum likelihood estimation, Bayesian inference, the bias-variance decomposition, and constrained optimization.</p>
+<p>Esta página consolida duas disciplinas de Pesquisa Operacional — <strong>EEI744 (Pesquisa Operacional II)</strong> e <strong>EEI946 (Pesquisa Operacional III)</strong> — que lecionei na Escola Politécnica da UFRJ (Universidade Federal do Rio de Janeiro), em sequência, como parte da mesma trilha de formação em otimização. Como o conteúdo fundamental das duas é o mesmo — modelar e resolver problemas de otimização —, esta página as reúne em uma disciplina só.</p>
+<section id="objetivos-terminais" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos-terminais">Objetivos Terminais</h2>
+<p>O aluno deverá ser capaz de criar modelos de otimização não linear, linear, linear-inteira e programação dinâmica, aplicando-os a problemas de estoques, grafos e filas.</p>
 </section>
-<section id="course-content" class="level2">
-<h2 class="anchored" data-anchor-id="course-content">Course Content</h2>
-<p><em>Click on each lesson to access its detailed planning and study materials.</em></p>
-<section id="part-1-foundations-of-probability-and-partitioning" class="level3">
-<h3 class="anchored" data-anchor-id="part-1-foundations-of-probability-and-partitioning">Part 1: Foundations of Probability and Partitioning</h3>
+<section id="disciplinas-de-origem" class="level2">
+<h2 class="anchored" data-anchor-id="disciplinas-de-origem">Disciplinas de origem</h2>
 <ul>
-<li><a href="../../teaching/supervised-learning/aula01/index.html"><strong>Lesson 1: Data, Distributions, and Anomaly Detection</strong></a>
-<ul>
-<li><strong>ML Concept:</strong> One-dimensional binary classification and outlier detection.</li>
-<li><strong>Statistical Concept:</strong> Fitting continuous densities to bounded data (Beta distribution) and defining decision thresholds from low-probability regions. The unavoidable trade-off between Type I and Type II errors as a consequence of overlapping class-conditional densities.</li>
-<li><strong>Objectives:</strong> Understand classification as a comparison between fitted densities, and thresholds as statistical decisions with explicit error costs.</li>
-<li><strong>Expected Competencies:</strong> Ability to fit a Beta distribution to observed data, place a decision threshold based on tail probabilities, and quantify the resulting Type I and Type II error rates.</li>
-</ul></li>
-<li><a href="../../teaching/supervised-learning/aula02/index.html"><strong>Lesson 2: Conditional Distributions and Generative Models</strong></a>
-<ul>
-<li><strong>ML Concept:</strong> Multidimensional classification under the assumption of feature independence (Naive Bayes), and the general theory of statistical decision-making for K classes.</li>
-<li><strong>Statistical Concept:</strong> Bayes’ theorem decomposed into prior, likelihood, and posterior. The distinction between joint and conditional distributions, and the conditional independence assumption as a deliberate simplification to mitigate the curse of dimensionality. Formal decision theory — loss functions, posterior risk, and Bayes risk — as the general framework that recovers the binary cost-sensitive threshold of Lesson 1 as a special case.</li>
-<li><strong>Objectives:</strong> Understand the generative approach to classification, the cost-benefit of independence assumptions in high dimensions, and decision-making as risk minimization rather than an ad-hoc rule.</li>
-<li><strong>Expected Competencies:</strong> Ability to derive the Naive Bayes classifier from Bayes’ theorem, explain when the independence assumption degrades — or fails to degrade — predictive performance, and formulate a general Bayes decision rule (including the rejection option) from an arbitrary loss matrix.</li>
-</ul></li>
-<li><a href="../../teaching/supervised-learning/aula03/index.html"><strong>Lesson 3: Decision Trees — Greedy Partitioning</strong></a>
-<ul>
-<li><strong>ML Concept:</strong> The CART algorithm for classification and regression.</li>
-<li><strong>Statistical Concept:</strong> Non-parametric estimation of the conditional density as a piecewise-constant function. Impurity measures (Entropy and Gini) interpreted as the uncertainty of categorical distributions, and splits understood as the greedy maximization of a profile log-likelihood.</li>
-<li><strong>Objectives:</strong> Reinterpret recursive partitioning as a likelihood-driven, non-parametric estimation procedure rather than a heuristic.</li>
-<li><strong>Expected Competencies:</strong> Ability to implement CART, compute impurity gains, and justify split criteria in terms of log-likelihood maximization.</li>
-</ul></li>
-<li><strong>Lesson 4: Model Selection and Resampling Techniques</strong>
-<ul>
-<li><strong>ML Concept:</strong> Model validation and overfitting prevention.</li>
-<li><strong>Statistical Concept:</strong> Empirical error versus expected generalization error. Cross-validation framed as a simulation of repeated samples from the joint distribution \(P(X,Y)\), and the Bootstrap as a tool for estimating the sampling variance of an estimator.</li>
-<li><strong>Objectives:</strong> Treat validation as statistical estimation of an unobservable quantity, not as a bookkeeping step.</li>
-<li><strong>Expected Competencies:</strong> Ability to design sound cross-validation schemes and apply the Bootstrap to quantify the uncertainty of a performance estimate.</li>
-</ul></li>
+<li><strong>EEI744 — Pesquisa Operacional II</strong></li>
+<li><strong>EEI946 — Pesquisa Operacional III</strong></li>
 </ul>
-<hr>
 </section>
-<section id="part-2-the-parametric-linear-story" class="level3">
-<h3 class="anchored" data-anchor-id="part-2-the-parametric-linear-story">Part 2: The Parametric Linear Story</h3>
-<ul>
-<li><strong>Lesson 5: Linear Regression and Maximum Likelihood</strong>
-<ul>
-<li><strong>ML Concept:</strong> Prediction of continuous targets via hyperplanes.</li>
-<li><strong>Statistical Concept:</strong> The homoscedastic Gaussian noise model \(Y X (^T X, ^2)\), the construction of the likelihood function, and the mathematical proof that Ordinary Least Squares (OLS) and Maximum Likelihood Estimation (MLE) coincide under normality.</li>
-<li><strong>Objectives:</strong> Establish maximum likelihood as the unifying principle underlying the entire parametric part of the course.</li>
-<li><strong>Expected Competencies:</strong> Ability to write the likelihood of a linear model and derive the OLS solution as its maximizer.</li>
-</ul></li>
-<li><strong>Lesson 6: Logistic Regression and the GLM Framework</strong>
-<ul>
-<li><strong>ML Concept:</strong> Parametric binary classification.</li>
-<li><strong>Statistical Concept:</strong> The Bernoulli distribution, the link function (<em>logit</em>) that maps a linear combination into a valid probability, and the derivation of cross-entropy loss directly from the Bernoulli log-likelihood.</li>
-<li><strong>Objectives:</strong> Understand classification losses as log-likelihoods of a chosen response distribution, and place logistic regression within the wider GLM family.</li>
-<li><strong>Expected Competencies:</strong> Ability to derive cross-entropy from first principles and generalize the construction to other exponential-family responses.</li>
-</ul></li>
-<li><strong>Lesson 7: Regularization and Bayesian MAP Estimation</strong>
-<ul>
-<li><strong>ML Concept:</strong> Ridge (\(L_2\)) and Lasso (\(L_1\)) penalties for complexity control.</li>
-<li><strong>Statistical Concept:</strong> The transition from frequentist to Bayesian thinking (parameters as random variables), Maximum A Posteriori (MAP) estimation, and the equivalence of Ridge to a Gaussian prior and of Lasso to a Laplace prior (which induces sparsity).</li>
-<li><strong>Objectives:</strong> Recognize regularization as prior belief made explicit rather than as an arbitrary penalty term.</li>
-<li><strong>Expected Competencies:</strong> Ability to derive Ridge and Lasso as MAP estimators and explain geometrically why the Laplace prior produces exact zeros.</li>
-</ul></li>
-<li><strong>Lesson 8: The Theoretical Bias-Variance Tradeoff</strong>
-<ul>
-<li><strong>ML Concept:</strong> Mathematical analysis of the capacity and limits of learning algorithms.</li>
-<li><strong>Statistical Concept:</strong> Formal decomposition of the expected mean squared error into three predictive components: squared bias, estimator variance, and irreducible error (\(^2\)).</li>
-<li><strong>Objectives:</strong> Provide the analytical vocabulary used throughout Part 3 to explain why ensembles and boosting work.</li>
-<li><strong>Expected Competencies:</strong> Ability to derive the decomposition and diagnose whether a given model is bias-limited or variance-limited.</li>
-</ul></li>
-</ul>
-<hr>
-</section>
-<section id="part-3-advanced-models-and-optimization" class="level3">
-<h3 class="anchored" data-anchor-id="part-3-advanced-models-and-optimization">Part 3: Advanced Models and Optimization</h3>
-<ul>
-<li><strong>Lesson 9: Ensemble Theory and Variance Reduction</strong>
-<ul>
-<li><strong>ML Concept:</strong> Bagging and Random Forests.</li>
-<li><strong>Statistical Concept:</strong> Statistical properties of the average of random variables, the variance formula for a sum of correlated variables (\(\)), and how feature subsampling mathematically breaks that correlation.</li>
-<li><strong>Objectives:</strong> Explain ensemble gains quantitatively through the variance term of the decomposition from Lesson 8.</li>
-<li><strong>Expected Competencies:</strong> Ability to derive the variance of an averaged correlated ensemble and predict how it responds to changes in tree count and feature subsampling rate.</li>
-</ul></li>
-<li><strong>Lesson 10: Gradient Boosting and Numerical Optimization</strong>
-<ul>
-<li><strong>ML Concept:</strong> AdaBoost and Gradient Boosting.</li>
-<li><strong>Statistical Concept:</strong> Sequential additive modeling aimed at bias reduction, approximation of loss functions via Taylor expansion, and the interpretation of residuals and pseudo-residuals as the negative gradient of the loss in function space.</li>
-<li><strong>Objectives:</strong> Understand boosting as gradient descent performed in the space of functions rather than parameters.</li>
-<li><strong>Expected Competencies:</strong> Ability to derive pseudo-residuals for an arbitrary differentiable loss and contrast the bias-reduction mechanism of boosting with the variance reduction of bagging.</li>
-</ul></li>
-<li><strong>Lesson 11: Support Vector Machines (SVM)</strong>
-<ul>
-<li><strong>ML Concept:</strong> Maximum-margin classifiers and the kernel trick.</li>
-<li><strong>Statistical Concept:</strong> Constrained optimization via the Lagrangian dual formulation, non-probabilistic loss functions (<em>Hinge Loss</em>, which induces sparsity in the support vectors), and the need for subsequent statistical calibration (such as Platt scaling) to recover probabilities.</li>
-<li><strong>Objectives:</strong> Examine a model deliberately built outside the likelihood framework and understand what is gained and lost by that choice.</li>
-<li><strong>Expected Competencies:</strong> Ability to formulate the dual problem, identify support vectors, and calibrate SVM scores into usable probabilities.</li>
-</ul></li>
-<li><strong>Lesson 12: Neural Networks and Representation Learning</strong>
-<ul>
-<li><strong>ML Concept:</strong> Multilayer Perceptrons (MLPs) and backpropagation.</li>
-<li><strong>Statistical Concept:</strong> Neural networks as a hierarchical, chained composition of GLMs; final activation functions (such as <em>Softmax</em>) defining the parameters of multinomial distributions; and gradient computation via the chain rule for the optimization of the global likelihood.</li>
-<li><strong>Objectives:</strong> Close the course by showing deep networks as a stacked generalization of the parametric models studied in Part 2.</li>
-<li><strong>Expected Competencies:</strong> Ability to describe an MLP as a composition of GLMs, derive backpropagation from the chain rule, and connect the output layer to an explicit likelihood.</li>
-</ul></li>
-</ul>
+<section id="referências" class="level2">
+<h2 class="anchored" data-anchor-id="referências">Referências</h2>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
