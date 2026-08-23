@@ -1,0 +1,16 @@
+---
+title: "Identifying grain size in ASTM A36 steel using ultrasonic backscattered signals and machine learning"
+date: "2024-10-01"
+author: "Maria Clara Assunção Viana, P Pereira, Alexandre Aparecido Buenos, AA Santos"
+description: "Maria Clara Assunção Viana, P Pereira, Alexandre Aparecido Buenos, AA Santos (2024). NDT & E International."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=ou0eGXAAAAAJ&citation_for_view=ou0eGXAAAAAJ:9yKSN-GCB0IC"
+---
+
+## Abstract
+
+Ultrasonic nondestructive techniques can be useful tools in the microstructural classification of metallic alloys. Among the most common techniques for characterizing materials, backscattered signal analysis stands out because it does not require a back surface echo. This study classifies five ASTM A36 steel samples with varying grain sizes using ultrasonic waves. For each sample, ultrasound signals were obtained using two ultrasonic array probes with center frequencies of 5 and 10 MHz. An extensive feature engineering process was conducted using the tfresh package in Python, which extracts a wide range of features from time series data, transforming raw ultrasound signals into a structured format. Seven machine learning models were evaluated based on accuracy, precision, recall, and F1 score, with performances ranging from 70 to 100%. The XGBoost model exhibited the best performance with 10 MHz …
+
+::: {#links}
+:::
+

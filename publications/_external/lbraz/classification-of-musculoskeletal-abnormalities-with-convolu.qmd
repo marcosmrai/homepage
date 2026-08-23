@@ -1,0 +1,17 @@
+---
+title: "Classification of Musculoskeletal Abnormalities with Convolutional Neural Networks"
+date: "2020-11-23"
+author: "Guilherme Tiaki Sassai Sato, Leodécio Braz da Silva Segundo, Zanoni Dias"
+scholar-ids: [DI_Wyj0AAAAJ]
+description: "Guilherme Tiaki Sassai Sato, Leodécio Braz da Silva Segundo, Zanoni Dias (2020). Brazilian Symposium on Bioinformatics."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=oMCF-TAAAAAJ&citation_for_view=oMCF-TAAAAAJ:zYLM7Y9cAGgC"
+---
+
+## Abstract
+
+Computer-aided diagnosis has the potential to alleviate the burden on medical doctors and decrease misdiagnosis, but building a successful method for automatic classification is challenging due to insufficient labeled data. In this work, we investigate the usage of convolutional neural networks to diagnose musculoskeletal abnormalities using radiographs (X-rays) of the upper limb and measure the impact of several techniques in our model. We achieved the best results by utilizing an ensemble model that employs a support vector machine to combine different models, resulting in an overall AUC ROC of 0.8791 and Kappa of 0.6724 when evaluated using an independent test set.
+
+::: {#links}
+:::
+

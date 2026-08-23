@@ -1,0 +1,16 @@
+---
+title: "Handbags classification model via deep learning"
+date: "2019-01-01"
+author: "DJ Braga, Leodecio Braz SS, Crıston Pereira de Souza, Ticiana L Coelho da Silva"
+description: "DJ Braga, Leodecio Braz SS, Crıston Pereira de Souza, Ticiana L Coelho da Silva (2019). International Conference on Machine Learning and Data Mining."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=oMCF-TAAAAAJ&citation_for_view=oMCF-TAAAAAJ:9yKSN-GCB0IC"
+---
+
+## Abstract
+
+Handbags are essential items in the fashion world, becoming indispensable in a person’s wardrobe. Such items have led a significant financial growth for important companies in the industry. Recognizing specific model information from a handbag posted either from magazines or other web pages such as blogs and Facebook can help in many applications as multimedia retrieval, fashion recommendation, and fashion search. Recently, deep convolution neural networks (CNNs) have been widely used to extract image features and construct models capable of accurately classifying objects from images. In this work, we aim at exploring the use of CNNs based on proposed architectures in the ImageNet competition. We chose Inception as a neural network to train a classifier capable of learning features from different handbags models and brands. Our experiments were conducted on a real data set, and show the accuracy and the performance of our method for handbags brands/models detection. Besides, we evaluate the effect on the performance and models’ accuracy by including a smart cropping phase, which is a pre-processing step that crops the handbag region of interest of the input images before performing the model training or prediction.
+
+::: {#links}
+:::
+

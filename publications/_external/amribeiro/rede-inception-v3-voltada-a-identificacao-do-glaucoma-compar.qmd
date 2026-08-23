@@ -1,0 +1,17 @@
+---
+title: "Rede inception v3 voltada a identificaçao do glaucoma: Comparaçao entre métodos de otimizaçao"
+date: "2019-12-26"
+author: "Athyrson M Ribeiro, S Francisco de Paula"
+scholar-ids: [lTwSfXYAAAAJ]
+description: "Athyrson M Ribeiro, S Francisco de Paula (2019). Escola Regional de Computação Aplicada à Saúde (ERCAS)."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=lTwSfXYAAAAJ&citation_for_view=lTwSfXYAAAAJ:u-x6o8ySG0sC"
+---
+
+## Abstract
+
+Dentre os usos possíveis de Redes Neurais Convolucionais (RNCs) destaca-se o auxílio no diagnóstico precoce de diversas doenças, dentre elas o glaucoma, patologia que provoca danos ao nervo óptico e pode levar a perda permanente da visão. O glaucoma é a segunda doença que mais causa cegueira no mundo. Neste trabalho foi realizada uma comparação entre cinco métodos de otimização aplicados em uma RNC implementada com a arquitetura Inception V3 voltada a identificação de glaucoma através de imagens. É observado que, dentre os métodos testados, o recém proposto método Adabound obteve melhores resultados durante e após o treinamento da rede.
+
+::: {#links}
+:::
+

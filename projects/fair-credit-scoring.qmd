@@ -1,8 +1,0 @@
----
-title: "Fair and Transparent Credit Scoring"
-date: "2022-05-01"
-subtitle: "2022 – ongoing"
-image: fair-credit-scoring.png
-description: "The goal of this project is to build an automatic credit scoring system that uses mobile and socio-economical data to promote finance inclusion."
-categories: [Credit Scoring, Machine Learning, Ethics, Interpretability, Fairness, Social Good]
----

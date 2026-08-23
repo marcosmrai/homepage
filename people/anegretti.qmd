@@ -9,15 +9,26 @@ about:
 group: "Master Students"
 filters:
   - ../band-sections.lua
+links:
+  - github: "alex-dias"
+  - linkedin: "alexandre-negretti-175b16146"
+  - lattes: "0563959995144470"
+listing:
+  # publications-listing:start (gerado por generate_person_bibliographies.py — não editar)
+  - id: publications
+    contents: "../publications/anegretti/*.qmd"
+    type: default
+    sort: "date desc"
+    fields: [title, description]
+  # publications-listing:end
 ---
 
 [Institute of Computing - University of Campinas](https://ic.unicamp.br/)
 
-::: {.profile-links}
-<a href="https://github.com/alex-dias" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
-<a href="https://www.linkedin.com/in/alexandre-negretti-175b16146/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
-<a href="http://lattes.cnpq.br/0563959995144470" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+::: {#links}
 :::
+
+
 
 Alexandre Negretti is a M.Sc. candidate in Computer Science at the Institute of Computing at the University of Campinas (IC - UNICAMP). He is a member of the Hub of Artificial Intelligence and Cognitive Architectures (HIAAC), performing research in Hate Speech classification, mainly in the area of ethnicity bias.
 
@@ -34,3 +45,8 @@ Institute of Computing - University of Campinas
 
 **BSc in Computer Engineer**, 2018
 Computer Department - Federal University of São Carlos
+
+## Publications
+
+::: {#publications}
+:::

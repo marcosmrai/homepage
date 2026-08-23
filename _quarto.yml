@@ -1,11 +1,34 @@
 project:
   type: website
   output-dir: _site
-  pre-render: publications/generate_person_bibliographies.py
+  pre-render:
+    - publications/generate_person_bibliographies.py
+    - projects/generate_project_pages.py
   render:
     - "*.qmd"
     - "**/*.qmd"
     - "!old/"
+    - "!old_teaching/"
+
+execute:
+  freeze: auto
+
+# Filtro de diagramas (TikZ/Mermaid/Graphviz/...) via pandoc-ext/diagram,
+# instalado em _extensions/pandoc-ext/diagram. Global porque só ativa em
+# blocos de código com uma linguagem de diagrama (ex.: ```{.tikz}) — em
+# páginas sem esse tipo de bloco, é inofensivo (não faz nada).
+filters:
+  - diagram
+  - participants.lua
+  - links.lua
+
+diagram:
+  cache: true
+  engine:
+    tikz:
+      execpath: pdflatex
+      additional-packages: |
+        \usetikzlibrary{shapes.geometric, arrows.meta, positioning}
 
 website:
   title: "Marcos M. Raimundo"

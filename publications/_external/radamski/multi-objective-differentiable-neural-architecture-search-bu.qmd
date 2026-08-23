@@ -1,0 +1,14 @@
+---
+title: "Multi-Objective Differentiable Neural Architecture Search Busca Multiobjetivo e Diferenciável de Arquitetura de Rede Neural"
+date: "YYYY-MM-DD"
+author: "Raphael Adamski"
+scholar-ids: [IrLjcsYAAAAJ]
+description: "Raphael Adamski (YYYY). Preprint."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=IrLjcsYAAAAJ&citation_for_view=IrLjcsYAAAAJ:u5HHmVD_uO8C"
+---
+
+
+::: {#links}
+:::
+

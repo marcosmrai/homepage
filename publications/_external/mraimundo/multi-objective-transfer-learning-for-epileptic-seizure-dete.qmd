@@ -1,0 +1,13 @@
+---
+title: "Multi-objective transfer learning for epileptic seizure detection"
+date: "2017-01-01"
+author: "F.S. Beserra, M.M. Raimundo, F.J. and Von Zuben"
+description: "F.S. Beserra, M.M. Raimundo, F.J. and Von Zuben (2017). Journal of Epilepsy and Clinical Neurophysiology."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=ibe0jfQAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=ibe0jfQAAAAJ:ufrVoPGSRksC"
+---
+
+
+::: {#links}
+:::
+

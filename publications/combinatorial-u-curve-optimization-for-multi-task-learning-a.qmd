@@ -1,0 +1,27 @@
+---
+title: "Combinatorial U-Curve Optimization for Multi-Task Learning: A Task Selection Approach"
+date: "2025-06-30"
+author: "Giovana K Bonás, Marcelo S Reis, Marcos M Raimundo"
+author-ids: [gkerche, mraimundo]
+scholar-ids: [3K00JYoAAAAJ, PG3zyhsAAAAJ, ibe0jfQAAAAJ]
+projects: [moml]
+categories: [Multi-objective Optimization, Multi-task Learning, Combinatorial Optimization]
+description: "Giovana K Bonás, Marcelo S Reis, Marcos M Raimundo (2025). 2025 International Joint Conference on Neural Networks (IJCNN)."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=ibe0jfQAAAAJ&sortby=pubdate&citation_for_view=ibe0jfQAAAAJ:QIV2ME_5wuYC"
+---
+
+## Abstract
+
+Multi-task learning (MTL) is an approach where a single model learns multiple tasks simultaneously, potentially reducing overfitting and speeding up the learning process. However, selecting the right combination of tasks is crucial to avoid negative transfer, where learning additional tasks might hinder rather than enhance performance. Research has explored task relationships through shared data samples, features, relational knowledge, and parameters. However, sharing relational knowledge, features, or parameters often requires domain knowledge, potentially introducing artificial connections between unrelated tasks. This paper presents an MTL algorithm based on combinatorial U-curve optimization, focusing on data sample sharing. It uses a branch-and-bound-based approach to identify beneficial source tasks without requiring prior domain knowledge. The method organizes tasks into a tree, optimizing …
+
+::: {#links}
+:::
+
+## Authors
+
+::: {.paper-authors}
+<a href="/people/gkerche.html"><img src="/people/gkerche.jpg" alt="Giovana K Bonás"><span>Giovana K Bonás</span></a>
+<a href="https://scholar.google.com/citations?user=PG3zyhsAAAAJ&hl=pt-BR" target="_blank" rel="noopener"><img src="/coauthors/PG3zyhsAAAAJ.jpg" alt="Marcelo S Reis"><span>Marcelo S Reis</span></a>
+<a href="/people/mraimundo.html"><img src="/people/mraimundo.jpg" alt="Marcos M Raimundo"><span>Marcos M Raimundo</span></a>
+:::

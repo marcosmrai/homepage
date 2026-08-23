@@ -6,11 +6,28 @@ date: today
 lang: pt-BR
 format:
   html:
+    theme: [flatly, ../../../custom.scss, ../../lesson-theme.scss]
     code-fold: false
     number-sections: true
     fig-width: 8
     fig-height: 4.5
   revealjs:
+    transition: slide
+    width: 1280
+    height: 800
+    margin: 0.02
+    fig-responsive: true
+    fig-format: "svg"
+    footer: "UNICAMP — Instituto de Computação"
+    chalkboard:
+      boardmarker-width: 3
+      chalk-width: 3
+    include-after-body: ../../logos-footer.html
+    title-slide-attributes:
+      data-background-image: "../../UNICAMP.png, ../../IC.png"
+      data-background-size: "140px, 140px"
+      data-background-position: "5% 8%, 95% 8%"
+    theme: [simple, ../../lesson-theme.scss]
     output-file: slides.html
     slide-number: true
     fig-width: 8

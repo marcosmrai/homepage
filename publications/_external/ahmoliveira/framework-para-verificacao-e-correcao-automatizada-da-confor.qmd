@@ -1,0 +1,17 @@
+---
+title: "Framework para Verificaçao e Correçao Automatizada da Conformidade Sintática de Requisitos de Software baseada em Modelos com Uso de IA"
+date: "2025-11-04"
+author: "Arthur HM de Oliveira, Johnny Marques"
+scholar-ids: [Grv19eoAAAAJ]
+description: "Arthur HM de Oliveira, Johnny Marques (2025). Simpósio Brasileiro de Qualidade de Software (SBQS)."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=Grv19eoAAAAJ&sortby=pubdate&citation_for_view=Grv19eoAAAAJ:IjCSPb-OGe4C"
+---
+
+## Abstract
+
+Este artigo apresenta o progresso de uma pesquisa de doutorado voltada ao desenvolvimento de um framework para verificação e correção automatizadas da sintaxe de requisitos. O objetivo é assegurar a conformidade com Modelos de Requisitos amplamente adotados pela indústria, aprimorando a precisão das especificações em processos de desenvolvimento de software. A metodologia aplica técnicas de Processamento de Linguagem Natural (PLN) e Modelos de Linguagem de Grande Porte (LLMs) para automatizar um processo antes dependente de intervenção manual. Um Mapeamento Sistemático da Literatura (MSL) identificou abordagens existentes, e a pesquisa atualmente explora técnicas e ferramentas de PLN relevantes ao framework. Link: https://youtu. be/amL-WAbUt6U.
+
+::: {#links}
+:::
+

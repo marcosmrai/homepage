@@ -37,6 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -73,7 +75,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-publications .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-publications'] = new List('listing-publications', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -155,8 +215,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </header><main class="content page-columns page-full" id="quarto-document-content">
 <p><a href="https://www.fem.unicamp.br/index.php/pt-br/">School of Mechanical Engineering - Universidade Estadual de Campinas</a></p>
-<div class="profile-links">
-<p><a href="https://scholar.google.com/citations?user=ou0eGXAAAAAJ&amp;hl=pt-BR&amp;oi=ao" class="about-link" target="_blank" rel="me"><i class="bi bi-mortarboard-fill"></i> <span class="about-link-text">Google Scholar</span></a> <a href="https://github.com/mariaclaraav" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a> <a href="https://www.linkedin.com/in/maria-clara-assuncao-viana/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a> <a href="http://lattes.cnpq.br/1524671501423548" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a></p>
+<div id="links">
+<a href="https://scholar.google.com/citations?user=ou0eGXAAAAAJ&amp;hl=pt-BR" class="about-link" target="_blank" rel="me"><i class="bi bi-mortarboard-fill"></i> <span class="about-link-text">Google Scholar</span></a>
+<a href="https://github.com/mariaclaraav" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/in/maria-clara-assuncao-viana/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+<a href="http://lattes.cnpq.br/1524671501423548" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
 </div>
 <p>Maria Clara Assunção is an MSc candidate in Mechanical Engineering at the School of Mechanical Engineering at the Universidade Estadual de Campinas (FEM - UNICAMP). She is co-advised by Professor Dr.&nbsp;Marcos Medeiros in her dissertation, which focuses on enhancing machine learning techniques for applications in Prognostics and Health Management (PHM).</p>
 <div class="column-screen band band-gray page-columns page-full">
@@ -181,6 +244,90 @@ ul.task-list li input[type="checkbox"] {
 <div class="section-content">
 <p><strong>MSc in Mechanical Engineering</strong>, 2025 Universidade Estadual de Campinas</p>
 <p><strong>BSc in Applied Math</strong>, 2022 Universidade Federal do Espírito Santo</p>
+</div>
+</div>
+</div>
+<div class="column-screen band band-gray page-columns page-full">
+<div class="column-body section-row">
+<section id="publications" class="level2 section-label">
+<h2 data-anchor-id="publications">Publications</h2>
+</section>
+<div class="section-content">
+<div id="listing-publications" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1735700400000" data-listing-file-modified-sort="1787438841208" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="225">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/mcassuncao/aprimoramento-de-tecnicas-de-feature-engineering-para-aplica.html" class="no-external">Aprimoramento de técnicas de feature engineering para aplicação em prognóstico e gestão da saúde de máquinas</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/mcassuncao/aprimoramento-de-tecnicas-de-feature-engineering-para-aplica.html" class="no-external">
+<p>Maria Clara Assunção Viana (2025). [sn].</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/mcassuncao/aprimoramento-de-tecnicas-de-feature-engineering-para-aplica.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1727751600000" data-listing-file-modified-sort="1787438841208" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="135">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/mcassuncao/identifying-grain-size-in-astm-a36-steel-using-ultrasonic-ba.html" class="no-external">Identifying grain size in ASTM A36 steel using ultrasonic backscattered signals and machine learning</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/mcassuncao/identifying-grain-size-in-astm-a36-steel-using-ultrasonic-ba.html" class="no-external">
+<p>Maria Clara Assunção Viana, P Pereira, Alexandre Aparecido Buenos, AA Santos (2024). NDT &amp; E International.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/mcassuncao/identifying-grain-size-in-astm-a36-steel-using-ultrasonic-ba.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1704078000000" data-listing-file-modified-sort="1787438841207" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="141">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/mcassuncao/measuring-vertical-track-irregularities-from-instrumented-he.html" class="no-external">Measuring vertical track irregularities from instrumented heavy haul railway vehicle data using machine learning</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/mcassuncao/measuring-vertical-track-irregularities-from-instrumented-he.html" class="no-external">
+<p>Arthur Cancellieri Pires, Maria Clara Assunção Viana, Lorenzo M Scaramussa, Guilherme Fabiano Mendonça do Santos, Paola Gonzalez Ramos, AA Santos (2024). Engineering Applications of Artificial Intelligence.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/mcassuncao/measuring-vertical-track-irregularities-from-instrumented-he.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1685588400000" data-listing-file-modified-sort="1787438841207" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="2">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/mcassuncao/generation-of-realistic-artificial-track-irregularities-for.html" class="no-external">Generation of Realistic Artificial Track Irregularities for Multibody Simulation usina Measure Geométrica Data - from Mid-Chord to Space-Curve</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/mcassuncao/generation-of-realistic-artificial-track-irregularities-for.html" class="no-external">
+<p>G.F.M. Santos and A.A Santos M.C.A. Viana, P.G. Ramos, A.J.C.R. Tameirao, A.C. Pires (2023). Proceedings of the Fifth International Conference on Railway Technology: Research, Development and Maintenance.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/mcassuncao/generation-of-realistic-artificial-track-irregularities-for.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1641006000000" data-listing-file-modified-sort="1787438841208" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="227">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/mcassuncao/comparacao-entre-modelo-dinamico-e-quase-estatico-para-anali.html" class="no-external">Comparação entre modelo dinâmico e quase-estático para análise de contatos roda-trilho</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/mcassuncao/comparacao-entre-modelo-dinamico-e-quase-estatico-para-anali.html" class="no-external">
+<p>Thiago Leister Sá, Paola Gonzalez Ramos, Philipe Augusto de Paula Pacheco, Maria Clara Assunção Viana, Guilherme Fabiano Mendonça dos Santos, Auteliano Antunes dos Santos Junior, Alfredo Gay Neto (2022). Anais.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/mcassuncao/comparacao-entre-modelo-dinamico-e-quase-estatico-para-anali.html" class="no-external">
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
 
 
 <div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">

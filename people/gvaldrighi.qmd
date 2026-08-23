@@ -7,50 +7,43 @@ about:
   template: jolla
   image-shape: round
 group: "Ph.D. Students"
-scholar-id: "iQXEldcAAAAJ"
 filters:
   - ../band-sections.lua
-# publications-listing:start (gerado por generate_person_bibliographies.py — não editar)
+links:
+  - scholar-id: "iQXEldcAAAAJ"
+  - website: "http://giovanivaldrighi.github.io"
+  - twitter: "gvaldrighi1"
+  - github: "giovanivaldrighi"
+  - linkedin: "giovani-valdrighi"
+  - lattes: "5990914095091548"
 listing:
-  id: publications
-  contents: "../publications/gvaldrighi/*.qmd"
-  type: default
-  sort: "date desc"
-  fields: [title, description]
-# publications-listing:end
+  # publications-listing:start (gerado por generate_person_bibliographies.py — não editar)
+  - id: publications
+    contents: "../publications/gvaldrighi/*.qmd"
+    type: default
+    sort: "date desc"
+    fields: [title, description]
+  # publications-listing:end
+  # projects-listing:start (gerado por generate_project_pages.py — não editar)
+  - id: projects
+    contents: "../projects/gvaldrighi/*.qmd"
+    type: default
+    sort: "date desc"
+    fields: [title, description]
+  # projects-listing:end
 ---
 
 [Institute of Computing - University of Campinas](https://ic.unicamp.br/)
 
-::: {.profile-links}
-<a href="http://giovanivaldrighi.github.io" class="about-link" target="_blank" rel="me"><i class="bi bi-globe2"></i> <span class="about-link-text">Website</span></a>
-<a href="https://twitter.com/gvaldrighi1" class="about-link" target="_blank" rel="me"><i class="bi bi-twitter-x"></i> <span class="about-link-text">Twitter</span></a>
-<a href="https://scholar.google.com.br/citations?user=iQXEldcAAAAJ&hl=pt-BR" class="about-link" target="_blank" rel="me"><i class="bi bi-mortarboard-fill"></i> <span class="about-link-text">Google Scholar</span></a>
-<a href="https://github.com/giovanivaldrighi" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
-<a href="https://www.linkedin.com/in/giovani-valdrighi/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
-<a href="http://lattes.cnpq.br/5990914095091548" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+::: {#links}
 :::
-
-Giovani Valdrighi is a Ph.D. candidate in Computer Science at the Institute of Computing at the University of Campinas (IC - UNICAMP). He is a member of the Hub of Artificial Intelligence and Cognitive Architectures (HIAAC), performing research in Trusthyworth AI, mainly in the area of fairness and explainability.
-
-## Interests
-
-- Machine Learning
-- Data Science
-- AI Ethics
-
-## Education
-
-**PhD in Computer Science**, 2026
-Institute of Computing - University of Campinas
-
-**MS in Math Modelling**, 2024
-School of Applied Math - Getulio Vargas Foundation
-
-**BSc in Applied Math**, 2022
-School of Applied Math - Getulio Vargas Foundation
 
 ## Publications
 
 ::: {#publications}
+:::
+
+## Projects
+
+::: {#projects}
 :::

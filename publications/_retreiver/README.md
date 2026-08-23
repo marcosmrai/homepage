@@ -1,113 +1,239 @@
 # publications/_retreiver/
 
-Ferramentas de apoio para *atualizar automaticamente* a lista de
-publicações. Nada nesta pasta é renderizado pelo site — o `_` no nome faz
-o Quarto ignorá-la inteiramente (mesma convenção usada em
-`publications/_papers/` e `publications/_external/`, ver abaixo).
+Ferramentas que mantêm a lista de publicações e as fotos de autores do
+site atualizadas automaticamente a partir do Google Scholar. Nada nesta
+pasta é renderizado pelo site — o `_` no nome faz o Quarto ignorá-la
+inteiramente, a mesma convenção usada em `publications/_external/` (ver
+abaixo).
 
-**Fonte de dados escolhida: Google Scholar** (`sync_from_google_scholar.py`),
-via navegador comum, sem proxy/VPN/rotação de IP — só uma sessão normal com
-pausas entre páginas. Isso significa aceitar o risco real de
-bloqueio/CAPTCHA temporário do Google, que é inerente a acessar o Scholar
-de forma automatizada (ele não tem API pública); não tentei contornar isso
-escondendo de onde a requisição parte. `fetch_semantic_scholar.py` continua
-disponível como alternativa sem esse risco (API oficial), caso queira
-comparar ou usar como fallback.
+Requer Playwright (`.venv/` aqui já tem `playwright` + `beautifulsoup4`;
+recriar com `pip install playwright && playwright install chromium` se
+necessário).
 
-Precisa do Playwright instalado neste ambiente (`.venv/` já criado aqui com
-`playwright` + `beautifulsoup4`; `pip install playwright && playwright
-install chromium` se recriar do zero).
+## Princípios de projeto
 
-## As três pastas de `publications/`
+- **Sem estágio de revisão manual.** Um paper em que o dono do site é
+  autor é escrito direto em `publications/` (oficial, visível no site)
+  assim que o scraper o encontra — não existe pasta de rascunho pra
+  promover depois. Ajustes (abstract truncado, nome de autor na forma
+  abreviada da citação) são feitos editando o arquivo já publicado.
+- **Sem página de perfil por coautor externo.** Um autor que não é da
+  equipe nunca ganha um `.qmd` próprio. Em vez disso, autores externos são
+  resolvidos contra um cache compartilhado de foto/ID (`coauthors/`, ver
+  "Resolução de autores" abaixo) ou caem num ícone genérico.
+- **Google Scholar é a fonte de dados principal**, acessado via uma sessão
+  normal de navegador com Playwright — sem proxy, VPN ou rotação de IP. O
+  Scholar não tem API pública, então isso significa carregar as páginas
+  HTML dele como um usuário comum carregaria, o que traz o risco real e
+  inerente de bloqueio/CAPTCHA temporário. `fetch_semantic_scholar.py` (a
+  API oficial do Semantic Scholar) fica disponível como alternativa de
+  menor risco pra conferir/comparar dados.
+- **Minimizar requisições repetidas ao Scholar.** Uma vez que um dado é
+  conhecido (o Scholar ID de um autor, o veículo de um paper), ele é
+  guardado em disco e nunca re-buscado, a não ser que haja um motivo
+  específico pra esperar que tenha mudado (ver "Atualizando um preprint
+  depois de publicado").
 
-| Pasta | O que tem | Aparece no site? |
+## Pastas
+
+| Pasta | Conteúdo | Aparece no site? |
 |---|---|---|
-| `publications/*.qmd` (nível superior) | lista **oficial** — só papers em que o dono do site é coautor | Sim — página de Publications, home, e o listing de cada coautor |
-| `publications/_papers/` | rascunho gerado pelos fetchers, **aguardando sua revisão** antes de virar oficial | Não (nome com `_`) |
-| `publications/_external/<username>/` | papers de um membro da equipe **sem** o dono do site — nunca viram lista oficial | Não diretamente (nome com `_`), mas ver `publications/<username>/` abaixo |
-| `publications/<username>/` (uma por pessoa, criada automaticamente) | links simbólicos pras publicações dessa pessoa (oficiais + as de `_external/<username>/`) | **Sim** — é isso que faz o listing nativo do perfil dela funcionar |
+| `publications/*.qmd` (nível superior) | a lista **oficial** — só papers em que o dono do site é coautor | Sim — página de Publications, home, e o listing de cada coautor |
+| `publications/_external/<username>/` | o resto das publicações de uma pessoa específica (sem o dono do site) | Não diretamente (prefixo `_`), mas ver `publications/<username>/` abaixo |
+| `publications/<username>/` (uma por pessoa, gerada automaticamente) | links simbólicos pras publicações dessa pessoa (oficiais + as próprias de `_external/<username>/`) | **Sim** — é isso que faz o listing nativo do perfil dela funcionar |
+| `coauthors/` | `coauthors.json` (scholar_id → foto em cache), os arquivos de foto, e `not_found.json` (nomes buscados sem resultado) | Não é uma pasta do site — um cache de dados/imagens lido por `render_authors_block` |
 
-`username` é o padrão "estilo paper" usado em todo `people/*.qmd` e
-`authors/*.qmd` — iniciais + sobrenome, minúsculo, sem separador (ex.:
-Marcos M. Raimundo → `mmraimundo`, Giovani Valdrighi → `gvaldrighi`).
+`username` é o padrão usado em todo `people/*.qmd`: iniciais de cada parte
+do nome exceto a última, mais o sobrenome, minúsculo, sem separador (ex.:
+"Giovani Valdrighi" → `gvaldrighi`). O dono do site é a única exceção
+deliberada, `mraimundo` (só a inicial do primeiro nome + sobrenome) em vez
+da forma de duas iniciais que a regra normalmente produziria.
 
-## As peças
+## Pipeline
 
 1. **`extract_scholar_links.py`** — só leitura local, sem rede. Varre
    `people/*.qmd` e devolve `{username: {name, scholar_id, scholar_url}}`
-   pra quem já tem Google Scholar cadastrado no perfil (campo
-   `scholar-id:` no front matter, com fallback pro link em
-   `.profile-links` se o campo ainda não existir). Seguro de rodar quando
-   quiser.
+   pra quem tem Google Scholar cadastrado no perfil (campo `scholar-id:`
+   no front matter, com fallback pra ler o link dentro de
+   `.profile-links` em perfis anteriores a esse campo existir).
 
 2. **`google_scholar_scraper.py`** — as funções de raspagem de fato
-   (Playwright + BeautifulSoup): `scrape_author_profile` (lista de
-   publicações do perfil), `scrape_paper_details` (resumo, autores, data,
-   veículo — a partir da página de citação de cada artigo), `human_delay`
-   (pausas humanas entre requisições).
+   (Playwright + BeautifulSoup):
+   - `scrape_author_profile` — publicações recentes de um perfil e a
+     caixa "Coautores" da barra lateral.
+   - `scrape_paper_details` — resumo, autores, data, veículo a partir da
+     página de citação de um artigo.
+   - `search_coauthor` — busca ancorada pra um coautor sem confirmação
+     prévia (ver "Resolução de autores" abaixo).
+   - `human_delay` — pausas aleatórias entre requisições.
 
-3. **`sync_from_google_scholar.py`** — a orquestração de ponta a ponta:
+3. **`sync_from_google_scholar.py`** — orquestração de ponta a ponta:
 
-       python3 sync_from_google_scholar.py --person giovani-valdrighi-nao-existe-mais-use-o-username
        python3 sync_from_google_scholar.py --person gvaldrighi
 
-   Abre o perfil de uma pessoa (`--person <username>`), ignora publicações
-   já cadastradas (oficial **ou** externa, por título), e pra cada uma
-   nova: se o dono do site está entre os autores → gera em
-   `publications/_papers/<slug>.qmd` (rascunho); senão → gera direto em
-   `publications/_external/<username>/<slug>.qmd` (página real, sem
-   author-ids/fotos, pra não criar stub de coautor de terceiros em
-   `authors/`).
+   `--person` é sempre um **username** (nome de arquivo em `people/`).
+   Abre o perfil dessa pessoa, pula publicações já cadastradas (oficiais
+   ou externas, por título — ainda que `scholar-ids:` do arquivo existente
+   seja atualizado, ver abaixo), e para cada uma nova: escreve direto em
+   `publications/<slug>.qmd` se o dono do site é coautor, senão em
+   `publications/_external/<username>/<slug>.qmd`.
 
-4. **`resolve_authors.py`** — local, sem rede (a não ser pelo avatar
-   placeholder, que usa ImageMagick localmente). Recebe a lista de autores
-   de um artigo e, para cada um: acha o `id` em `people/*.qmd` se for
-   alguém do laboratório; senão, acha em `authors/*.qmd` se já foi
-   cadastrado antes; senão, cria um perfil mínimo em `authors/<username>.qmd`
-   mais um avatar-placeholder. Nunca escreve em `people/`. A
+4. **`resolve_authors.py`** — resolve cada autor de um paper oficial pra
+   um link + imagem e mantém o cache em `coauthors/`. O único acesso à
+   rede aqui é baixar a foto de um coautor confirmado; autores sem
+   confirmação ganham um ícone genérico sem nenhuma requisição. A
    correspondência de nomes usa sobrenome + iniciais (`_name_key`), não
-   string exata, porque citações abreviam nomes de formas diferentes —
-   incluindo casos como iniciais grudadas sem ponto ("SB" → {s, b}) e
-   partículas comuns ("de", "da"...) que não contam como iniciais.
-   `_KNOWN_ALIASES` cobre à mão os casos que a heurística não resolve
-   sozinha (sobrenome truncado/expandido entre a citação e o perfil real).
+   string exata, porque citações abreviam nomes de formas inconsistentes
+   — incluindo iniciais grudadas sem ponto ("SB" → {s, b}) e partículas
+   comuns ("de", "da"...) excluídas do conjunto de iniciais.
+   `_KNOWN_ALIASES` cobre os poucos casos que a heurística não resolve
+   sozinha (sobrenome truncado ou expandido entre a citação e o perfil
+   real).
 
-5. **`render_publication.py`** — o templating em si (preenche
-   `TEMPLATE.qmd`), compartilhado pelos dois fetchers. Define
-   `PAPERS_DIR` (`_papers/`) e `EXTERNAL_DIR` (`_external/`).
+5. **`render_publication.py`** — preenche `TEMPLATE.qmd`, compartilhado
+   pelos dois fetchers. Define `PUBLICATIONS_DIR` (oficial, nível
+   superior) e `EXTERNAL_DIR` (`_external/`). Também tem
+   `backfill_scholar_ids`/`find_existing_publication` (atualiza
+   `scholar-ids:` num arquivo já existente sem reabrir a página de
+   citação) e `looks_like_preprint`/`update_venue_if_published` (ver
+   "Atualizando um preprint" abaixo).
 
-6. **`sync_symlinks.py`** — a única fonte da verdade de "quais
-   publicações são de quem": varre `publications/*.qmd` (author-ids) e
+6. **`sync_symlinks.py`** — a fonte única da verdade de "quais
+   publicações são de quem": varre `publications/*.qmd` (`author-ids:`) e
    `publications/_external/<username>/*.qmd`, e cria/atualiza
-   `publications/<username>/` com um link simbólico pra cada uma,
-   removendo os que não correspondem mais a nada. Rodável sozinho pra
-   depurar sem precisar de `quarto render`:
+   `publications/<username>/` com um link simbólico pra cada
+   correspondência, removendo os que não valem mais. Roda sozinho, sem
+   precisar de um `quarto render` completo:
 
        python3 sync_symlinks.py
 
-7. **`fetch_semantic_scholar.py`** — via alternativa, API oficial, sem
-   risco de bloqueio.
+7. **`refresh_coauthors.py`** — pré-popula o cache de coautores pra todo
+   perfil cadastrado de uma vez, sem tocar em publicações (ver abaixo).
 
-8. **`TEMPLATE.qmd`** / **`AUTHOR_TEMPLATE.qmd`** — formatos preenchidos
-   por `render_publication.py`/`resolve_authors.py`.
+8. **`fetch_semantic_scholar.py`** — a alternativa via API do Semantic
+   Scholar.
 
-## Depois que `../generate_person_bibliographies.py` roda (automático)
+9. **`TEMPLATE.qmd`** — o template que `render_publication.py` preenche.
 
-Esse script (na raiz de `publications/`, chamado pelo `project.pre-render`
-em `_quarto.yml`) chama `sync_symlinks.py` e depois atualiza o front matter
-de cada `people/<username>.qmd` (bloco `listing:` delimitado por
-comentário) e a lista `contents:` das duas listagens principais
-(Publications e home) — tudo sozinho, a cada `quarto render`/`quarto
-preview`. Não precisa rodar nada manualmente além dos fetchers acima.
+## Resolução de autores
 
-## Depois de revisar e promover um arquivo de `_papers/`
+Um autor de um paper oficial que **não** é da equipe é resolvido por
+`resolve_authors.resolve_author_ids` para um de três resultados:
 
-1. Mover o `.qmd` de `publications/_papers/` para `publications/` (fora da
-   pasta com `_`).
-2. Conferir se `categories:` (quando presente) bate com os valores já
-   usados em outras publicações em vez de inventar categorias novas.
-3. Conferir os campos vindos do Google Scholar (ano, veículo, coautores) —
-   ele não separa isso com a mesma limpeza da API do Semantic Scholar.
-4. Rodar `quarto render` (ou `quarto preview`) uma vez — o pre-render
-   recalcula sozinho o listing de cada coautor e das duas páginas
-   principais a partir do arquivo promovido.
+1. **Confirmado pela caixa "Coautores"** — o Google Scholar já lista essa
+   pessoa na barra lateral de um perfil sincronizado nesta rodada
+   (`id="gsc_rsb_co"`, extraído por
+   `google_scholar_scraper.scrape_author_profile`). É a única parte do
+   Scholar que liga um nome a um ID de perfil **e** uma foto real — a
+   lista de autores de uma página de citação, em contraste, é texto puro,
+   sem nenhum dos dois.
+2. **Achado por busca ancorada** — se não veio pela caixa "Coautores",
+   `sync_from_google_scholar.py` chama `search_coauthor`, que consulta a
+   busca geral de artigos do Scholar
+   (`/scholar?q=author:"Alvo" author:"Âncora"`) por um paper coautorado
+   pelos dois nomes, e lê o link do nome abreviado do autor alvo (ex.: "J
+   Poco") pra extrair o ID de perfil. A **âncora** — a pessoa cujo perfil
+   está sendo sincronizado — é o que torna isso seguro: como ela é uma
+   coautora confirmada de verdade do artigo, exigir os dois nomes na busca
+   praticamente elimina o risco de achar um homônimo. Uma busca solta,
+   sem âncora, não tem essa garantia (ver nota abaixo) e por isso não é
+   usada.
+3. **Sem confirmação nenhuma** — um ícone de pessoa genérico
+   (`bi-person-circle`, igual pra todo mundo nesse caso) cujo cartão linka
+   pra uma busca comum do Google pelo nome da pessoa. Nomes sem resultado
+   ficam registrados em `coauthors/not_found.json` pra a busca não se
+   repetir a cada sincronização seguinte.
+
+Nos casos 1 e 2, a foto real é baixada uma vez pra
+`coauthors/<scholar_id>.jpg` e registrada em `coauthors/coauthors.json`
+como `{scholar_id: {"name", "photo"}}`; o cartão da pessoa na seção
+"## Authors" linka direto pro Scholar dela.
+
+**Por que a busca precisa ser ancorada:** a própria página de busca de
+autor do Scholar (`view_op=search_authors`) redireciona pra uma tela de
+login do Google mesmo com uma sessão "aquecida", tornando-a inutilizável
+sem autenticação real. Uma busca comum do Google
+(`"<nome>" google scholar`) evita essa tela, mas não é confiável — um
+teste de controle contra um caso conhecido ("Jorge Poco", cujo ID real
+`S_88vX4AAAAJ` já estava confirmado pela caixa de coautores) trouxe o ID
+de uma pessoa diferente no primeiro resultado. Exigir um segundo nome já
+conhecido na busca (o operador `author:` do próprio Scholar aceita
+múltiplas cláusulas) resolveu esse caso específico corretamente, já que
+exige um artigo que as duas pessoas realmente escreveram juntas. Não é
+infalível — duas duplas de coautoria que sejam *ambas* homônimas uma da
+outra ainda colidiriam — mas elimina a ambiguidade de nome único ao custo
+de uma requisição a mais ao Scholar por autor sem confirmação.
+
+**`refresh_coauthors.py`** coleta só a caixa "Coautores" (sem raspar
+publicações, sem busca ancorada) de todo perfil com `scholar-id`
+cadastrado, de uma vez — mais barato que uma sincronização completa
+quando o objetivo é só manter `coauthors.json` populado, inclusive pra
+quem ainda não teve as próprias publicações sincronizadas:
+
+    python3 refresh_coauthors.py
+
+## Campo `scholar-ids:`
+
+Toda publicação (oficial ou externa) tem um campo `scholar-ids: [...]` no
+front matter com os IDs de Scholar conhecidos dos seus autores, vindos da
+mesma caixa "Coautores" descrita acima.
+
+- Um membro da equipe (`people/`) sem `scholar-id:` ainda ganha o campo
+  automaticamente na primeira vez que aparece na caixa de coautores de um
+  perfil sincronizado (nunca sobrescrevendo um valor já existente).
+- Pra um paper já existente (encontrado por título), `sync_from_google_scholar.py`
+  não reabre a página de citação — chama `backfill_scholar_ids`, que
+  atualiza `scholar-ids:` usando o campo `author:` já salvo no arquivo
+  mais o que foi resolvido nesta rodada.
+
+**Limitação conhecida:** a caixa "Coautores" só lista quem o próprio
+Scholar já considera colaborador frequente/confirmado, não todo coautor
+de todo artigo — `scholar-ids:` costuma ficar parcial em papers com muitos
+autores, preenchido aos poucos conforme mais perfis são sincronizados ou
+buscados.
+
+## Atualizando um preprint depois de publicado
+
+Um paper já cadastrado nunca é re-raspado por padrão — é isso que evita
+requisições repetidas pro mesmo artigo. A única exceção: se um arquivo
+ainda "parece um preprint" (`render_publication.looks_like_preprint`, que
+procura as palavras "preprint"/"arxiv" em qualquer lugar do arquivo), a
+sincronização seguinte reabre a página de citação dele
+(`scrape_paper_details`) especificamente pra conferir se o veículo já
+mudou pra algo definitivo. Se mudou, `update_venue_if_published` atualiza
+só `date:` e `description:` — abstract e lista de autores ficam intocados,
+já que não se espera que mudem nessa transição. Uma vez que o veículo de
+um arquivo deixa de parecer preprint, ele nunca mais é reaberto; só quem
+ainda está pendente de publicação paga a requisição extra por
+sincronização.
+
+O que essa política não cobre: uma mudança de título entre a versão
+preprint e a publicada (seria tratada como um artigo novo pelo dedup por
+título, possivelmente duplicando), e mudanças de abstract/autores depois
+de publicado. Ambos exigem ajuste manual — editar o `.qmd` diretamente, ou
+apagá-lo e deixar a próxima sincronização recriá-lo se o título mudou o
+suficiente pra não bater mais.
+
+## Manutenção automática do listing
+
+`../generate_person_bibliographies.py` (em `publications/`, chamado pelo
+`project.pre-render` em `_quarto.yml`) chama `sync_symlinks.py` e depois
+atualiza o front matter de cada `people/<username>.qmd` (o bloco
+`listing:` delimitado) e a lista `contents:` das duas páginas de listing
+principais (Publications e home) — a cada `quarto render`/`quarto
+preview`, sem nenhum passo manual além de rodar um dos fetchers acima.
+
+## Depois de rodar um fetcher
+
+Como nada fica retido pra revisão, vale conferir rapidamente depois:
+
+1. Confirmar que qualquer `categories:` bate com valores já usados em vez
+   de introduzir categorias novas.
+2. Checar os campos que o Google Scholar trouxe (ano, veículo, coautores,
+   às vezes um abstract truncado) — ele não estrutura isso com a mesma
+   limpeza da API do Semantic Scholar.
+3. Corrigir o que estiver errado editando o `.qmd` já em `publications/`
+   diretamente — não há arquivo intermediário pra mexer.
+
+O `quarto render`/`quarto preview` seguinte recalcula sozinho o listing de
+cada coautor e das duas páginas principais.

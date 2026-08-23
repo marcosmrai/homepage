@@ -1,0 +1,17 @@
+---
+title: "Katie: saindo do buraco negro e impulsionando as meninas para a computação"
+date: "2020-06-30"
+author: "Ester de Lima Pontes Andrade, Kamila Almeida Benevides, Kelly Bianca Araujo Silva, Letícia Medeiros, Luana Júlia Nunes Ferreira, Natália de Assis Sousa, Eliana Almeida, Sunny Kelma Oliveira Miranda"
+scholar-ids: [bekxjk0AAAAJ, V6h2p5kAAAAJ]
+description: "Ester de Lima Pontes Andrade, Kamila Almeida Benevides, Kelly Bianca Araujo Silva, Letícia Medeiros, Luana Júlia Nunes Ferreira, Natália de Assis Sousa, Eliana Almeida, Sunny Kelma Oliveira Miranda (2020). Women in Information Technology (WIT)."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=V6h2p5kAAAAJ&citation_for_view=V6h2p5kAAAAJ:d1gkVwhDpl0C"
+---
+
+## Abstract
+
+No ano letivo de 2018, apenas 10% dos ingressantes nos cursos de Ciência e Engenharia de Computação da Universidade Federal de Alagoas (UFAL) foram mulheres, um dos fatores que evidenciam a sub-representação do público feminino na área de computação da UFAL. Nesse cenário, surge o Grupo Katie, formado por alunas dos cursos de computação, determinado a iniciar o processo de reversão da baixa representatividade feminina, com uma atuação tanto no pré-ingresso acadêmico quanto na esfera universitária. Assim, com intuito inspiracional, o grupo leva o nome da cientista da computação responsável pelo algoritmo usado na criação das primeiras imagens de um buraco negro supermassivo, Katherine Bouman.
+
+::: {#links}
+:::
+

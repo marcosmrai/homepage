@@ -1,7 +1,8 @@
 """Busca publicações de um autor via a API pública do Semantic Scholar
-(api.semanticscholar.org) e gera os .qmd correspondentes em
-publications/papers/ (área de rascunho — excluída do build do site em
-_quarto.yml; revise antes de mover para publications/ de verdade).
+(api.semanticscholar.org). Mesma divisão de sync_from_google_scholar.py:
+papers com o dono do site vão direto pra publications/ (oficial, sem
+estágio de rascunho); os demais exigem --person (slug em people/) pra
+saber de quem são e vão pra publications/_external/<slug>/.
 
 Esta é a via alternativa ao Google Scholar (ver sync_from_google_scholar.py
 para a via que você pediu de fato usar como fonte principal). Mantive esta
@@ -10,11 +11,11 @@ bloqueio — útil pra conferir/comparar dados quando quiser.
 
 Uso:
     python3 fetch_semantic_scholar.py --author-id 2373214840 --owner-name "M. M. Raimundo"
+    python3 fetch_semantic_scholar.py --author-id 2373214840 --person gvaldrighi
 
-O --owner-name é usado só para decidir se a seção "## Authors" (com fotos)
-é gerada — por pedido explícito, fotos só para papers em que o dono do
-site (Marcos) está envolvido, pra não explodir o número de perfis em
-authors/ com o círculo de coautoria de terceiros.
+O --owner-name é usado pra decidir author-ids/scholar-ids — só autores da
+equipe (people/) ou coautores já confirmados pelo Scholar (ver
+resolve_authors.py) ganham foto; o resto cai num ícone genérico.
 """
 
 import argparse
@@ -26,11 +27,14 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from resolve_authors import _name_key  # noqa: E402
 from render_publication import (  # noqa: E402
     ROOT,
+    existing_external_titles,
     existing_titles,
     render_publication,
     slugify,
+    write_external_publication,
     write_publication,
 )
 
@@ -62,39 +66,50 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--author-id", required=True, help="Semantic Scholar authorId (use search_author() pra achar)")
     parser.add_argument("--owner-name", default="M. M. Raimundo", help="Nome do dono do site, pra decidir quando incluir fotos")
+    parser.add_argument("--person", help="slug em people/ — obrigatório pra saber onde salvar papers sem o dono do site (publications/_external/<person>/)")
     args = parser.parse_args()
 
-    known_titles = existing_titles()
+    owner_key = _name_key(args.owner_name)
+    known_titles = existing_titles() | (existing_external_titles(args.person) if args.person else set())
     papers = fetch_author_papers(args.author_id)
     print(f"[i] {len(papers)} publicação(ões) encontradas no perfil.")
 
-    written, skipped_existing = 0, 0
+    written, externalized, skipped_existing = 0, 0, 0
     for paper in papers:
         title_key = paper["title"].strip().lower()
         if title_key in known_titles:
-            print(f"[=] Já existe em publications/: {paper['title']}")
+            print(f"[=] Já cadastrado: {paper['title']}")
             skipped_existing += 1
             continue
 
+        authors = [a["name"] for a in paper["authors"]]
         rendered = render_publication(
             title=paper["title"],
-            authors=[a["name"] for a in paper["authors"]],
+            authors=authors,
             date_iso=paper.get("publicationDate") or f"{paper.get('year', '')}-01-01",
             year=str(paper.get("year", "")),
             venue=paper.get("venue") or "Preprint",
             abstract=paper.get("abstract"),
             source_url=f"https://www.semanticscholar.org/paper/{paper['paperId']}",
-            source_label="Semantic Scholar",
             owner_name=args.owner_name,
         )
-        out_path = write_publication(slugify(paper["title"]), rendered)
-        print(f"[+] Gerado: {out_path.relative_to(ROOT)}")
-        written += 1
+
+        involves_owner = any(_name_key(a) == owner_key for a in authors)
+        if involves_owner:
+            out_path = write_publication(slugify(paper["title"]), rendered)
+            print(f"[+] Gerado em publications/ (envolve {args.owner_name}): {out_path.relative_to(ROOT)}")
+            written += 1
+        elif args.person:
+            out_path = write_external_publication(args.person, slugify(paper["title"]), rendered)
+            print(f"[+] Gerado em publications/_external/ (sem {args.owner_name}): {out_path.relative_to(ROOT)}")
+            externalized += 1
+        else:
+            print(f"[i] Sem {args.owner_name} entre os autores e sem --person — pulando: {paper['title']}")
 
         time.sleep(REQUEST_DELAY_SECONDS)
 
-    print(f"\n[✔] {written} arquivo(s) novo(s) em publications/papers/, "
-          f"{skipped_existing} já existente(s) ignorado(s). Revise antes de mover para publications/.")
+    print(f"\n[✔] {written} arquivo(s) novo(s) em publications/ (já oficiais), "
+          f"{externalized} novo(s) em publications/_external/, {skipped_existing} já existente(s) ignorado(s).")
 
 
 if __name__ == "__main__":

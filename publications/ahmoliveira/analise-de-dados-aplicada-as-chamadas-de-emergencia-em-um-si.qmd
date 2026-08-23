@@ -1,0 +1,1 @@
+../_external/ahmoliveira/analise-de-dados-aplicada-as-chamadas-de-emergencia-em-um-si.qmd

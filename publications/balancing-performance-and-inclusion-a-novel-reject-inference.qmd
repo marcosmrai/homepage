@@ -1,0 +1,23 @@
+---
+title: "Balancing Performance and Inclusion: A Novel Reject Inference Framework for Credit Scoring"
+date: "2026-01-01"
+author: "Athyrson Machado Ribeiro, Marcos M Raimundo"
+author-ids: [amribeiro, mraimundo]
+scholar-ids: [lTwSfXYAAAAJ, ibe0jfQAAAAJ]
+projects: [ai-for-finance-hiaac]
+categories: [Fair Credit Scoring, Reject Inference, Credit Scoring]
+description: "Athyrson Machado Ribeiro, Marcos M Raimundo (2026). The 2nd Workshop on Advances in Financial AI Workshop: Towards Agentic and Responsible Systems."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=ibe0jfQAAAAJ&sortby=pubdate&citation_for_view=ibe0jfQAAAAJ:hC7cP41nSMkC"
+---
+
+
+::: {#links}
+:::
+
+## Authors
+
+::: {.paper-authors}
+<a href="/people/amribeiro.html"><img src="/people/amribeiro.jpg" alt="Athyrson Machado Ribeiro"><span>Athyrson Machado Ribeiro</span></a>
+<a href="/people/mraimundo.html"><img src="/people/mraimundo.jpg" alt="Marcos M Raimundo"><span>Marcos M Raimundo</span></a>
+:::

@@ -17,21 +17,22 @@ The primary goal is to provide students with a deep geometric and analytical und
 
 ### Part 1: Data-Driven Linear Algebra
 
-* [**Lesson 1: Vector Spaces, Norms, Inner Products, and Metrics**](../../materials/optimization-linear-algebra/aula01/index.qmd)
+* [**Lesson 1: Vector Spaces, Norms, Inner Products, and Metrics**](./aula01/index.qmd)
   * **ML Concept:** Distance-based similarity and spatial modeling in $k$-Nearest Neighbors ($k$-NN).
   * **Mathematical Concept:** Vector spaces, inner products, and vector/matrix norms ($L_1$, $L_2$, $L_\infty$). Geometric interpretation of similarity through inner products and cosine distance.
   * **Objectives:** Understand how structured data points are represented geometrically and how distance choices impact metric-based learning algorithms.
   * **Expected Competencies:** Ability to implement custom metric search routines in Python using type hints, analyze norm properties, and formalize geometric similarity.
 
 
-* **Lesson 2: Matrix Representations, Linear Systems, and Independence**
+* [**Lesson 2: Matrix Representations, Linear Systems, and Independence**](./aula02/index.qmd)
   * **ML Concept:** Multivariable data matrix representations and Multiple Linear Regression.
   * **Mathematical Concept:** Matrix-vector operations, rank, linear independence, and system solvability ($Ax = b$).
   * **Objectives:** Formulate dataset transformations and linear models through matrix systems.
   * **Expected Competencies:** Ability to express multi-dimensional datasets as design matrices, compute matrix rank, and identify multi-collinearity issues in feature spaces.
 
 
-* **Lesson 3: Orthogonal Projections and Subspaces**
+
+* [**Lesson 3: Orthogonal Projections and Subspaces**](./aula03/index.qmd)
   * **ML Concept:** Closed-form solutions for Ordinary Least Squares (OLS) regression.
   * **Mathematical Concept:** Subspaces, orthogonal complements, projection matrices, and the Normal Equations ($X^T X \hat{w} = X^T y$).
   * **Objectives:** Derive the geometric closed-form solution to linear regression without requiring iterative optimization.

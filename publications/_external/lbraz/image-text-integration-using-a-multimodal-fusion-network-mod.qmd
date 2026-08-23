@@ -1,0 +1,17 @@
+---
+title: "Image-text integration using a multimodal fusion network module for movie genre classification"
+date: "2021-03-17"
+author: "Leodécio Braz, Vinícius Teixeira, Helio Pedrini, Zanoni Dias"
+scholar-ids: [oMCF-TAAAAAJ, kc-wB9QAAAAJ, DI_Wyj0AAAAJ]
+description: "Leodécio Braz, Vinícius Teixeira, Helio Pedrini, Zanoni Dias (2021). 11th International Conference of Pattern Recognition Systems (ICPRS 2021)."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=oMCF-TAAAAAJ&citation_for_view=oMCF-TAAAAAJ:Tyk-4Ss8FVUC"
+---
+
+## Abstract
+
+Multimodal models have received increasing attention from researchers for using the complementarity of data to obtain a better inference on the dataset. These multimodal models have been applied to several deep learning tasks, such as emotion recognition, video classification and audio-visual speech enhancement. In this paper, we propose a multimodal method that has two branches, one for text classification and another for image classification. In the image classification branch, we use the Class Activation Mapping (CAM) method as an attention module for the identification of relevant regions of the images. To validate our method, we used the MM-IMDB dataset, which consists of 25959 movies with their respective plot outlines, poster and genres. Our results showed that our method averaged 0:6749 in F1-Weight, 0:6734 in F1-Samples, 0:6750 in F1-Micro and 0:6159 in F1-Macro, achieving better results …
+
+::: {#links}
+:::
+

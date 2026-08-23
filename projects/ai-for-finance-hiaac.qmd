@@ -1,0 +1,26 @@
+---
+title: "AI for Finance - HIAAC"
+date: "2022-01-01"
+subtitle: "2022 – 2026"
+description: "The goal of this research line is to develop robust and transparent AI models for credit analysis and similar problems in the financial sector, such as fraud detection."
+categories: [Credit Scoring, Fraud Detection, Edge Computing, Explainable AI, Fairness, Financial Inclusion, Machine Learning, Interpretability]
+participants: [amribeiro, gvaldrighi, dmfilho, cporto, cprado, ahmoliveira, jdnieto, jsbpereira]
+listing:
+  # related-publications-listing:start (gerado por generate_project_pages.py — não editar)
+  - id: related-publications
+    contents: "pubs-by-project/ai-for-finance-hiaac/*.qmd"
+    type: default
+    sort: "date desc"
+    fields: [title, description]
+  # related-publications-listing:end
+---
+
+The goal of this research line is to develop robust and transparent AI models for credit analysis and similar problems in the financial sector, such as fraud detection. To this end, we use advanced AI techniques and edge computing to process data efficiently and address challenges such as data scarcity and the dynamic nature of information. The goal is to build models that adapt to change, are fair, and explain their decisions clearly, allowing customers to understand and contest the results. Our work seeks to advance research in AI for finance, creating innovative solutions that improve decision-making and promote financial inclusion.
+
+::: {#participants}
+:::
+
+## Related Publications
+
+::: {#related-publications}
+:::

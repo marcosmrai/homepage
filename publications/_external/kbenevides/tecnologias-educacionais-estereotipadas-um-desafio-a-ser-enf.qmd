@@ -1,0 +1,17 @@
+---
+title: "Tecnologias Educacionais Estereotipadas: Um desafio a ser enfrentado"
+date: "2022-05-09"
+author: "Jário Santos, Kamila Benevides, Ester Andrade, João Nascimento, Kelly Silva, Ig Bittencourt, Marcos Pereira, Sheyla Fernandes, Cristiana Carina BLD Bittencourt, Seiji Isotani"
+scholar-ids: [UW2bzhcAAAAJ, V6h2p5kAAAAJ, BSe3NMwAAAAJ]
+description: "Jário Santos, Kamila Benevides, Ester Andrade, João Nascimento, Kelly Silva, Ig Bittencourt, Marcos Pereira, Sheyla Fernandes, Cristiana Carina BLD Bittencourt, Seiji Isotani (2022). Revista Brasileira de Informática na Educação."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=V6h2p5kAAAAJ&citation_for_view=V6h2p5kAAAAJ:u-x6o8ySG0sC"
+---
+
+## Abstract
+
+No Brasil, a modalidade de educação online tornou-se mais presente nas instituições de ensino superior. Para atender toda a demanda proporcionada por essa mudança de paradigma, tecnologias educacionais surgem como mediadoras para realização da aprendizagem. Por meio disso, diversos benefícios atrelados com as tecnologias educacionais fazem com o que as tecnologias sejam uma medida fundamental para proporcionar a educação, reforçando ainda mais o processo de ensino-aprendizagem: forma de ensinar e aprender, principalmente no cenário pandêmico gerado pelo Covid-19. Entretanto, algumas tecnologias educacionais possuem limitações em seu Design, desconsiderando atributos que podem ser utilizados para uma construção adequada de tecnologias educacionais, de forma que torne a tecnologia mais personalizada, como:(i) idade;(ii) gênero;(iii) motivações; e, por fim,(iv) perfil e categorias de estudantes. As desigualdades decorrentes da limitação atual na construção das tecnologias educacionais existentes, são objetos de estudo de uma área emergente na literatura denominada Ameaça de Estereótipo. O objetivo deste trabalho é apresentar e discutir desafios presentes no desenvolvimento de tecnologias educacionais, bem como discutir a luz da literatura os problemas associados a estereotipação destas tecnologias desde sua elaboração à sua utilização pelo público-alvo, tendo em vista as possibilidades de produção de vieses e desigualdades que podem prejudicar grupos específicos, e minoritários, de estudantes. Concluímos que a temática relacionada as Tecnologias Educacionais …
+
+::: {#links}
+:::
+

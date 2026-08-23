@@ -1,0 +1,17 @@
+---
+title: "Um estudo comparativo entre cinco métodos de otimização aplicados em uma rnc voltada ao diagnóstico do glaucoma"
+date: "2020-04-21"
+author: "Athyrson Machado Ribeiro"
+scholar-ids: [lTwSfXYAAAAJ]
+description: "Athyrson Machado Ribeiro (2020). Revista de Sistemas e Computação-RSC."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=lTwSfXYAAAAJ&citation_for_view=lTwSfXYAAAAJ:d1gkVwhDpl0C"
+---
+
+## Abstract
+
+Neste trabalho foi realizada uma comparação entre cinco métodos de otimização (Adam, Adagrad, RMSprop, SGD com Momentum e Adabound) aplicados em uma rede neural convolucional implementada com a arquitetura Inception V3 voltada a identificação de glaucoma por meio de imagens. As imagens utilizadas nesta pesquisa foram extraídas de 5 bancos de imagens públicos disponíveis na internet. É observado que, dentre os métodos testados, Adabound foi o método que obteve melhores resultados durante e após o treinamento da rede.
+
+::: {#links}
+:::
+

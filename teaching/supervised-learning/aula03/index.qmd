@@ -6,17 +6,33 @@ date: today
 lang: pt-BR
 format:
   html:
+    theme: [flatly, ../../../custom.scss, ../../lesson-theme.scss]
     toc: true
     toc-depth: 3
     number-sections: true
     fig-width: 6
     fig-height: 3.5
   revealjs:
+    transition: slide
+    width: 1280
+    height: 800
+    margin: 0.02
+    fig-responsive: true
+    fig-format: "svg"
+    footer: "UNICAMP — Instituto de Computação"
+    chalkboard:
+      boardmarker-width: 3
+      chalk-width: 3
+    include-after-body: ../../logos-footer.html
+    title-slide-attributes:
+      data-background-image: "../../UNICAMP.png, ../../IC.png"
+      data-background-size: "140px, 140px"
+      data-background-position: "5% 8%, 95% 8%"
     output-file: slides.html
     slide-number: true
     smaller: true
     scrollable: true
-    theme: simple
+    theme: [simple, ../../lesson-theme.scss]
 jupyter: sensibleml-moo
 execute:
   warning: false

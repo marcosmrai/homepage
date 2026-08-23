@@ -17,14 +17,35 @@ h2 {
    — ver publications/retreiver/TEMPLATE.qmd, seção "## Authors". Cada
    pessoa linka para people/<id> (equipe) ou authors/<id> (colaborador
    externo, fora da página People). */
-.paper-authors {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
+/* O Pandoc embrulha os <a> soltos dentro de ::: {.paper-authors} num único
+   <p> (é assim que ele trata HTML bruto em linhas adjacentes de um fenced
+   div) — então quem precisa ser o container flex de verdade é esse <p>,
+   não a própria .paper-authors (que só tem esse <p> como filho único).
+   Sem isso, cada link (display:flex, block-level) empilha verticalmente
+   em vez de ficar lado a lado. .project-participants é gerado por
+   participants.lua como um <div> de verdade (não linhas soltas de HTML),
+   então não passa por esse embrulho automático — o próprio elemento já é
+   o container flex. */
+.paper-authors,
+.project-participants {
   margin: 1rem 0;
 }
 
-.paper-authors a {
+.paper-authors p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin: 0;
+}
+
+.project-participants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.paper-authors a,
+.project-participants a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,11 +56,29 @@ h2 {
   text-decoration: none;
 }
 
-.paper-authors img {
+.paper-authors img,
+.project-participants img {
   width: 56px;
   height: 56px;
   border-radius: 50%;
   object-fit: cover;
+  margin-bottom: 0.35rem;
+}
+
+/* Autor sem foto confirmada (nem da equipe, nem coautor reconhecido pelo
+   próprio Scholar) — ícone genérico do mesmo tamanho da foto, pra não
+   quebrar o alinhamento da fileira. */
+.paper-authors i.bi-person-circle,
+.project-participants i.bi-person-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #e9ecef;
+  color: #6c757d;
+  font-size: 2rem;
   margin-bottom: 0.35rem;
 }
 
@@ -56,6 +95,71 @@ h2 {
     [screen-start-inset page-start page-start-inset body-start-outset body-start body-content-start] minmax(0, 75vw)
     [body-content-end body-end body-end-outset page-end-inset page-end screen-end-inset] 1fr
     [screen-end] !important;
+}
+
+/* A regra acima colapsa "body-end" e "page-end" na mesma linha do grid —
+   ótimo para a maioria das páginas (sem barra lateral), mas o CSS padrão
+   do Quarto posiciona a barra de categorias de um listing com
+   `grid-column: body-end / page-end` (ver _bootstrap-rules.scss): duas
+   linhas iguais viram uma coluna de largura zero, e a barra lateral acaba
+   se sobrepondo ao conteúdo (visto ao vivo em Publications, com
+   `filter-ui: true`). Uma correção baseada em `:has()` (reservar uma
+   coluna de verdade só quando #quarto-margin-sidebar existe) chegou a
+   resolver no Chromium, mas continuou sobrepondo na prática — `:has()` é
+   recente demais (Firefox só ganhou suporte no fim de 2023) para confiar
+   nele sozinho aqui. A solução robusta, sem depender de `:has()`: tirar a
+   barra lateral do fluxo do grid inteiramente (`position: fixed`,
+   ancorada à direita da viewport) — ela deixa de disputar espaço com a
+   coluna de conteúdo, então a reserva de coluna não é mais necessária. A
+   margem direita da página (fora dos 75vw de conteúdo) é (100vw-75vw)/2 =
+   12.5vw de cada lado — largura suficiente para a barra viver dentro
+   dela sem invadir o conteúdo. Em telas estreitas o próprio Quarto já
+   esconde #quarto-margin-sidebar (ver _bootstrap-rules.scss), então não
+   precisa de media query própria aqui. */
+#quarto-margin-sidebar {
+  position: fixed;
+  top: 6rem;
+  right: 2vw;
+  width: min(220px, 9vw);
+  max-height: calc(100vh - 8rem);
+  overflow-y: auto;
+}
+
+/* Nuvem de categorias (Publications: `categories: cloud`) como pastilhas
+   arredondadas, no mesmo estilo dos ícones de contato (#links) — em vez
+   da lista simples e sem graça do Quarto. */
+
+.quarto-listing-category-title {
+  font-size: 1rem;
+  color: #212529;
+  margin-bottom: 0.75rem;
+}
+
+.quarto-listing-category.category-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.quarto-listing-category.category-cloud .category {
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: #f4f5f6;
+  color: #495057;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.quarto-listing-category.category-cloud .category:hover {
+  background: #0085ca;
+  color: #ffffff;
+}
+
+.quarto-listing-category.category-cloud .category.active {
+  background: #0085ca;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 /* Foto do IC no topo de Teaching / embaixo de Projects. */
@@ -199,6 +303,25 @@ h2 {
   color: #212529;
 }
 
+/* Projects e teaching em cards de uma coluna (grid-columns: 1 no front
+   matter da listing), com cantos arredondados — o tema flatly usa cards
+   de canto reto por padrão. */
+#projects-listing .quarto-grid-item.card,
+#teaching-listing .quarto-grid-item.card {
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* Zebra branco/cinza entre os cards da listagem de teaching (um card por
+   disciplina), para diferenciar visualmente cada entrada. */
+#teaching-listing .quarto-grid-item.card:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+#teaching-listing .quarto-grid-item.card:nth-child(even) {
+  background-color: #f4f5f6;
+}
+
 /* Faixas alternando cinza/branco entre as seções da home, à la Hugo Blox.
    .column-screen é o mecanismo nativo do Quarto para conteúdo "full-bleed"
    dentro do grid de página (evita hacks manuais com 100vw). */
@@ -301,7 +424,7 @@ body {
   margin-bottom: 1rem;
 }
 
-.profile-links {
+#links {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -315,7 +438,12 @@ body {
    continua no HTML normalmente (não escondido com display:none), só
    afastado visualmente até o hover/foco, pra não perder a leitura por
    leitor de tela. */
-.profile-links .about-link {
+/* O tema "about: jolla" do Quarto estiliza .about-link como um botão com
+   borda (mixin responsive-button, em about.scss: "border: solid 1px") —
+   por isso os ícones de perfil/publicação apareciam como quadrados com
+   contorno, bem diferentes dos ícones lisos (sem caixa) da navbar do
+   site. Removendo a borda/fundo aqui alinha o visual dos dois. */
+#links .about-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -324,13 +452,20 @@ body {
   height: 4.8em;
   padding: 0;
   font-size: 1rem;
+  border: none;
+  background: none;
+  color: #495057;
 }
 
-.profile-links .about-link i {
+#links .about-link:hover {
+  color: #0085ca;
+}
+
+#links .about-link i {
   font-size: 2.4em;
 }
 
-.profile-links .about-link-text {
+#links .about-link-text {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -342,8 +477,8 @@ body {
   border: 0;
 }
 
-.profile-links .about-link:hover .about-link-text,
-.profile-links .about-link:focus-visible .about-link-text {
+#links .about-link:hover .about-link-text,
+#links .about-link:focus-visible .about-link-text {
   position: absolute;
   bottom: 130%;
   left: 50%;

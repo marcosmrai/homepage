@@ -1,0 +1,16 @@
+---
+title: "Ameaça de estereótipo de gênero afeta o desânimo, fluxo e desempenho em um sistema tutor gamificado para lógica?"
+date: "2022-12-07"
+author: "Kamila de Almeida Benevides"
+description: "Kamila de Almeida Benevides (2022). Preprint."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=V6h2p5kAAAAJ&sortby=pubdate&citation_for_view=V6h2p5kAAAAJ:qjMakFHDy7sC"
+---
+
+## Abstract
+
+A gamificação é uma abordagem que está sendo cada vez mais adotada em ambientes educacionais para melhorar o envolvimento, a motivação e o aprendizado dos alunos. No entanto, estudos anteriores na literatura relataram que a ameaça do estereótipo de gênero em ambientes educacionais gamificados pode ter efeitos negativos sobre os alunos, como a ansiedade. Nesse sentido, este trabalho tem como objetivo realizar um estudo experimental de modo a investigar empiricamente se a ameaça de estereótipos em ambientes educacionais gamificados pode causar desânimo. Realizamos um estudo experimental, aplicamos um teste de lógica que continha 20 questões para alunos do ensino superior em uma plataforma educacional gamificada e, posteriormente, eles responderam a um questionário para avaliar o desânimo dos alunos em diferentes cenários. Os resultados sugerem que um ambiente gamificado estereotipado pode afetar o desânimo dos participantes.
+
+::: {#links}
+:::
+

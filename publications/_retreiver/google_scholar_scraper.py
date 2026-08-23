@@ -1,10 +1,22 @@
-import os
+"""Funções de raspagem do Google Scholar (Playwright + BeautifulSoup),
+usadas por sync_from_google_scholar.py. Nada aqui decide pra onde os dados
+vão (publications/, publications/_external/, coauthors/, people/) — isso é
+render_publication.py/resolve_authors.py; este módulo só sabe ler páginas
+do Scholar e devolver dados estruturados.
+"""
+
 import random
 import re
+import sys
 import time
-from typing import Any, Dict, List, Optional, Set
+import urllib.parse
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 from bs4 import BeautifulSoup
-from playwright.sync_api import TimeoutError as PlaywrightTimeoutError, sync_playwright
+from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
+
+sys.path.insert(0, str(Path(__file__).parent))
+from resolve_authors import _name_key, _query_name  # noqa: E402
 
 
 def human_delay(min_sec: float = 12.0, max_sec: float = 35.0) -> None:
@@ -14,31 +26,22 @@ def human_delay(min_sec: float = 12.0, max_sec: float = 35.0) -> None:
     time.sleep(wait_time)
 
 
-def sanitize_filename(name: str) -> str:
-    """Sanitiza strings para uso seguro como nome de arquivo."""
-    return re.sub(r"[^\w\-_]", "_", name.lower())
+def scrape_author_profile(page: Any, scholar_url: str, max_papers: int = 5) -> Optional[Dict[str, Any]]:
+    """Extrai os metadados do perfil do autor, a lista dos `max_papers`
+    artigos mais recentes, e a caixa "Coautores" da barra lateral.
 
+    A ordenação padrão do Scholar num perfil é por número de citações, não
+    por data — sem "&sortby=pubdate" na URL, os `max_papers` primeiros da
+    tabela seriam os mais citados, não os mais recentes, e um artigo novo
+    ainda sem citações nunca apareceria (visto na prática: dois papers
+    recentes de M. M. Raimundo ficavam de fora mesmo com --max-papers
+    maior, porque o corte de linhas acontecia ANTES do parâmetro de
+    quantidade sequer ser aplicado — o slice era fixo em 5, ignorando o
+    valor pedido)."""
+    if "sortby=pubdate" not in scholar_url:
+        separator = "&" if "?" in scholar_url else "?"
+        scholar_url = f"{scholar_url}{separator}sortby=pubdate"
 
-def get_existing_paper_titles(file_path: str) -> Set[str]:
-    """Lê o arquivo Markdown existente e extrai os títulos dos artigos já cadastrados."""
-    if not os.path.exists(file_path):
-        return set()
-
-    existing_titles: Set[str] = set()
-    with open(file_path, "r", encoding="utf-8") as f:
-        content = f.read()
-        # Captura os títulos nos cabeçalhos '### Título do Artigo'
-        matches = re.findall(r"^###\s+(.+)$", content, re.MULTILINE)
-        for title in matches:
-            existing_titles.add(title.strip().lower())
-
-    return existing_titles
-
-
-def scrape_author_profile(
-    page: Any, scholar_url: str
-) -> Optional[Dict[str, Any]]:
-    """Extrai os metadados do perfil do autor e a lista dos 5 artigos mais recentes."""
     print(f"\n[+] Acessando perfil do autor: {scholar_url}")
     try:
         page.goto(scholar_url, wait_until="networkidle")
@@ -48,6 +51,17 @@ def scrape_author_profile(
         if "sorry/index" in page.url or "recaptcha" in page.url:
             print("[-] CAPTCHA ou bloqueio temporário detectado pelo Google!")
             return None
+
+        # O perfil só mostra 20 publicações por página — clica em "Show
+        # more" (id="gsc_bpf_more") até ter linhas suficientes pra
+        # max_papers, ou até o botão sumir/desabilitar (acabaram as
+        # publicações da pessoa).
+        while len(page.query_selector_all("tr.gsc_a_tr")) < max_papers:
+            more_button = page.query_selector("#gsc_bpf_more")
+            if not more_button or more_button.is_disabled():
+                break
+            more_button.click()
+            human_delay(3, 6)
 
         soup = BeautifulSoup(page.content(), "html.parser")
 
@@ -65,8 +79,9 @@ def scrape_author_profile(
         aff_elem = soup.find("div", class_="gsc_prf_il")
         affiliation = aff_elem.text.strip() if aff_elem else "Afiliação não informada"
 
-        # Captura as 5 primeiras publicações
-        pub_rows = soup.find_all("tr", class_="gsc_a_tr")[:5]
+        # Captura as `max_papers` primeiras publicações (perfil ordenado
+        # por data via sortby=pubdate acima, não por citações)
+        pub_rows = soup.find_all("tr", class_="gsc_a_tr")[:max_papers]
         publications: List[Dict[str, str]] = []
 
         for row in pub_rows:
@@ -79,47 +94,41 @@ def scrape_author_profile(
                     {"title": pub_title, "scholar_url": full_pub_url}
                 )
 
+        # Caixa "Coautores" da barra lateral (id="gsc_rsb_co") — só quem o
+        # próprio Google Scholar já reconhece como colaborador frequente
+        # (não é a lista completa de coautores de todos os artigos), mas é
+        # a ÚNICA parte do site do Scholar que liga um nome a um ID de
+        # perfil + foto de verdade, já que a lista de autores de uma
+        # citação (ver scrape_paper_details) é só texto puro.
+        coauthors: List[Dict[str, Optional[str]]] = []
+        co_block = soup.find(id="gsc_rsb_co")
+        if co_block:
+            for item in co_block.find_all("div", class_="gsc_rsb_aa"):
+                link = item.find("a")
+                img = item.find("img")
+                if not link or not link.get("href"):
+                    continue
+                id_match = re.search(r"user=([^&]+)", link["href"])
+                if not id_match:
+                    continue
+                coauthors.append({
+                    "name": link.text.strip(),
+                    "scholar_id": id_match.group(1),
+                    "photo_url": (img["src"].replace("view_op=small_photo", "view_op=view_photo")
+                                  if img and img.get("src") else None),
+                })
+
         return {
             "name": name,
             "photo_url": photo_url,
             "affiliation": affiliation,
             "publications": publications,
+            "coauthors": coauthors,
         }
 
     except Exception as e:
         print(f"[-] Erro ao raspar perfil do autor: {e}")
         return None
-
-
-def scrape_paper_abstract(page: Any, paper_url: str) -> str:
-    """Abre a página individual do artigo no Scholar para extrair o resumo.
-
-    Mantida por compatibilidade — scrape_paper_details() abaixo faz o mesmo
-    e também traz autores/data/veículo, então é o que sync_from_google_scholar.py
-    usa de fato."""
-    print(f"[+] Coletando resumo do artigo: {paper_url}")
-    try:
-        page.goto(paper_url, wait_until="networkidle")
-        human_delay(15, 30)  # Pausa longa necessária ao acessar cada publicação
-
-        if "sorry/index" in page.url:
-            print("[-] Bloqueio temporário detectado na página do artigo.")
-            return "Resumo indisponível devido a limitação de taxa do Scholar."
-
-        soup = BeautifulSoup(page.content(), "html.parser")
-
-        # Elemento onde fica o resumo na citação do Scholar
-        abstract_elem = soup.find("div", id="gsc_oci_descr")
-        if abstract_elem:
-            return abstract_elem.text.strip()
-
-        return "Resumo não encontrado na página da citação."
-
-    except PlaywrightTimeoutError:
-        return "Tempo limite excedido ao carregar a publicação."
-    except Exception as e:
-        print(f"[-] Erro ao extrair resumo: {e}")
-        return "Erro durante a extração do resumo."
 
 
 # Rótulos conhecidos na tabela de detalhes da página de citação (gsc_oci_field
@@ -202,107 +211,72 @@ def scrape_paper_details(page: Any, paper_url: str) -> Dict[str, Any]:
         return result
 
 
-def process_author_markdown(
-    page: Any,
-    scholar_url: str,
-    output_dir: str = "authors_md",
-    default_avatar: str = "https://via.placeholder.com/150?text=Avatar",
-) -> None:
-    """Gerencia a extração incremental e atualização do arquivo Markdown do autor."""
-    author_data = scrape_author_profile(page, scholar_url)
-    if not author_data:
-        return
-
-    os.makedirs(output_dir, exist_ok=True)
-    name: str = author_data["name"]
-    filename: str = f"{sanitize_filename(name)}.md"
-    file_path: str = os.path.join(output_dir, filename)
-
-    # 1. Carrega os artigos que já constam no Markdown existente
-    saved_titles: Set[str] = get_existing_paper_titles(file_path)
-    print(f"[i] Artigos já existentes no Markdown local: {len(saved_titles)}")
-
-    # 2. Varre os artigos mais recentes do perfil
-    new_publications_count: int = 0
-    for pub in author_data["publications"]:
-        title_lower = pub["title"].strip().lower()
-
-        if title_lower in saved_titles:
-            print(f"[=] Artigo já cadastrado: '{pub['title']}' (Ignorando requisição de resumo)")
-            pub["abstract"] = "JA_EXISTE"
-        else:
-            print(f"[+] Novo artigo detectado: '{pub['title']}'")
-            pub["abstract"] = scrape_paper_abstract(page, pub["scholar_url"])
-            new_publications_count += 1
-
-    # 3. Reescreve ou cria o Markdown apenas se for arquivo novo ou se houver novos artigos
-    if not os.path.exists(file_path) or new_publications_count > 0:
-        photo_url = author_data.get("photo_url") or default_avatar
-        affiliation = author_data["affiliation"]
-
-        md_content = f"# {name}\n\n"
-        md_content += f"![{name}]({photo_url})\n\n"
-        md_content += f"**Afiliação:** {affiliation}\n\n"
-        md_content += f"[Perfil no Google Scholar]({scholar_url})\n\n"
-        md_content += "## Publicações Recentes\n\n"
-
-        for pub in author_data["publications"]:
-            # Preserva o aviso caso o resumo já existisse ou aplica o novo resumo baixado
-            abstract_text = (
-                "(Resumo mantido da versão anterior)"
-                if pub["abstract"] == "JA_EXISTE"
-                else pub["abstract"]
-            )
-
-            md_content += f"### {pub['title']}\n"
-            md_content += f"- **Link no Scholar:** [{pub['title']}]({pub['scholar_url']})\n"
-            md_content += f"- **Resumo:** {abstract_text}\n\n"
-
-        with open(file_path, "w", encoding="utf-8") as f:
-            f.write(md_content)
-
-        print(f"[✔] Arquivo atualizado ({file_path}) com {new_publications_count} nova(s) publicação(ões)!")
-    else:
-        print(f"[i] O arquivo de {name} já está atualizado. Nenhuma ação necessária.")
+def _get_profile_photo(page: Any, scholar_id: str) -> Optional[str]:
+    """Visita o perfil de scholar_id só pra pegar a foto (usado depois de
+    achar alguém por search_coauthor, que não tem foto no resultado da
+    busca — só a página do perfil dela tem)."""
+    try:
+        page.goto(f"https://scholar.google.com/citations?user={scholar_id}&hl=pt-BR", wait_until="networkidle")
+        human_delay(5, 10)
+        if "sorry/index" in page.url or "accounts.google.com" in page.url:
+            return None
+        soup = BeautifulSoup(page.content(), "html.parser")
+        img_elem = soup.find("img", id="gsc_prf_pup-img")
+        photo_url = img_elem.get("src") if img_elem else None
+        if photo_url and photo_url.startswith("/"):
+            photo_url = f"https://scholar.google.com{photo_url}"
+        return photo_url
+    except Exception:
+        return None
 
 
-def main() -> None:
-    # Lista dos perfis que deseja monitorar
-    author_urls: List[str] = [
-        "https://scholar.google.com/citations?user=Jic3Y38AAAAJ",  # Exemplo: Yoshua Bengio
-    ]
+def search_coauthor(page: Any, target_name: str, anchor_name: str) -> Optional[Dict[str, Optional[str]]]:
+    """Busca no Scholar por um paper que tenha target_name E anchor_name
+    como autores, e devolve o perfil de target_name se achar
+    {"scholar_id", "photo_url"} — ou None se não achar nada.
 
-    # Busto genérico caso o autor não tenha foto no perfil
-    DEFAULT_SILHOUETTE: str = (
-        "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
-    )
+    NÃO usa a busca de autor do próprio Scholar (view_op=search_authors) —
+    essa trava numa tela de login mesmo com sessão normal. Usa a busca
+    geral de artigos (/scholar?q=...), que não trava, e cujos resultados
+    linkam nomes de autor abreviados ("J Poco") pro perfil deles quando
+    a pessoa tem um.
 
-    with sync_playwright() as p:
-        # headless=False é crucial para evitar detecção de bots pelo Google
-        browser = p.chromium.launch(
-            headless=False,
-            args=["--disable-blink-features=AutomationControlled"],
-        )
+    anchor_name é essencial pra não achar a pessoa errada: um nome comum
+    sozinho pode ter várias pessoas com perfil no Scholar (testado com
+    "Jorge Poco" — a busca sem âncora achou um homônimo). anchor_name deve
+    ser alguém já confirmado como coautor de verdade — normalmente a
+    pessoa cujo perfil está sendo sincronizado nesta rodada, já que ela
+    literalmente escreveu o artigo com target_name."""
+    query = f'author:"{_query_name(target_name)}" author:"{_query_name(anchor_name)}"'
+    url = f"https://scholar.google.com/scholar?q={urllib.parse.quote(query)}"
+    target_key = _name_key(target_name)
+    if target_key is None:
+        return None
 
-        context = browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            viewport={"width": 1280, "height": 800},
-        )
+    print(f"[+] Buscando coautor no Scholar: {target_name} (com {anchor_name})")
+    try:
+        page.goto(url, wait_until="networkidle")
+        human_delay(8, 15)
+        if "sorry/index" in page.url or "accounts.google.com" in page.url:
+            print("[-] Bloqueio/tela de login detectado na busca.")
+            return None
 
-        page = context.new_page()
+        soup = BeautifulSoup(page.content(), "html.parser")
+        for byline in soup.find_all("div", class_="gs_a"):
+            for link in byline.find_all("a", href=True):
+                if "/citations?user=" not in link["href"]:
+                    continue
+                if _name_key(link.text.strip()) != target_key:
+                    continue
+                id_match = re.search(r"user=([^&]+)", link["href"])
+                if not id_match:
+                    continue
+                scholar_id = id_match.group(1)
+                photo_url = _get_profile_photo(page, scholar_id)
+                return {"scholar_id": scholar_id, "photo_url": photo_url}
 
-        for scholar_url in author_urls:
-            process_author_markdown(
-                page=page,
-                scholar_url=scholar_url,
-                output_dir="authors_md",
-                default_avatar=DEFAULT_SILHOUETTE,
-            )
-            # Intervalo seguro entre perfis de autores diferentes
-            human_delay(30, 60)
-
-        browser.close()
-
-
-if __name__ == "__main__":
-    main()
+        print(f"[i] Nenhum perfil encontrado pra {target_name} nessa busca.")
+        return None
+    except Exception as e:
+        print(f"[-] Erro ao buscar coautor: {e}")
+        return None

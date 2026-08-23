@@ -1,0 +1,17 @@
+---
+title: "Ai-driven agile systems engineering approach for managing cross-system interactions"
+date: "2025-01-01"
+author: "Arthur HM de Oliveira, Ana JMG da Silva, Lorenzo C de Oliveira, Fernando S Júnior, Pedro A Reis"
+scholar-ids: [Grv19eoAAAAJ]
+description: "Arthur HM de Oliveira, Ana JMG da Silva, Lorenzo C de Oliveira, Fernando S Júnior, Pedro A Reis (2025). Procedia Computer Science."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=Grv19eoAAAAJ&citation_for_view=Grv19eoAAAAJ:qjMakFHDy7sC"
+---
+
+## Abstract
+
+The continuous advancement of embedded modules modernization, alongside the growing trends of electrification and connectivity, has driven a transformation in product development processes across various industries to meet the expectations of the evolving market demands. However, integrating and managing the complexity of emerging experiences with existing systems remains challenging, as issues such as incomplete and ambiguous requirements gathering can compromise the quality of the user experience and put the success of the entire project at risk. Although recent studies have explored uncertainty and adaptability in systems development, current solutions still lack a robust methodology that can identify and manage cross-system interactions. This work explores the integration of the agile development process with Artificial Intelligence (AI) to abstract the complexity of interactions between new and …
+
+::: {#links}
+:::
+

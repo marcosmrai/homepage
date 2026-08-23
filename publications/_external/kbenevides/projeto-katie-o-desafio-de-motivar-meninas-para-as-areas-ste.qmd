@@ -1,0 +1,17 @@
+---
+title: "Projeto Katie: o desafio de motivar meninas para as áreas STEM em meio à pandemia"
+date: "2021-07-18"
+author: "Ana Carolina Nesso Guedes, Ester de Lima Pontes Andrade, Kamila Almeida Benevides, Kelly Bianca Araujo Silva, Lilian Giselly Pereira Santos, Luana Júlia Nunes Ferreira, Natália de Assis Sousa, Rebeca de Jesus Brandão, Eliana Almeida"
+scholar-ids: [bekxjk0AAAAJ, V6h2p5kAAAAJ]
+description: "Ana Carolina Nesso Guedes, Ester de Lima Pontes Andrade, Kamila Almeida Benevides, Kelly Bianca Araujo Silva, Lilian Giselly Pereira Santos, Luana Júlia Nunes Ferreira, Natália de Assis Sousa, Rebeca de Jesus Brandão, Eliana Almeida (2021). Women in Information Technology (WIT)."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=V6h2p5kAAAAJ&citation_for_view=V6h2p5kAAAAJ:9yKSN-GCB0IC"
+---
+
+## Abstract
+
+O presente artigo apresenta relatos a respeito do projeto de extensão da Universidade Federal de Alagoas intitulado:" Katie: saindo do buraco negro e impulsionando as meninas para a computação", que visa motivar, apoiar e promover a inclusão das mulheres nas áreas de Ciência, Tecnologia, e Engenharia e Matemática (STEM). O artigo descreve como o projeto Katie permaneceu ativo durante o período de pandemia ocasionado pelo COVID-19. Para que as atividades ocorressem, foram utilizadas ferramentas online, como as mídias sociais e as plataformas digitais para levar ao público uma inclusão de assuntos relacionados à Tecnologia da Informação, além de ser tema de um artigo publicado em um evento nacional da área de comunicação.
+
+::: {#links}
+:::
+

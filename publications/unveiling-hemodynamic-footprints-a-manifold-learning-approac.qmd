@@ -1,0 +1,24 @@
+---
+title: "Unveiling Hemodynamic Footprints: A Manifold Learning Approach for Systemic Disease Classification using ECG Signals"
+date: "YYYY-MM-DD"
+author: "Joao Victor PB Avanzini, Marcos M Raimundo"
+author-ids: [jvpbavanzini, mraimundo]
+scholar-ids: [ibe0jfQAAAAJ]
+description: "Joao Victor PB Avanzini, Marcos M Raimundo (YYYY). Preprint."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=ibe0jfQAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=ibe0jfQAAAAJ:R3hNpaxXUhUC"
+---
+
+## Abstract
+
+Electrocardiogram (ECG) signals contain subtle physiological patterns that extend beyond primary cardiac conditions and may reflect systemic health status. However, extracting these hidden hemodynamic footprints requires learning robust representations that filter out high-frequency noise while preserving the signal’s topological structure. This work investigates the Manifold Hypothesis, proposing that valid physiological dynamics lie on a smooth, low-dimensional manifold embedded in the ambient space. We benchmark three autoencoder architectures—Multi-layer Perceptron (MLP), 1D Convolutional Neural Network (CNN), and Transformer-Based Auto Encoder with Series Embedding (TAE)—trained within a strict inductive learning framework on the Vital Signs Database (VitalDB) dataset. To enforce topological continuity, we introduce a temporalconsistency regularization term into the loss function. Our results demonstrate that CNN-based architectures outperform TAE in both reconstruction quality and downstream classification tasks. We attribute this to the strong inductive bias of CNNs, which efficiently captures the local morphology and translation invariance of the P-QRS-T complex, whereas TAEs struggle to converge to the underlying manifold without massive pretraining. Furthermore, using a Random Forest classifier on the learned Latent Space (LS), our model shows promise in distinguishing conditions with hemodynamic implications, such as Varicose Veins (Area under the Receiver Operating Characteristic Curve (ROC-AUC)> 0.87) and Hepatocellular Carcinoma, from metabolic controls. These findings suggest that the learned …
+
+::: {#links}
+:::
+
+## Authors
+
+::: {.paper-authors}
+<a href="/people/jvpbavanzini.html"><img src="/people/jvpbavanzini.jpg" alt="Joao Victor PB Avanzini"><span>Joao Victor PB Avanzini</span></a>
+<a href="/people/mraimundo.html"><img src="/people/mraimundo.jpg" alt="Marcos M Raimundo"><span>Marcos M Raimundo</span></a>
+:::

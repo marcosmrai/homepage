@@ -1,0 +1,1 @@
+../um-algoritmo-adaptativo-para-gerar-solucoes-pareto-otimas-vi.qmd

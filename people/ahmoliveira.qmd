@@ -9,16 +9,35 @@ about:
 group: "Former Researchers"
 filters:
   - ../band-sections.lua
+links:
+  - scholar-id: "Grv19eoAAAAJ"
+  - email: "a217048@dac.unicamp.br"
+  - github: "arthurhendricks"
+  - linkedin: "arthurhendricks"
+  - lattes: "5481026048248453"
+listing:
+  # publications-listing:start (gerado por generate_person_bibliographies.py — não editar)
+  - id: publications
+    contents: "../publications/ahmoliveira/*.qmd"
+    type: default
+    sort: "date desc"
+    fields: [title, description]
+  # publications-listing:end
+  # projects-listing:start (gerado por generate_project_pages.py — não editar)
+  - id: projects
+    contents: "../projects/ahmoliveira/*.qmd"
+    type: default
+    sort: "date desc"
+    fields: [title, description]
+  # projects-listing:end
 ---
 
 [Institute of Computing - University of Campinas](https://ic.unicamp.br/)
 
-::: {.profile-links}
-<a href="mailto:a217048@dac.unicamp.br" class="about-link" target="_blank" rel="me"><i class="bi bi-envelope"></i> <span class="about-link-text">Email</span></a>
-<a href="https://github.com/arthurhendricks" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
-<a href="https://www.linkedin.com/arthurhendricks" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
-<a href="http://lattes.cnpq.br/5481026048248453" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+::: {#links}
 :::
+
+
 
 Arthur H. Mendes de Oliveira is a Master's student at University of Campinas (UNICAMP), in the Institute of Computing (IC). His research interests includes Machine Learning, Ethical AI, Explainability.
 
@@ -35,3 +54,13 @@ University of Campinas
 
 **BSc in Electrical Engineering**, 2022
 Federal University of Campina Grande
+
+## Publications
+
+::: {#publications}
+:::
+
+## Projects
+
+::: {#projects}
+:::

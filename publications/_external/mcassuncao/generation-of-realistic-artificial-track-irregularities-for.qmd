@@ -1,0 +1,13 @@
+---
+title: "Generation of Realistic Artificial Track Irregularities for Multibody Simulation usina Measure Geométrica Data - from Mid-Chord to Space-Curve"
+date: "2023-06-01"
+author: "G.F.M. Santos and A.A Santos M.C.A. Viana, P.G. Ramos, A.J.C.R. Tameirao, A.C. Pires"
+description: "G.F.M. Santos and A.A Santos M.C.A. Viana, P.G. Ramos, A.J.C.R. Tameirao, A.C. Pires (2023). Proceedings of the Fifth International Conference on Railway Technology: Research, Development and Maintenance."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=ou0eGXAAAAAJ&citation_for_view=ou0eGXAAAAAJ:u-x6o8ySG0sC"
+---
+
+
+::: {#links}
+:::
+

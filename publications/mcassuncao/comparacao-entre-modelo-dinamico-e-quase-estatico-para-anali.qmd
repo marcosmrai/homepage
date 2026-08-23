@@ -1,0 +1,1 @@
+../_external/mcassuncao/comparacao-entre-modelo-dinamico-e-quase-estatico-para-anali.qmd

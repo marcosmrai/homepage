@@ -1,0 +1,26 @@
+---
+title: "Navigating the Rashomon Set: The Impact of Score Distributions and Decision Thresholds on Model Agreement"
+date: "2026-01-01"
+author: "Giovani Valdrighi, Marcos M Raimundo"
+author-ids: [gvaldrighi, mraimundo]
+scholar-ids: [iQXEldcAAAAJ, ibe0jfQAAAAJ]
+projects: [ai-for-finance-hiaac]
+categories: [Ethical AI, Model Multiplicity, Fairness]
+description: "Giovani Valdrighi, Marcos M Raimundo (2026). Algorithmic Fairness Across Alignment Procedures and Agentic Systems."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=ibe0jfQAAAAJ&sortby=pubdate&citation_for_view=ibe0jfQAAAAJ:IWHjjKOFINEC"
+---
+
+## Abstract
+
+The existence of multiple equally accurate models for the same dataset, known as Rashomon effect, has recently attracted the attention of the machine learning community. The multiplicity of models permits practitioners to select for accurate models, but also satisfy other objectives such as fairness or interpretability. However, the disagreement of models on individual samples, measured by ambiguity, can reduce the credibility of decisions. In this paper, we theoretically study the ambiguity of models obtained from a randomized training procedure by relating it to the distribution of residuals, and more particularly, the occurrence of large residuals. Based on our theoretical results, we present a simple yet effective approach for threshold selection that reduces ambiguity at a low cost to accuracy. We also present an adapted loss for binary classification that reduces ambiguity by controlling the tail of the distribution of residuals. In experiments using five datasets, our methodology demonstrated a reduction in ambiguity at a low cost in terms of both accuracy and computational resources.
+
+::: {#links}
+:::
+
+## Authors
+
+::: {.paper-authors}
+<a href="/people/gvaldrighi.html"><img src="/people/gvaldrighi.jpeg" alt="Giovani Valdrighi"><span>Giovani Valdrighi</span></a>
+<a href="/people/mraimundo.html"><img src="/people/mraimundo.jpg" alt="Marcos M Raimundo"><span>Marcos M Raimundo</span></a>
+:::

@@ -1,0 +1,17 @@
+---
+title: "Model-driven systems engineering automation with artificial intelligence for robustly writing automotive system requirements"
+date: "2025-04-01"
+author: "Arthur Hendricks Mendes de Oliveira, Pedro Almeida Reis, Gabriel Anunciação, Jonathan Vinícius Carlos de Lima, Fernando Sarracini, Matias Ezequiel Garcia"
+scholar-ids: [Grv19eoAAAAJ]
+description: "Arthur Hendricks Mendes de Oliveira, Pedro Almeida Reis, Gabriel Anunciação, Jonathan Vinícius Carlos de Lima, Fernando Sarracini, Matias Ezequiel Garcia (2025). SAE Technical Paper."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=Grv19eoAAAAJ&citation_for_view=Grv19eoAAAAJ:d1gkVwhDpl0C"
+---
+
+## Abstract
+
+The intensive use of software applications in modern vehicles has highlighted the critical role of Systems Engineering (SE) in the automotive industry. These “computers on wheels” are thoroughly interconnected, by their own connections and with the cloud, due to the advancement of Electronic Control Units (ECU) technologies and the widespread use of sensors transmitting real-time data. This interconnectedness and the level of software abstraction that are known today, significantly escalates the complexity of these systems. This has made it necessary to adopt an approach that is flexible to change, structured, agile, and traceable. The modern approach to SE, now model-based, offers numerous advantages over the previous paradigm, which was predominantly document-based. MBSE (Model-Based Systems Engineering) emerges as a contemporary approach, providing the scalability needed for engineering …
+
+::: {#links}
+:::
+

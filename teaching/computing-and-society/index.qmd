@@ -18,7 +18,7 @@ The primary goal of the course is to enable future computing professionals and r
 
 ### Part 1: Foundations of Computing and Ethics
 
-* [**Lesson 1: Computing as a Socio-Technical System**](../../materials/computing-and-society/aula01/index.qmd)
+* [**Lesson 1: Computing as a Socio-Technical System**](./aula01/index.qmd)
     * **Objectives:** Understand that computing is not composed solely of technical elements (hardware and software), but constitutes a socio-technical system where technology, human beings, organizations, and culture mutually influence each other.
     * **Expected Competencies:** Ability to analyze computing artifacts within their broader social, cultural, and organizational contexts, identifying non-technical feedback loops and systemic impacts.
     * **Recommended Reading:**
@@ -27,7 +27,7 @@ The primary goal of the course is to enable future computing professionals and r
         * Steen (2022) – *Chapter 3: Is Technology a Neutral Tool?* — leitura complementar adicionada nesta sessão; cobre exatamente a tese da não-neutralidade e da coformação mútua entre pessoas e tecnologia.
     * **Date and Speaker:** TBD | Marcos M. Raimundo
 
-* [**Lesson 2: What is Ethics, and The Ethical Cycle**](../../materials/computing-and-society/aula02/index.qmd)
+* [**Lesson 2: What is Ethics, and The Ethical Cycle**](./aula02/index.qmd)
     * **Objectives:** Introduce the main branches of normative ethics (consequentialism, deontology, and virtue ethics) and train students in using the "Ethical Cycle" as a methodological tool to analyze and resolve moral dilemmas in IT.
     * **Expected Competencies:** Ability to apply ethical frameworks systematically to resolve complex technology-related moral dilemmas using structured deliberation steps.
     * **Recommended Reading:**
@@ -35,7 +35,7 @@ The primary goal of the course is to enable future computing professionals and r
         * Marc Steen (2022) – *Chapter 16: Methods to 'do ethics' in your project* — **correção**: a ementa original dizia "Chapter 6: Ethical Reflection, Inquiry, and Deliberation", título que não existe no livro (o Cap. 6 real é "Privacy is about more than 'privacy'"; a frase citada é o tema recorrente do livro, introduzido no Cap. 2 e detalhado no Cap. 16).
     * **Date and Speaker:** TBD | Marcos M. Raimundo
 
-* [**Lesson 3: Computing, Its Domains, and Professional Responsibility**](../../materials/computing-and-society/aula03/index.qmd)
+* [**Lesson 3: Computing, Its Domains, and Professional Responsibility**](./aula03/index.qmd)
     * **Objectives:** Map the field of computing, discuss the relevance and application of professional codes of ethics (ACM, SBC, IEEE), and examine the scope of active and passive professional responsibilities toward society.
     * **Expected Competencies:** Ability to align technical practices with established professional codes of ethics and evaluate individual liability in software failure or societal harm scenarios.
     * **Recommended Reading:**

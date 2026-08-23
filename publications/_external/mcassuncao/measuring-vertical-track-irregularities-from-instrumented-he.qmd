@@ -1,0 +1,16 @@
+---
+title: "Measuring vertical track irregularities from instrumented heavy haul railway vehicle data using machine learning"
+date: "2024-01-01"
+author: "Arthur Cancellieri Pires, Maria Clara Assunção Viana, Lorenzo M Scaramussa, Guilherme Fabiano Mendonça do Santos, Paola Gonzalez Ramos, AA Santos"
+description: "Arthur Cancellieri Pires, Maria Clara Assunção Viana, Lorenzo M Scaramussa, Guilherme Fabiano Mendonça do Santos, Paola Gonzalez Ramos, AA Santos (2024). Engineering Applications of Artificial Intelligence."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=ou0eGXAAAAAJ&citation_for_view=ou0eGXAAAAAJ:u5HHmVD_uO8C"
+---
+
+## Abstract
+
+This paper proposes a data-driven approach to estimating geometric track irregularities from instrumented railway vehicle (IRV) data. Machine learning is used to find the nonlinear mapping between IRV data and track irregularities. A dynamic model of the BRA1 railway vehicle was used to generate an artificial dataset that contains variables that are measured by the real BRA1 IRV and other variables measured by IRVs found in the literature. An extensive data analysis step was done to verify if the current instrumentation of the BRA1 IRV is sufficient for obtaining both lateral and vertical track irregularities. Feature engineering based on wagon movements, signal integration and time domain statistical metrics were applied to extract features and then the best features were selected using a wrapper method. Eight different regression ML models were trained and optimized after the feature selection using Optuna. The …
+
+::: {#links}
+:::
+

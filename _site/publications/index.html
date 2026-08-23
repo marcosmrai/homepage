@@ -85,9 +85,10 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      valueNames: ['listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      page: 18,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -197,7 +198,7 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-cloud"><div class="category" data-category="QXBwbGllZCUyMERlZXAlMjBMZWFybmluZw=="><span class="quarto-category-count category-cloud-1">Applied Deep Learning</span></div><div class="category" data-category="Q29kZSUyMEdlbmVyYXRpb24="><span class="quarto-category-count category-cloud-1">Code Generation</span></div><div class="category" data-category="Q29tYmluYXRvcmlhbCUyME9wdGltaXphdGlvbg=="><span class="quarto-category-count category-cloud-1">Combinatorial Optimization</span></div><div class="category" data-category="Q29tcHV0ZXIlMjBWaXNpb24="><span class="quarto-category-count category-cloud-1">Computer Vision</span></div><div class="category" data-category="Q291bnRlcmZhY3R1YWwlMjBFeHBsYW5hdGlvbnM="><span class="quarto-category-count category-cloud-1">Counterfactual Explanations</span></div><div class="category" data-category="Q3JlZGl0JTIwU2NvcmluZw=="><span class="quarto-category-count category-cloud-1">Credit Scoring</span></div><div class="category" data-category="RWNvbG9neQ=="><span class="quarto-category-count category-cloud-1">Ecology</span></div><div class="category" data-category="RW5zZW1ibGUlMjBMZWFybmluZw=="><span class="quarto-category-count category-cloud-1">Ensemble Learning</span></div><div class="category" data-category="RXRoaWNhbCUyMEFJ"><span class="quarto-category-count category-cloud-2">Ethical AI</span></div><div class="category" data-category="RXhwbGFpbmFibGUlMjBBSQ=="><span class="quarto-category-count category-cloud-2">Explainable AI</span></div><div class="category" data-category="RmFpciUyMENyZWRpdCUyMFNjb3Jpbmc="><span class="quarto-category-count category-cloud-2">Fair Credit Scoring</span></div><div class="category" data-category="RmFpcm5lc3M="><span class="quarto-category-count category-cloud-1">Fairness</span></div><div class="category" data-category="R2VuZXJhdGl2ZSUyME1vZGVscw=="><span class="quarto-category-count category-cloud-1">Generative Models</span></div><div class="category" data-category="R3JhZGllbnQlMjBCb29zdGluZw=="><span class="quarto-category-count category-cloud-1">Gradient Boosting</span></div><div class="category" data-category="TGFyZ2UlMjBMYW5ndWFnZSUyME1vZGVscw=="><span class="quarto-category-count category-cloud-1">Large Language Models</span></div><div class="category" data-category="TG9uZy10ZXJtJTIwRmFpcm5lc3M="><span class="quarto-category-count category-cloud-1">Long-term Fairness</span></div><div class="category" data-category="TWVkaWNhbCUyMEltYWdpbmc="><span class="quarto-category-count category-cloud-1">Medical Imaging</span></div><div class="category" data-category="TW9kZWwlMjBNdWx0aXBsaWNpdHk="><span class="quarto-category-count category-cloud-1">Model Multiplicity</span></div><div class="category" data-category="TXVsdGktY3JpdGVyaWElMjBEZWNpc2lvbiUyME1ha2luZw=="><span class="quarto-category-count category-cloud-1">Multi-criteria Decision Making</span></div><div class="category" data-category="TXVsdGktb2JqZWN0aXZlJTIwT3B0aW1pemF0aW9u"><span class="quarto-category-count category-cloud-2">Multi-objective Optimization</span></div><div class="category" data-category="TXVsdGktdGFzayUyMExlYXJuaW5n"><span class="quarto-category-count category-cloud-1">Multi-task Learning</span></div><div class="category" data-category="TklTRQ=="><span class="quarto-category-count category-cloud-1">NISE</span></div><div class="category" data-category="T3BlcmF0aW9ucyUyMFJlc2VhcmNo"><span class="quarto-category-count category-cloud-1">Operations Research</span></div><div class="category" data-category="UGFyZXRvJTIwU2Vuc2l0aXZpdHk="><span class="quarto-category-count category-cloud-1">Pareto Sensitivity</span></div><div class="category" data-category="UHVibGljJTIwU2FmZXR5"><span class="quarto-category-count category-cloud-1">Public Safety</span></div><div class="category" data-category="UmFjaWFsJTIwQmlhcw=="><span class="quarto-category-count category-cloud-1">Racial Bias</span></div><div class="category" data-category="UmVqZWN0JTIwSW5mZXJlbmNl"><span class="quarto-category-count category-cloud-1">Reject Inference</span></div><div class="category" data-category="UmVzcG9uc2libGUlMjBBSQ=="><span class="quarto-category-count category-cloud-1">Responsible AI</span></div><div class="category" data-category="U2VsZWN0aXZlJTIwTGFiZWxz"><span class="quarto-category-count category-cloud-1">Selective Labels</span></div><div class="category" data-category="U3ViZ3JvdXAlMjBGYWlybmVzcw=="><span class="quarto-category-count category-cloud-1">Subgroup Fairness</span></div><div class="category" data-category="U3ludGhldGljJTIwRGF0YQ=="><span class="quarto-category-count category-cloud-1">Synthetic Data</span></div><div class="category" data-category="VmlzaW9uLUxhbmd1YWdlJTIwTW9kZWxz"><span class="quarto-category-count category-cloud-1">Vision-Language Models</span></div><div class="category" data-category="VmlzdWFsJTIwQW5hbHl0aWNz"><span class="quarto-category-count category-cloud-1">Visual Analytics</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -224,30 +225,582 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="listing-actions-group">
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1750647600000" data-listing-file-modified-sort="1787248610074" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="184">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../publications/m2fgb-a-min-max-gradient-boosting-framework-for-subgroup-fai.html" class="no-external">M²FGB: A Min-Max Gradient Boosting Framework for Subgroup Fairness</a>
-</h3>
-<div class="delink listing-description"><a href="../publications/m2fgb-a-min-max-gradient-boosting-framework-for-subgroup-fai.html" class="no-external">
+<div class="list grid quarto-listing-cols-1">
+<div class="g-col-1" data-index="0" data-categories="RXhwbGFpbmFibGUlMjBBSSUyQ0NvdW50ZXJmYWN0dWFsJTIwRXhwbGFuYXRpb25zJTJDTXVsdGktb2JqZWN0aXZlJTIwT3B0aW1pemF0aW9u" data-listing-date-sort="1781578800000" data-listing-file-modified-sort="1787486526467" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="183">
+<a href="../publications/pce-model-agnostic-plausible-pareto-optimal-counterfactual-e.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+PCE: Model-Agnostic Plausible Pareto-Optimal Counterfactual Explanations
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RXhwbGFpbmFibGUlMjBBSQ=='); return false;">Explainable AI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q291bnRlcmZhY3R1YWwlMjBFeHBsYW5hdGlvbnM='); return false;">Counterfactual Explanations</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TXVsdGktb2JqZWN0aXZlJTIwT3B0aW1pemF0aW9u'); return false;">Multi-objective Optimization</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Arthur Hendricks Mendes de Oliveira, Giovani Valdrighi, Marcos Medeiros Raimundo (2026). arXiv preprint arXiv:2606.18418.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="RmFpciUyMENyZWRpdCUyMFNjb3JpbmclMkNSZWplY3QlMjBJbmZlcmVuY2UlMkNDcmVkaXQlMjBTY29yaW5n" data-listing-date-sort="1767236400000" data-listing-file-modified-sort="1787486526467" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="17">
+<a href="../publications/balancing-performance-and-inclusion-a-novel-reject-inference.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Balancing Performance and Inclusion: A Novel Reject Inference Framework for Credit Scoring
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RmFpciUyMENyZWRpdCUyMFNjb3Jpbmc='); return false;">Fair Credit Scoring</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UmVqZWN0JTIwSW5mZXJlbmNl'); return false;">Reject Inference</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q3JlZGl0JTIwU2NvcmluZw=='); return false;">Credit Scoring</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Athyrson Machado Ribeiro, Marcos M Raimundo (2026). The 2nd Workshop on Advances in Financial AI Workshop: Towards Agentic and Responsible Systems.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="QXBwbGllZCUyMERlZXAlMjBMZWFybmluZyUyQ01lZGljYWwlMjBJbWFnaW5nJTJDU3ludGhldGljJTIwRGF0YQ==" data-listing-date-sort="1767236400000" data-listing-file-modified-sort="1787438841184" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="184">
+<a href="../publications/hybridmorph-towards-usage-of-synthetic-with-real-data-for-me.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+HybridMorph: Towards Usage of Synthetic with Real Data for Medical MR Images
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('QXBwbGllZCUyMERlZXAlMjBMZWFybmluZw=='); return false;">Applied Deep Learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWVkaWNhbCUyMEltYWdpbmc='); return false;">Medical Imaging</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3ludGhldGljJTIwRGF0YQ=='); return false;">Synthetic Data</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Saumya Roy, Deepak Mishra¹, Marcos M Raimundo (2026). Computer Vision, Pattern Recognition, Image Processing, and Graphics: 10th National Conference, NCVPRIPG 2025, Jammu…</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="RXRoaWNhbCUyMEFJJTJDRmFpciUyMENyZWRpdCUyMFNjb3JpbmclMkNTZWxlY3RpdmUlMjBMYWJlbHMlMkNMb25nLXRlcm0lMjBGYWlybmVzcw==" data-listing-date-sort="1767236400000" data-listing-file-modified-sort="1787486526468" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="227">
+<a href="../publications/long-term-fairness-with-selective-labels.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Long-term Fairness with Selective Labels
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RXRoaWNhbCUyMEFJ'); return false;">Ethical AI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RmFpciUyMENyZWRpdCUyMFNjb3Jpbmc='); return false;">Fair Credit Scoring</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2VsZWN0aXZlJTIwTGFiZWxz'); return false;">Selective Labels</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TG9uZy10ZXJtJTIwRmFpcm5lc3M='); return false;">Long-term Fairness</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Giovani Valdrighi, Isabel Valera, Marcos M Raimundo (2026). Forty-third International Conference on Machine Learning.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="RXRoaWNhbCUyMEFJJTJDTW9kZWwlMjBNdWx0aXBsaWNpdHklMkNGYWlybmVzcw==" data-listing-date-sort="1767236400000" data-listing-file-modified-sort="1787486526468" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="179">
+<a href="../publications/navigating-the-rashomon-set-the-impact-of-score-distribution.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Navigating the Rashomon Set: The Impact of Score Distributions and Decision Thresholds on Model Agreement
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RXRoaWNhbCUyMEFJ'); return false;">Ethical AI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TW9kZWwlMjBNdWx0aXBsaWNpdHk='); return false;">Model Multiplicity</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RmFpcm5lc3M='); return false;">Fairness</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Giovani Valdrighi, Marcos M Raimundo (2026). Algorithmic Fairness Across Alignment Procedures and Agentic Systems.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="5" data-categories="RXRoaWNhbCUyMEFJJTJDRmFpcm5lc3MlMkNHZW5lcmF0aXZlJTIwTW9kZWxz" data-listing-date-sort="1767236400000" data-listing-file-modified-sort="1787486526467" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="147">
+<a href="../publications/towards-a-geometric-theory-of-fairness-detecting-mode-collap.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Towards a Geometric Theory of Fairness: Detecting Mode Collapse on the Grassmannian Manifold
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RXRoaWNhbCUyMEFJ'); return false;">Ethical AI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RmFpcm5lc3M='); return false;">Fairness</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R2VuZXJhdGl2ZSUyME1vZGVscw=='); return false;">Generative Models</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Beatriz Cardoso Nascimento, Marcos M Raimundo (2026). ICLR 2026 Workshop on Geometry-grounded Representation Learning and Generative Modeling.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="6" data-categories="RXRoaWNhbCUyMEFJJTJDVmlzaW9uLUxhbmd1YWdlJTIwTW9kZWxzJTJDUmFjaWFsJTIwQmlhcw==" data-listing-date-sort="1767236400000" data-listing-file-modified-sort="1787486526467" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="180">
+<a href="../publications/when-ai-describes-race-unveiling-racial-bias-in-vision-langu.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+When AI Describes Race? Unveiling Racial Bias in Vision-Language Models in Brazilian People
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RXRoaWNhbCUyMEFJ'); return false;">Ethical AI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VmlzaW9uLUxhbmd1YWdlJTIwTW9kZWxz'); return false;">Vision-Language Models</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UmFjaWFsJTIwQmlhcw=='); return false;">Racial Bias</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Leodécio Braz da Silva Segundo, Marcos M Raimundo (2026). Algorithmic Fairness Across Alignment Procedures and Agentic Systems.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="7" data-categories="QXBwbGllZCUyMERlZXAlMjBMZWFybmluZyUyQ0xhcmdlJTIwTGFuZ3VhZ2UlMjBNb2RlbHMlMkNDb2RlJTIwR2VuZXJhdGlvbg==" data-listing-date-sort="1760929200000" data-listing-file-modified-sort="1787438841189" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="261">
+<a href="../publications/reasoning-distillation-and-structural-alignment-for-improved.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Reasoning Distillation and Structural Alignment for Improved Code Generation
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('QXBwbGllZCUyMERlZXAlMjBMZWFybmluZw=='); return false;">Applied Deep Learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TGFyZ2UlMjBMYW5ndWFnZSUyME1vZGVscw=='); return false;">Large Language Models</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q29kZSUyMEdlbmVyYXRpb24='); return false;">Code Generation</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Amir Jalilifard, Anderson de Rezende Rocha, Marcos Medeiros Raimundo (2025). arXiv preprint arXiv:2510.17598.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="8" data-categories="RmFpciUyMENyZWRpdCUyMFNjb3JpbmclMkNSZWplY3QlMjBJbmZlcmVuY2UlMkNDcmVkaXQlMjBTY29yaW5n" data-listing-date-sort="1760410800000" data-listing-file-modified-sort="1787486526467" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="205">
+<a href="../publications/balancing-performance-and-reject-inclusion-a-novel-confident.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Balancing Performance and Reject Inclusion: A Novel Confident Inlier Extrapolation Framework for Credit Scoring
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RmFpciUyMENyZWRpdCUyMFNjb3Jpbmc='); return false;">Fair Credit Scoring</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UmVqZWN0JTIwSW5mZXJlbmNl'); return false;">Reject Inference</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q3JlZGl0JTIwU2NvcmluZw=='); return false;">Credit Scoring</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Athyrson Machado Ribeiro, Marcos Medeiros Raimundo (2025). arXiv preprint arXiv:2510.12967.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="9" data-categories="RmFpciUyMENyZWRpdCUyMFNjb3JpbmclMkNSZXNwb25zaWJsZSUyMEFJJTJDQ3JlZGl0JTIwU2NvcmluZw==" data-listing-date-sort="1756695600000" data-listing-file-modified-sort="1787486526468" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="198">
+<a href="../publications/best-practices-for-responsible-machine-learning-in-credit-sc.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Best practices for responsible machine learning in credit scoring
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RmFpciUyMENyZWRpdCUyMFNjb3Jpbmc='); return false;">Fair Credit Scoring</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UmVzcG9uc2libGUlMjBBSQ=='); return false;">Responsible AI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q3JlZGl0JTIwU2NvcmluZw=='); return false;">Credit Scoring</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Giovani Valdrighi, Athyrson M. Ribeiro, Jansen SB Pereira, Vitoria Guardieiro, Arthur Hendricks, Décio Miranda Filho, Juan David Nieto Garcia, Felipe F. Bocca, Thalita B.…</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="10" data-categories="RXhwbGFpbmFibGUlMjBBSSUyQ0NvdW50ZXJmYWN0dWFsJTIwRXhwbGFuYXRpb25zJTJDUHVibGljJTIwU2FmZXR5" data-listing-date-sort="1752202800000" data-listing-file-modified-sort="1787486526467" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="165">
+<a href="../publications/countercrime-using-counterfactual-explanations-to-explore-cr.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+CounterCrime-using counterfactual explanations to explore crime reduction scenarios
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RXhwbGFpbmFibGUlMjBBSQ=='); return false;">Explainable AI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q291bnRlcmZhY3R1YWwlMjBFeHBsYW5hdGlvbnM='); return false;">Counterfactual Explanations</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHVibGljJTIwU2FmZXR5'); return false;">Public Safety</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Marcos M Raimundo, Germain Garcia-Zanabria, Luis Gustavo Nonato, Jorge Poco (2025). IEEE Transactions on Visualization and Computer Graphics.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="11" data-categories="TXVsdGktb2JqZWN0aXZlJTIwT3B0aW1pemF0aW9uJTJDTXVsdGktdGFzayUyMExlYXJuaW5nJTJDQ29tYmluYXRvcmlhbCUyME9wdGltaXphdGlvbg==" data-listing-date-sort="1751252400000" data-listing-file-modified-sort="1787496583680" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="143">
+<a href="../publications/combinatorial-u-curve-optimization-for-multi-task-learning-a.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Combinatorial U-Curve Optimization for Multi-Task Learning: A Task Selection Approach
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TXVsdGktb2JqZWN0aXZlJTIwT3B0aW1pemF0aW9u'); return false;">Multi-objective Optimization</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TXVsdGktdGFzayUyMExlYXJuaW5n'); return false;">Multi-task Learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q29tYmluYXRvcmlhbCUyME9wdGltaXphdGlvbg=='); return false;">Combinatorial Optimization</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Giovana K Bonás, Marcelo S Reis, Marcos M Raimundo (2025). 2025 International Joint Conference on Neural Networks (IJCNN).</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="12" data-categories="RXhwbGFpbmFibGUlMjBBSSUyQ011bHRpLWNyaXRlcmlhJTIwRGVjaXNpb24lMjBNYWtpbmc=" data-listing-date-sort="1751252400000" data-listing-file-modified-sort="1787486526468" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="137">
+<a href="../publications/multi-criteria-rank-based-aggregation-for-explainable-ai.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Multi-criteria rank-based aggregation for explainable AI
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RXhwbGFpbmFibGUlMjBBSQ=='); return false;">Explainable AI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TXVsdGktY3JpdGVyaWElMjBEZWNpc2lvbiUyME1ha2luZw=='); return false;">Multi-criteria Decision Making</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Sujoy Chatterjee, Everton Romanzini Colombo, Marcos Medeiros Raimundo (2025). 2025 International Joint Conference on Neural Networks (IJCNN).</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="13" data-categories="RXRoaWNhbCUyMEFJJTJDU3ViZ3JvdXAlMjBGYWlybmVzcyUyQ0dyYWRpZW50JTIwQm9vc3Rpbmc=" data-listing-date-sort="1750647600000" data-listing-file-modified-sort="1787486526468" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="184">
+<a href="../publications/m2fgb-a-min-max-gradient-boosting-framework-for-subgroup-fai.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+M²FGB: A Min-Max Gradient Boosting Framework for Subgroup Fairness
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RXRoaWNhbCUyMEFJ'); return false;">Ethical AI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3ViZ3JvdXAlMjBGYWlybmVzcw=='); return false;">Subgroup Fairness</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R3JhZGllbnQlMjBCb29zdGluZw=='); return false;">Gradient Boosting</div>
+
+</div>
+<div class="card-text listing-description delink">
 <p>Jansen Silva de Brito Pereira, Giovani Valdrighi, Marcos Medeiros Raimundo (2025). Proceedings of the 2025 ACM Conference on Fairness, Accountability, and Transparency.</p>
-</a></div>
 </div>
-<div class="metadata">
-<a href="../publications/m2fgb-a-min-max-gradient-boosting-framework-for-subgroup-fai.html" class="no-external">
-</a>
 </div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="14" data-categories="TXVsdGktb2JqZWN0aXZlJTIwT3B0aW1pemF0aW9uJTJDUGFyZXRvJTIwU2Vuc2l0aXZpdHklMkNPcGVyYXRpb25zJTIwUmVzZWFyY2g=" data-listing-date-sort="1738033200000" data-listing-file-modified-sort="1787438841185" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="222">
+<a href="../publications/pareto-sensitivity-most-changing-sub-fronts-and-knee-solutio.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Pareto sensitivity, most-changing sub-fronts, and knee solutions
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TXVsdGktb2JqZWN0aXZlJTIwT3B0aW1pemF0aW9u'); return false;">Multi-objective Optimization</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UGFyZXRvJTIwU2Vuc2l0aXZpdHk='); return false;">Pareto Sensitivity</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlcmF0aW9ucyUyMFJlc2VhcmNo'); return false;">Operations Research</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Tommaso Giovannelli, Marcos Medeiros Raimundo, Luis Nunes Vicente (2025). arXiv preprint arXiv:2501.16993.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="15" data-listing-date-sort="1732676400000" data-listing-file-modified-sort="1787438841188" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="131">
+<a href="../publications/evaluating-hate-speech-detection-to-unseen-target-groups.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Evaluating Hate Speech Detection to Unseen Target Groups
+</h5>
+<div class="card-text listing-description delink">
+<p>Alexandre Negretti, Marcos M Raimundo (2024). Conferência Latino-Americana de Ética em Inteligência Artificial.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="16" data-listing-date-sort="1725159600000" data-listing-file-modified-sort="1787438841189" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="159">
+<a href="../publications/mining-pareto-optimal-counterfactual-antecedents-with-a-bran.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Mining Pareto-optimal counterfactual antecedents with a branch-and-bound model-agnostic algorithm
+</h5>
+<div class="card-text listing-description delink">
+<p>Marcos M Raimundo, Luis Gustavo Nonato, Jorge Poco (2024). Data Mining and Knowledge Discovery.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="17" data-listing-date-sort="1712113200000" data-listing-file-modified-sort="1787438841189" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="184">
+<a href="../publications/exploring-the-trade-off-between-model-performance-and-explan.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Exploring the Trade-off Between Model Performance and Explanation Plausibility of Text Classifiers Using Human Rationales
+</h5>
+<div class="card-text listing-description delink">
+<p>Lucas E Resck, Marcos M Raimundo, Jorge Poco (2024). Findings of the Association for Computational Linguistics: NAACL 2024.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="18" data-categories="RXRoaWNhbCUyMEFJJTJDTXVsdGktb2JqZWN0aXZlJTIwT3B0aW1pemF0aW9uJTJDRmFpcm5lc3MlMkNFbnNlbWJsZSUyMExlYXJuaW5n" data-listing-date-sort="1693537200000" data-listing-file-modified-sort="1787486526468" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="158">
+<a href="../publications/enforcing-fairness-using-ensemble-of-diverse-pareto-optimal.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Enforcing fairness using ensemble of diverse Pareto-optimal models
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RXRoaWNhbCUyMEFJ'); return false;">Ethical AI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TXVsdGktb2JqZWN0aXZlJTIwT3B0aW1pemF0aW9u'); return false;">Multi-objective Optimization</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RmFpcm5lc3M='); return false;">Fairness</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RW5zZW1ibGUlMjBMZWFybmluZw=='); return false;">Ensemble Learning</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Vitória Guardieiro, Marcos M Raimundo, Jorge Poco (2023). Data Mining and Knowledge Discovery.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="19" data-listing-date-sort="1641006000000" data-listing-file-modified-sort="1787438841182" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="192">
+<a href="../publications/analyzing-the-equity-of-the-brazilian-national-high-school-e.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Analyzing the Equity of the Brazilian National High School Exam by Validating the Item Response Theory’s Invariance.
+</h5>
+<div class="card-text listing-description delink">
+<p>Vitoria Guardieiro, Marcos M Raimundo, Jorge Poco (2022). EDM.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="20" data-listing-date-sort="1620356400000" data-listing-file-modified-sort="1787438841185" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="168">
+<a href="../publications/exploring-multiobjective-training-in-multiclass-classificati.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Exploring multiobjective training in multiclass classification
+</h5>
+<div class="card-text listing-description delink">
+<p>Marcos M Raimundo, Thalita F Drumond, Alan Caio R Marques, Christiano Lyra, Anderson Rocha, Fernando J Von Zuben (2021). Neurocomputing.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="21" data-categories="RXhwbGFpbmFibGUlMjBBSSUyQ1Zpc3VhbCUyMEFuYWx5dGljcyUyQ1B1YmxpYyUyMFNhZmV0eQ==" data-listing-date-sort="1609470000000" data-listing-file-modified-sort="1787486526467" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="210">
+<a href="../publications/cripav-street-level-crime-patterns-analysis-and-visualizatio.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+CriPAV: street-level crime patterns analysis and visualization
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RXhwbGFpbmFibGUlMjBBSQ=='); return false;">Explainable AI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VmlzdWFsJTIwQW5hbHl0aWNz'); return false;">Visual Analytics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHVibGljJTIwU2FmZXR5'); return false;">Public Safety</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Germain Garcia-Zanabria, Marcos Medeiros Raimundo, Jorge Poco, Marcelo Batista Nery, Cláudio T Silva, Sergio Adorno, Luis Gustavo Nonato (2021). Preprint.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="22" data-listing-date-sort="1595127600000" data-listing-file-modified-sort="1787438841186" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="161">
+<a href="../publications/multi-criteria-analysis-involving-pareto-optimal-misclassifi.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Multi-criteria analysis involving Pareto-optimal misclassification tradeoffs on imbalanced datasets
+</h5>
+<div class="card-text listing-description delink">
+<p>Marcos M Raimundo, Fernando J Von Zuben (2020). 2020 International Joint Conference on Neural Networks (IJCNN).</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="23" data-categories="TXVsdGktb2JqZWN0aXZlJTIwT3B0aW1pemF0aW9uJTJDTklTRSUyQ09wZXJhdGlvbnMlMjBSZXNlYXJjaA==" data-listing-date-sort="1593572400000" data-listing-file-modified-sort="1787438841190" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="156">
+<a href="../publications/an-extension-of-the-non-inferior-set-estimation-algorithm-fo.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+An extension of the non-inferior set estimation algorithm for many objectives
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TXVsdGktb2JqZWN0aXZlJTIwT3B0aW1pemF0aW9u'); return false;">Multi-objective Optimization</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TklTRQ=='); return false;">NISE</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlcmF0aW9ucyUyMFJlc2VhcmNo'); return false;">Operations Research</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Marcos M Raimundo, Paulo AV Ferreira, Fernando J Von Zuben (2020). European Journal of Operational Research.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="24" data-listing-date-sort="1531018800000" data-listing-file-modified-sort="1787438841189" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="160">
+<a href="../publications/investigating-multiobjective-methods-in-multitask-classifica.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Investigating multiobjective methods in multitask classification
+</h5>
+<div class="card-text listing-description delink">
+<p>Marcos M Raimundo, Fernando J Von Zuben (2018). 2018 International Joint Conference on Neural Networks (IJCNN).</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="25" data-categories="QXBwbGllZCUyMERlZXAlMjBMZWFybmluZyUyQ0NvbXB1dGVyJTIwVmlzaW9uJTJDRWNvbG9neQ==" data-listing-date-sort="1517364000000" data-listing-file-modified-sort="1787438841187" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="195">
+<a href="../publications/ant-genera-identification-using-an-ensemble-of-convolutional.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Ant genera identification using an ensemble of convolutional neural networks
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('QXBwbGllZCUyMERlZXAlMjBMZWFybmluZw=='); return false;">Applied Deep Learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q29tcHV0ZXIlMjBWaXNpb24='); return false;">Computer Vision</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RWNvbG9neQ=='); return false;">Ecology</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Alan Caio R Marques, Marcos M Raimundo, Ellen Marianne B Cavalheiro, Luis FP Salles, Christiano Lyra, Fernando J Von Zuben (2018). PloS one.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="26" data-listing-date-sort="1510020000000" data-listing-file-modified-sort="1787438841187" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="118">
+<a href="../publications/ensembles-of-multiobjective-based-classifiers-for-detection.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Ensembles of Multiobjective-Based Classifiers for Detection of Epileptic Seizures
+</h5>
+<div class="card-text listing-description delink">
+<p>Fernando S Beserra, Marcos M Raimundo, Fernando J Von Zuben (2017). Iberoamerican Congress on Pattern Recognition.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="27" data-listing-date-sort="1510020000000" data-listing-file-modified-sort="1787438841183" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="118">
+<a href="../publications/many-objective-ensemble-based-multilabel-classification.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Many-objective ensemble-based multilabel classification
+</h5>
+<div class="card-text listing-description delink">
+<p>Marcos M Raimundo, Fernando J Von Zuben (2017). Iberoamerican Congress on Pattern Recognition.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="28" data-listing-date-sort="1388541600000" data-listing-file-modified-sort="1787438841190" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="21">
+<a href="../publications/um-algoritmo-adaptativo-para-gerar-solucoes-pareto-otimas-vi.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Um algoritmo adaptativo para gerar soluções Pareto-ótimas via branch-and-bound no espaço de objetivos
+</h5>
+<div class="card-text listing-description delink">
+<p>Marcos M. Raimundo, Fernando J. Von Zuben (2014). XLVI SIMPÓSIO BRASILEIRO DE PESQUISA OPERACIONAL.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="29" data-listing-date-sort="NaN" data-listing-file-modified-sort="1787438841181" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="226">
+<a href="../publications/unveiling-hemodynamic-footprints-a-manifold-learning-approac.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Unveiling Hemodynamic Footprints: A Manifold Learning Approach for Systemic Disease Classification using ECG Signals
+</h5>
+<div class="card-text listing-description delink">
+<p>Joao Victor PB Avanzini, Marcos M Raimundo (YYYY). Preprint.</p>
+</div>
+</div>
+</div></a>
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

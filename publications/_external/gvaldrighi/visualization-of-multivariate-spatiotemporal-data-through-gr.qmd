@@ -1,0 +1,13 @@
+---
+title: "Visualization of multivariate spatiotemporal data through graph wavelet transform"
+date: "2024-01-01"
+author: "Giovani de Almeida Valdrighi"
+description: "Giovani de Almeida Valdrighi (2024). Preprint."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=iQXEldcAAAAJ&sortby=pubdate&citation_for_view=iQXEldcAAAAJ:qjMakFHDy7sC"
+---
+
+
+::: {#links}
+:::
+

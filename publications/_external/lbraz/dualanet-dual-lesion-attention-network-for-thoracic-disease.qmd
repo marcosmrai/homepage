@@ -1,0 +1,17 @@
+---
+title: "DuaLAnet: Dual lesion attention network for thoracic disease classification in chest X-rays"
+date: "2020-07-01"
+author: "Vinicius Teixeira, Leodécio Braz, Helio Pedrini, Zanoni Dias"
+scholar-ids: [oMCF-TAAAAAJ, kc-wB9QAAAAJ, DI_Wyj0AAAAJ]
+description: "Vinicius Teixeira, Leodécio Braz, Helio Pedrini, Zanoni Dias (2020). 2020 international conference on systems, signals and image processing (IWSSIP)."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=oMCF-TAAAAAJ&citation_for_view=oMCF-TAAAAAJ:UeHWp8X0CEIC"
+---
+
+## Abstract
+
+The chest radiography is one of the most accessible radiological examinations for diagnosis of lung and heart diseases. Deep learning techniques have been increasingly used to provide more accurate detection of thorax lesions on Chest X-Ray (CXR) images. However, we observe that we can use the complementarity of dual asymmetric deep convolutional neural networks (DCNNs) to improve the ability of CXR image classification compared to the single network. In this paper, we propose a novel dual lesion attention network named DuaLAnet for the classification of 14 thorax diseases on chest radiography. The DuaLAnet consists of two asymmetric attention networks, DenseNet-169 and ResNet-152, to integrate the advantages into a wider architecture, thus extracting more discriminative features of different abnormalities from the raw CXRs. Moreover, a training strategy is designed to integrate the loss …
+
+::: {#links}
+:::
+

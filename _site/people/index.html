@@ -86,8 +86,9 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-image','listing-title','listing-subtitle','listing-description','listing-group',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
-      
-      searchColumns: ["listing-project","listing-website","listing-format","listing-engines","listing-language","listing-title","listing-subtitle","listing-image","listing-description","listing-about","listing-group","listing-filters","listing-path","listing-outputHref","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count","listing-scholar-id","listing-listing"],
+      page: 25,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-project","listing-execute","listing-filters","listing-diagram","listing-website","listing-format","listing-engines","listing-language","listing-title","listing-subtitle","listing-image","listing-description","listing-about","listing-group","listing-links","listing-path","listing-outputHref","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count","listing-listing"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -230,7 +231,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="principal-investigator">Principal Investigator</h2>
 <div class="list grid quarto-listing-cols-3">
 <div class="g-col-1">
-<a href="../people/mmraimundo.html" class="quarto-grid-link">
+<a href="../people/mraimundo.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
 <img src="../profile.jpg" class="thumbnail-image card-img" loading="lazy">
@@ -300,6 +301,20 @@ window.Quarto = {
 <h5 class="no-anchor card-title listing-title">Daniel G. Gratti</h5>
 <div class="card-subtitle listing-subtitle">PhD Student in Machine Learning</div>
 <div class="card-text listing-description delink">Machine Learning, Reinforcement Learning, Optimization, Deep Learning</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1">
+<a href="../people/gkerche.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../people/gkerche.jpg" class="thumbnail-image card-img" loading="lazy">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">Giovana Kerche Bonás</h5>
+<div class="card-subtitle listing-subtitle">PhD Student in Machine Learning</div>
+<div class="card-text listing-description delink">Multi-objective Optimization, Multi-task Learning, Machine Learning</div>
 </div>
 </div>
 </a>
@@ -408,6 +423,34 @@ window.Quarto = {
 </a>
 </div>
 <div class="g-col-1">
+<a href="../people/ilalmeida.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../people/generic-avatar.svg" class="thumbnail-image card-img" loading="lazy">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">Ian Loron de Almeida</h5>
+<div class="card-subtitle listing-subtitle">M.Sc. Student</div>
+<div class="card-text listing-description delink">Machine Learning</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1">
+<a href="../people/jmatta.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../people/generic-avatar.svg" class="thumbnail-image card-img" loading="lazy">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">Joana da Matta</h5>
+<div class="card-subtitle listing-subtitle">M.Sc. Student</div>
+<div class="card-text listing-description delink">Machine Learning</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1">
 <a href="../people/kbenevides.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -417,6 +460,20 @@ window.Quarto = {
 <h5 class="no-anchor card-title listing-title">Kamila Benevides</h5>
 <div class="card-subtitle listing-subtitle">Master student in Data Visualization</div>
 <div class="card-text listing-description delink">Machine Learning, Computer science in education, Data visualization</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1">
+<a href="../people/mrico.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../people/generic-avatar.svg" class="thumbnail-image card-img" loading="lazy">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">Mateus Rico</h5>
+<div class="card-subtitle listing-subtitle">M.Sc. Student</div>
+<div class="card-text listing-description delink">Machine Learning</div>
 </div>
 </div>
 </a>
@@ -450,6 +507,20 @@ window.Quarto = {
 <h5 class="no-anchor card-title listing-title">João Guimarães</h5>
 <div class="card-subtitle listing-subtitle">Undergrad Research Assistant in Machine Learning</div>
 <div class="card-text listing-description delink">Large Language Models, Computer Vision, Data Science</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1">
+<a href="../people/kttamashiro.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../people/generic-avatar.svg" class="thumbnail-image card-img" loading="lazy">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">Kento Tiago Tamashiro</h5>
+<div class="card-subtitle listing-subtitle">Undergraduate Research Assistant</div>
+<div class="card-text listing-description delink">Machine Learning</div>
 </div>
 </div>
 </a>
@@ -575,6 +646,9 @@ window.Quarto = {
 </section>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
+<nav id="people-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

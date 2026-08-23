@@ -1,0 +1,31 @@
+---
+title: "Applied Deep Learning for Specialized Domains"
+date: "2018-01-01"
+subtitle: "2018 – ongoing"
+description: "Collaborations applying deep learning methods to specific, real-world domain problems — from ecological image classification to medical imaging and code generation."
+categories: [Deep Learning, Computer Vision, Applied Machine Learning, Collaborative Research]
+listing:
+  # related-publications-listing:start (gerado por generate_project_pages.py — não editar)
+  - id: related-publications
+    contents: "pubs-by-project/applied-deep-learning/*.qmd"
+    type: default
+    sort: "date desc"
+    fields: [title, description]
+  # related-publications-listing:end
+---
+
+This project groups collaborative work that applies deep learning methods to specific domain problems, developed with researchers and students from other fields rather than as part of a single unifying research line. Each collaboration adapts general-purpose deep learning techniques — convolutional ensembles, synthetic data generation, large language model reasoning — to the practical constraints and data of a particular domain.
+
+### Key Research Topics:
+
+* **Ecological Image Classification:** Ensembles of convolutional neural networks for fine-grained taxonomic identification from images.
+* **Medical Image Synthesis:** Combining synthetic and real data to improve the training of models on medical MR images, where real annotated data is scarce.
+* **LLM Reasoning for Code Generation:** Structural alignment and reasoning distillation techniques to improve the quality of automatically generated code.
+
+::: {#participants}
+:::
+
+## Related Publications
+
+::: {#related-publications}
+:::

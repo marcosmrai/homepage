@@ -1,0 +1,35 @@
+---
+title: "Best practices for responsible machine learning in credit scoring"
+date: "2025-09-01"
+author: "Giovani Valdrighi, Athyrson M. Ribeiro, Jansen SB Pereira, Vitoria Guardieiro, Arthur Hendricks, Décio Miranda Filho, Juan David Nieto Garcia, Felipe F. Bocca, Thalita B. Veronese, Lucas Wanner, Marcos Medeiros Raimundo"
+scholar-ids: [iQXEldcAAAAJ, lTwSfXYAAAAJ, ibe0jfQAAAAJ, pH1HRJoAAAAJ, vt5Xk2UAAAAJ, 6uQfS5kAAAAJ]
+author-ids: [gvaldrighi, amribeiro, jsbpereira, ahmoliveira, dmfilho, jdnieto, mraimundo]
+projects: [ai-for-finance-hiaac]
+categories: [Fair Credit Scoring, Responsible AI, Credit Scoring]
+description: "Giovani Valdrighi, Athyrson M. Ribeiro, Jansen SB Pereira, Vitoria Guardieiro, Arthur Hendricks, Décio Miranda Filho, Juan David Nieto Garcia, Felipe F. Bocca, Thalita B. Veronese, Lucas Wanner, Marcos Medeiros Raimundo (2025). Neural Computing and Applications."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=iQXEldcAAAAJ&citation_for_view=iQXEldcAAAAJ:UeHWp8X0CEIC"
+---
+
+## Abstract
+
+The widespread use of machine learning in credit scoring has brought significant advancements in risk assessment and decision-making. However, it has also raised concerns about potential biases, discrimination, and lack of transparency in these automated systems. This tutorial paper performed a non-systematic literature review to guide best practices for developing responsible machine learning models in credit scoring, focusing on fairness, reject inference, and explainability. We discuss definitions, metrics, and techniques for mitigating biases and ensuring equitable outcomes across different groups. Additionally, we address the issue of limited data representativeness by exploring reject inference methods that incorporate information from rejected loan applications. Finally, we emphasize the importance of transparency and explainability in credit models, discussing techniques that provide insights into the …
+
+::: {#links}
+:::
+
+## Authors
+
+::: {.paper-authors}
+<a href="/people/gvaldrighi.html"><img src="/people/gvaldrighi.jpeg" alt="Giovani Valdrighi"><span>Giovani Valdrighi</span></a>
+<a href="/people/amribeiro.html"><img src="/people/amribeiro.jpg" alt="Athyrson M. Ribeiro"><span>Athyrson M. Ribeiro</span></a>
+<a href="/people/jsbpereira.html"><img src="/people/jsbpereira.jpeg" alt="Jansen SB Pereira"><span>Jansen SB Pereira</span></a>
+<a href="https://scholar.google.com/citations?user=pH1HRJoAAAAJ&hl=pt-BR" target="_blank" rel="noopener"><img src="/coauthors/pH1HRJoAAAAJ.jpg" alt="Vitoria Guardieiro"><span>Vitoria Guardieiro</span></a>
+<a href="/people/ahmoliveira.html"><img src="/people/ahmoliveira.jpeg" alt="Arthur Hendricks"><span>Arthur Hendricks</span></a>
+<a href="/people/dmfilho.html"><img src="/people/dmfilho.jpg" alt="Décio Miranda Filho"><span>Décio Miranda Filho</span></a>
+<a href="/people/jdnieto.html"><img src="/people/jdnieto.jpeg" alt="Juan David Nieto Garcia"><span>Juan David Nieto Garcia</span></a>
+<a href="https://scholar.google.com/citations?user=vt5Xk2UAAAAJ&hl=pt-BR" target="_blank" rel="noopener"><i class="bi bi-person-circle"></i><span>Felipe F. Bocca</span></a>
+<a href="https://www.google.com/search?q=Thalita%20B.%20Veronese" target="_blank" rel="noopener"><i class="bi bi-person-circle"></i><span>Thalita B. Veronese</span></a>
+<a href="https://scholar.google.com/citations?user=6uQfS5kAAAAJ&hl=pt-BR" target="_blank" rel="noopener"><img src="/coauthors/6uQfS5kAAAAJ.jpg" alt="Lucas Wanner"><span>Lucas Wanner</span></a>
+<a href="/people/mraimundo.html"><img src="/people/mraimundo.jpg" alt="Marcos Medeiros Raimundo"><span>Marcos Medeiros Raimundo</span></a>
+:::

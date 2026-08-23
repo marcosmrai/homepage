@@ -1,0 +1,24 @@
+---
+title: "Evaluating Hate Speech Detection to Unseen Target Groups"
+date: "2024-11-27"
+author: "Alexandre Negretti, Marcos M Raimundo"
+author-ids: [anegretti, mraimundo]
+scholar-ids: [ibe0jfQAAAAJ]
+description: "Alexandre Negretti, Marcos M Raimundo (2024). Conferência Latino-Americana de Ética em Inteligência Artificial."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=ibe0jfQAAAAJ&sortby=pubdate&citation_for_view=ibe0jfQAAAAJ:Zph67rFs4hoC"
+---
+
+## Abstract
+
+LLMs trained to detect hate speech have a significant challenge on identifying hate speech directed toward new or less common target groups. This happens because the models are primarily trained on data focused on more prevalent forms of hate, targeting groups that have historically been subjected to hate speech. Not only the way of defamation evolves through time, but new targets may emerge, presenting forms of hate that were previously non-existent in datasets. This work presents analyses of the influence of targeted groups on model prediction. We evaluate training strategies that address target group bias in hate speech detectors. Lastly, we present a novel dataset composed of text posts from Twitter regarding the 2022 Russia-Ukraine war.
+
+::: {#links}
+:::
+
+## Authors
+
+::: {.paper-authors}
+<a href="/people/anegretti.html"><img src="/people/anegretti.jpeg" alt="Alexandre Negretti"><span>Alexandre Negretti</span></a>
+<a href="/people/mraimundo.html"><img src="/people/mraimundo.jpg" alt="Marcos M Raimundo"><span>Marcos M Raimundo</span></a>
+:::

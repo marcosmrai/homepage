@@ -1,0 +1,134 @@
+/*-- scss:defaults --*/
+
+// Paleta das aulas: azul (estrutura/links/títulos), laranja (código/seleção/
+// hover) e vermelho (ênfase/callouts importantes) — o resto do site usa só
+// o azul (ver ../custom.scss), essa paleta de três cores é específica de
+// conteúdo de aula (notas em html e slides em revealjs).
+$body-bg: #ffffff;
+$body-color: #000000;
+$link-color: rgb(0, 133, 202); // Process Blue
+$selection-bg: rgb(255, 94, 0); // Bright Orange
+
+$font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$presentation-font-size-root: 30px; // tamanho base menor que o padrão (40px) do revealjs
+$heading-color: rgb(0, 133, 202); // Process Blue
+$code-color: rgb(255, 94, 0); // Bright Orange
+$lesson-accent-red: rgb(211, 47, 47); // vermelho de ênfase/callouts importantes
+
+/*-- scss:rules --*/
+
+// Linha azul abaixo dos títulos (h1-h3), nos slides
+.reveal .slides section h1,
+.reveal .slides section h2,
+.reveal .slides section h3 {
+  border-bottom: 3px solid rgb(0, 133, 202);
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+}
+
+// Marcadores de lista em laranja
+.reveal ul li::marker {
+  color: rgb(255, 94, 0);
+}
+
+// Hover nos links em laranja
+a:hover {
+  color: rgb(255, 94, 0) !important;
+}
+
+// Callouts "importantes"/"atenção" em vermelho — o terceiro tom da paleta
+// de aula, reservado para o que exige mais atenção (negrito fica preto,
+// como o resto do texto).
+.callout-important,
+.callout-warning,
+.reveal .callout-important,
+.reveal .callout-warning {
+  border-left-color: $lesson-accent-red !important;
+}
+
+// Callout-tip em laranja, o segundo tom da paleta de aula.
+.callout-tip,
+.reveal .callout-tip {
+  border-left-color: rgb(255, 94, 0) !important;
+}
+
+// Fragmentos revelados progressivamente (::: {.fragment}) nos slides: fundo
+// cinza avermelhado (tom claro do vermelho de ênfase da aula), para
+// destacar o que acabou de aparecer sem competir com o vermelho "cheio"
+// reservado aos callouts importantes.
+.reveal .fragment.visible {
+  background-color: rgba(211, 47, 47, 0.1);
+  border-left: 3px solid $lesson-accent-red;
+  border-radius: 4px;
+  padding: 0.15em 0.5em;
+}
+
+// Esconde a contagem de slides no revealjs
+.reveal .slide-number {
+  display: none !important;
+}
+
+// Tamanho de fonte dos diagramas mermaid dentro dos slides
+.reveal .mermaid svg,
+.reveal svg[id^="mermaid"] {
+  text,
+  .nodeLabel,
+  .edgeLabel {
+    font-size: 16px !important;
+    font-family: arial, sans-serif !important;
+  }
+}
+
+// Callouts (html e revealjs) no mesmo tamanho de fonte do resto do texto
+.reveal div.callout,
+.reveal .callout-body,
+.reveal .callout-content p {
+  font-size: 1em !important;
+}
+
+// Rodapé customizado com logos (UNICAMP + IC) no canto inferior direito dos
+// slides, com seta de retorno opcional — ver include-after-body em
+// _quarto.yml (arquivo de logos ainda não migrado, ver README).
+.custom-footer-logos {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+  z-index: 1000;
+
+  img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .back-arrow-slide {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(0, 133, 202);
+    text-decoration: none;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      color: rgb(255, 94, 0) !important;
+      transform: translateX(-3px);
+    }
+  }
+
+  .reveal .mermaid {
+    width: 100%;
+
+    svg {
+      display: block !important;
+      margin: 0 auto !important;
+      max-width: 100% !important;
+      height: auto !important;
+    }
+  }
+}

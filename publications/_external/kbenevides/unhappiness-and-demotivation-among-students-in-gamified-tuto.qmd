@@ -1,0 +1,17 @@
+---
+title: "Unhappiness and Demotivation Among Students in Gamified Tutoring Systems: Toward Understanding the Gender Gap"
+date: "2024-07-02"
+author: "Kamila Benevides, Jário Santos, Geiser Chalco, Marcelo Reis, Álvaro Sobrinho, Leonardo Marques, Diego Dermeval, Rafael Mello, Alan Silva, Seiji Isotani, Ig Ibert Bittencourt"
+scholar-ids: [V6h2p5kAAAAJ, UW2bzhcAAAAJ, I7xtVBYAAAAJ, 1HbW_14AAAAJ, 6yo0gvEAAAAJ, _itHal0AAAAJ, BSe3NMwAAAAJ]
+description: "Kamila Benevides, Jário Santos, Geiser Chalco, Marcelo Reis, Álvaro Sobrinho, Leonardo Marques, Diego Dermeval, Rafael Mello, Alan Silva, Seiji Isotani, Ig Ibert Bittencourt (2024). International Conference on Artificial Intelligence in Education."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=V6h2p5kAAAAJ&citation_for_view=V6h2p5kAAAAJ:IjCSPb-OGe4C"
+---
+
+## Abstract
+
+In an experimental study, we observed that male-stereotyped elements, such as avatars and trophies, positively impacted men’s self-efficacy using gamified tutoring systems based on artificial intelligence. Regardless of gender stereotypes, men achieved higher flow state scores than women when using these systems. Thus, we conducted a qualitative study involving Brazilian high school students to understand these effects. Our findings revealed that male students experience increased self-efficacy when game elements align with their gender, making them feel more challenged and personally connected to the system. Considering the emotional aspects of dejection, agitation, cheerfulness, and quiescence, women displayed slightly higher levels of cheerfulness in neutral and female-stereotyped environments. Moreover, student motivation varied when using a gamified platform, and there were differences in the …
+
+::: {#links}
+:::
+

@@ -2,8 +2,9 @@
 pagetitle: "Projects"
 listing:
   id: projects-listing
-  contents: "*.qmd"
-  type: default
+  contents: "./*.qmd"
+  type: grid
+  grid-columns: 1
   sort: "date desc"
   fields: [title, subtitle, description, categories]
 ---

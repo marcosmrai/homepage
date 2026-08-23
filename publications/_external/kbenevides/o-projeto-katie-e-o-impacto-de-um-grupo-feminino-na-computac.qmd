@@ -1,0 +1,17 @@
+---
+title: "O projeto Katie e o impacto de um grupo feminino na Computação"
+date: "2022-01-01"
+author: "Ester de Lima Pontes Andrade, Kamila Almeida Benevides, Luana Júlia Nunes Ferreira, Ullyanne Julia Freire Patriota, Raquel da Silva Cabral, Eliana Silva de Almeida"
+scholar-ids: [bekxjk0AAAAJ]
+description: "Ester de Lima Pontes Andrade, Kamila Almeida Benevides, Luana Júlia Nunes Ferreira, Ullyanne Julia Freire Patriota, Raquel da Silva Cabral, Eliana Silva de Almeida (2022). I Congresso Internacional de Mulheres em STEAM."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=V6h2p5kAAAAJ&sortby=pubdate&citation_for_view=V6h2p5kAAAAJ:UeHWp8X0CEIC"
+---
+
+## Abstract
+
+A sub-representação de mulheres nas áreas de STEAM fomenta um grave problema social e cultural, onde pesquisadores já trabalham na busca por solucionar e explorar as causas dessa sub-representação. Existem atualmente diversos grupos femininos atuantes em universidades de todo o Brasil que trabalham em engajar e atrair mais mulheres para a área de STEAM. Este trabalho apresenta a atuação nos dois anos do projeto" Katie: saindo do buraco negro e impulsionando as meninas para a computação", da Universidade Federal de Alagoas. Neste período do projeto, diversas atividades vêm sendo desenvolvidas, tais como, cursos de capacitação, eventos de divulgação científica e rodas de conversa. O projeto tem alcançado resultados reconhecidos com publicações de artigos, patrocínios e divulgações em mídias locais.
+
+::: {#links}
+:::
+

@@ -1,0 +1,16 @@
+---
+title: "Aprimoramento de técnicas de feature engineering para aplicação em prognóstico e gestão da saúde de máquinas"
+date: "2025-01-01"
+author: "Maria Clara Assunção Viana"
+description: "Maria Clara Assunção Viana (2025). [sn]."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=ou0eGXAAAAAJ&citation_for_view=ou0eGXAAAAAJ:2osOgNQ5qMEC"
+---
+
+## Abstract
+
+Em um contexto industrial, a melhoria contínua da manutenção de equipamentos é uma prioridade constante, visando aumentar a disponibilidade, reduzir paradas não planejadas e minimizar custos operacionais. O Prognóstico e Gestão de Saúde de Máquinas (PHM) surge como uma estratégia para... Ver maisResumo: Em um contexto industrial, a melhoria contínua da manutenção de equipamentos é uma prioridade constante, visando aumentar a disponibilidade, reduzir paradas não planejadas e minimizar custos operacionais. O Prognóstico e Gestão de Saúde de Máquinas (PHM) surge como uma estratégia para monitorar a integridade de sistemas em tempo real, permitindo a detecção precoce de falhas, o diagnóstico e a estimativa da vida útil dos equipamentos. Essa estratégia tem sido implementada por meio de técnicas de aprendizado de máquina tradicional ou de deep learning, mas, em ambas as abordagens, a etapa de feature engineering representa um desafio central, carecendo de metodologias sistemáticas para extração e seleção de features em contextos industriais. Em geral, os estudos mostram estratégias dependentes de conhecimento de domínio, computacionalmente custosas e pouco generalizáveis, levando muitos autores a recorrer a escolhas ad hoc e heurísticas, o que compromete a robustez, a reprodutibilidade e a capacidade de generalização dos modelos resultantes. Além disso, aspectos práticos como latência e escalabilidade são frequentemente negligenciados, embora sejam críticos para aplicações em ambientes conectados e monitoramento em tempo real. Neste trabalho, são propostas e …
+
+::: {#links}
+:::
+

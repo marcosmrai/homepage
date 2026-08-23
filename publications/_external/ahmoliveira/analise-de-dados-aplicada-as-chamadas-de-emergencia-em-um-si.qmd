@@ -1,0 +1,17 @@
+---
+title: "Análise de Dados Aplicada às Chamadas de Emergência em um Sistema de Distribuição Real"
+date: "2022-11-30"
+author: "Arthur HM de Oliveira, Karcius Dantas, Matheus Maia, Kézia Dantas, Bruna Granadeiro, Raquel Zacarias"
+scholar-ids: [Grv19eoAAAAJ]
+description: "Arthur HM de Oliveira, Karcius Dantas, Matheus Maia, Kézia Dantas, Bruna Granadeiro, Raquel Zacarias (2022). Simpósio Brasileiro de Sistemas Elétricos-SBSE."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=Grv19eoAAAAJ&sortby=pubdate&citation_for_view=Grv19eoAAAAJ:UeHWp8X0CEIC"
+---
+
+## Abstract
+
+This work uses data analysis related to emergency calls from customers of a power distribution utility in Brazil, in order to investigate how temporal aspects and climatic characteristics influence the demands of the electricity grid and how these aspects are correlated with the number of calls received in a power distribution system over time. Therefore, a statistical analysis was performed based on the calculation of Pearson’s coefficient correlation for data with numerical characteristics and on the chi-square test that verifies the association of categorical characteristics with the number of calls. Numerical and day-of-the-week classifications of climatic data were proposed. As a result, it was found that the impact of these manipulations has a greater influence on the number of calls received by the concessionaire, allowing a better understanding of the most significant root causes for the increase in the number of calls in energy distribution systems in the country.
+
+::: {#links}
+:::
+

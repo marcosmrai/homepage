@@ -2,20 +2,26 @@
 title: "M²FGB: A Min-Max Gradient Boosting Framework for Subgroup Fairness"
 date: "2025-06-23"
 author: "Jansen Silva de Brito Pereira, Giovani Valdrighi, Marcos Medeiros Raimundo"
-author-ids: [jsbpereira, gvaldrighi, mmraimundo]
+scholar-ids: [iQXEldcAAAAJ, ibe0jfQAAAAJ]
+author-ids: [jsbpereira, gvaldrighi, mraimundo]
+projects: [ai-for-finance-hiaac]
+categories: [Ethical AI, Subgroup Fairness, Gradient Boosting]
 description: "Jansen Silva de Brito Pereira, Giovani Valdrighi, Marcos Medeiros Raimundo (2025). Proceedings of the 2025 ACM Conference on Fairness, Accountability, and Transparency."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=iQXEldcAAAAJ&citation_for_view=iQXEldcAAAAJ:IjCSPb-OGe4C"
 ---
 
 ## Abstract
 
 In recent years, fairness in machine learning has emerged as a critical concern to ensure that developed and deployed predictive models do not have disadvantageous predictions for marginalized groups. It is essential to mitigate discrimination against individuals based on protected attributes such as gender and race. In this work, we consider applying subgroup justice concepts to gradient-boosting machines designed for supervised learning problems. Our approach expanded gradient-boosting methodologies to explore a broader range of objective functions, which combines conventional losses such as the ones from classification and regression and a min-max fairness term. We study relevant theoretical properties of the solution of the min-max optimization problem. The optimization process explored the primal-dual problems at each boosting round. This generic framework can be adapted to diverse fairness concepts. The proposed min-max primal-dual gradient boosting algorithm was theoretically shown to converge under mild conditions and empirically shown to be a powerful and flexible approach to address binary and subgroup fairness.
 
-[Google Scholar](https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=iQXEldcAAAAJ&citation_for_view=iQXEldcAAAAJ:IjCSPb-OGe4C)
+::: {#links}
+:::
 
 ## Authors
 
 ::: {.paper-authors}
-<a href="../people/jsbpereira.html"><img src="../people/jsbpereira.jpeg" alt="Jansen Silva de Brito Pereira"><span>Jansen Silva de Brito Pereira</span></a>
-<a href="../people/gvaldrighi.html"><img src="../people/gvaldrighi.jpeg" alt="Giovani Valdrighi"><span>Giovani Valdrighi</span></a>
-<a href="../people/mmraimundo.html"><img src="../people/mmraimundo.jpg" alt="Marcos Medeiros Raimundo"><span>Marcos Medeiros Raimundo</span></a>
+<a href="/people/jsbpereira.html"><img src="/people/jsbpereira.jpeg" alt="Jansen Silva de Brito Pereira"><span>Jansen Silva de Brito Pereira</span></a>
+<a href="/people/gvaldrighi.html"><img src="/people/gvaldrighi.jpeg" alt="Giovani Valdrighi"><span>Giovani Valdrighi</span></a>
+<a href="/people/mraimundo.html"><img src="/people/mraimundo.jpg" alt="Marcos Medeiros Raimundo"><span>Marcos Medeiros Raimundo</span></a>
 :::

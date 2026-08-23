@@ -1,0 +1,26 @@
+---
+title: "Balancing Performance and Reject Inclusion: A Novel Confident Inlier Extrapolation Framework for Credit Scoring"
+date: "2025-10-14"
+author: "Athyrson Machado Ribeiro, Marcos Medeiros Raimundo"
+author-ids: [amribeiro, mraimundo]
+scholar-ids: [lTwSfXYAAAAJ, ibe0jfQAAAAJ]
+projects: [ai-for-finance-hiaac]
+categories: [Fair Credit Scoring, Reject Inference, Credit Scoring]
+description: "Athyrson Machado Ribeiro, Marcos Medeiros Raimundo (2025). arXiv preprint arXiv:2510.12967."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=lTwSfXYAAAAJ&citation_for_view=lTwSfXYAAAAJ:zYLM7Y9cAGgC"
+---
+
+## Abstract
+
+Reject Inference (RI) methods aim to address sample bias by inferring missing repayment data for rejected credit applicants. Traditional approaches often assume that the behavior of rejected clients can be extrapolated from accepted clients, despite potential distributional differences between the two populations. To mitigate this blind extrapolation, we propose a novel Confident Inlier Extrapolation framework (CI-EX). CI-EX iteratively identifies the distribution of rejected client samples using an outlier detection model and assigns labels to rejected individuals closest to the distribution of the accepted population based on probabilities derived from a supervised classification model. The effectiveness of our proposed framework is validated through experiments on two large real-world credit datasets. Performance is evaluated using the Area Under the Curve (AUC) as well as RI-specific metrics such as Kickout and a novel metric introduced in this work, denoted as Area under the Kickout. Our findings reveal that RI methods, including the proposed framework, generally involve a trade-off between AUC and RI-specific metrics. However, the proposed CI-EX framework consistently outperforms existing RI models from the credit literature in terms of RI-specific metrics while maintaining competitive performance in AUC across most experiments.
+
+::: {#links}
+:::
+
+## Authors
+
+::: {.paper-authors}
+<a href="/people/amribeiro.html"><img src="/people/amribeiro.jpg" alt="Athyrson Machado Ribeiro"><span>Athyrson Machado Ribeiro</span></a>
+<a href="/people/mraimundo.html"><img src="/people/mraimundo.jpg" alt="Marcos Medeiros Raimundo"><span>Marcos Medeiros Raimundo</span></a>
+:::

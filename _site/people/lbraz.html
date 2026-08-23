@@ -37,6 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -73,7 +75,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-publications .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-publications'] = new List('listing-publications', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -155,8 +215,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </header><main class="content page-columns page-full" id="quarto-document-content">
 <p><a href="https://ic.unicamp.br/">Institute of Computing - University of Campinas</a></p>
-<div class="profile-links">
-<p><a href="https://scholar.google.com/citations?user=oMCF-TAAAAAJ&amp;hl=pt-BR" class="about-link" target="_blank" rel="me"><i class="bi bi-mortarboard-fill"></i> <span class="about-link-text">Google Scholar</span></a> <a href="https://github.com/leosegundo" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a> <a href="https://www.linkedin.com/in/leodécio-braz-6a1968124" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a> <a href="http://lattes.cnpq.br/0865120534739890" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a></p>
+<div id="links">
+<a href="https://scholar.google.com/citations?user=oMCF-TAAAAAJ&amp;hl=pt-BR" class="about-link" target="_blank" rel="me"><i class="bi bi-mortarboard-fill"></i> <span class="about-link-text">Google Scholar</span></a>
+<a href="https://github.com/leosegundo" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/in/leodécio-braz-6a1968124/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+<a href="http://lattes.cnpq.br/0865120534739890" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
 </div>
 <p>Leodécio Braz is a Ph.D.&nbsp;candidate in Computer Science at the Institute of Computing at the University of Campinas (IC - UNICAMP). He is a member of the Hub of Artificial Intelligence and Cognitive Architectures (HIAAC), performing research in Trusthyworth AI, mainly in the area of fairness and explainability.</p>
 <div class="column-screen band band-gray page-columns page-full">
@@ -182,6 +245,104 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>PhD in Computer Science</strong>, 2027 Institute of Computing - University of Campinas</p>
 <p><strong>MS in Computer Science</strong>, 2021 Institute of Computing - University of Campinas</p>
 <p><strong>BSc in Computer Science</strong>, 2019 Federal University of Ceará (UFC)</p>
+</div>
+</div>
+</div>
+<div class="column-screen band band-gray page-columns page-full">
+<div class="column-body section-row">
+<section id="publications" class="level2 section-label">
+<h2 data-anchor-id="publications">Publications</h2>
+</section>
+<div class="section-content">
+<div id="listing-publications" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1615950000000" data-listing-file-modified-sort="1787438841195" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/lbraz/image-text-integration-using-a-multimodal-fusion-network-mod.html" class="no-external">Image-text integration using a multimodal fusion network module for movie genre classification</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/lbraz/image-text-integration-using-a-multimodal-fusion-network-mod.html" class="no-external">
+<p>Leodécio Braz, Vinícius Teixeira, Helio Pedrini, Zanoni Dias (2021). 11th International Conference of Pattern Recognition Systems (ICPRS 2021).</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/lbraz/image-text-integration-using-a-multimodal-fusion-network-mod.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1606100400000" data-listing-file-modified-sort="1787438841195" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="102">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/lbraz/classification-of-musculoskeletal-abnormalities-with-convolu.html" class="no-external">Classification of Musculoskeletal Abnormalities with Convolutional Neural Networks</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/lbraz/classification-of-musculoskeletal-abnormalities-with-convolu.html" class="no-external">
+<p>Guilherme Tiaki Sassai Sato, Leodécio Braz da Silva Segundo, Zanoni Dias (2020). Brazilian Symposium on Bioinformatics.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/lbraz/classification-of-musculoskeletal-abnormalities-with-convolu.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1606100400000" data-listing-file-modified-sort="1787438841194" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="133">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/lbraz/imtenet-image-text-classification-network-for-abnormality-de.html" class="no-external">ImTeNet: Image-Text Classification Network for Abnormality Detection and Automatic Reporting on Musculoskeletal Radiographs</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/lbraz/imtenet-image-text-classification-network-for-abnormality-de.html" class="no-external">
+<p>Leodécio Braz, Vinicius Teixeira, Helio Pedrini, Zanoni Dias (2020). Brazilian Symposium on Bioinformatics.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/lbraz/imtenet-image-text-classification-network-for-abnormality-de.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1593572400000" data-listing-file-modified-sort="1787438841194" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="133">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/lbraz/dualanet-dual-lesion-attention-network-for-thoracic-disease.html" class="no-external">DuaLAnet: Dual lesion attention network for thoracic disease classification in chest X-rays</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/lbraz/dualanet-dual-lesion-attention-network-for-thoracic-disease.html" class="no-external">
+<p>Vinicius Teixeira, Leodécio Braz, Helio Pedrini, Zanoni Dias (2020). 2020 international conference on systems, signals and image processing (IWSSIP).</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/lbraz/dualanet-dual-lesion-attention-network-for-thoracic-disease.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1546308000000" data-listing-file-modified-sort="1787438841194" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="189">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/lbraz/handbags-classification-model-via-deep-learning.html" class="no-external">Handbags classification model via deep learning</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/lbraz/handbags-classification-model-via-deep-learning.html" class="no-external">
+<p>DJ Braga, Leodecio Braz SS, Crıston Pereira de Souza, Ticiana L Coelho da Silva (2019). International Conference on Machine Learning and Data Mining.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/lbraz/handbags-classification-model-via-deep-learning.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1514772000000" data-listing-file-modified-sort="1787438841193" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="158">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/lbraz/classificacao-de-personagens-animados-usando-redes-neurais-c.html" class="no-external">Classificação de Personagens Animados usando Redes Neurais Convolucionais Profundas Pré-treinadas e Fine-tuning</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/lbraz/classificacao-de-personagens-animados-usando-redes-neurais-c.html" class="no-external">
+<p>Leodécio Braz da Silva Segundo (2018). Preprint.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/lbraz/classificacao-de-personagens-animados-usando-redes-neurais-c.html" class="no-external">
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
 
 
 <div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">

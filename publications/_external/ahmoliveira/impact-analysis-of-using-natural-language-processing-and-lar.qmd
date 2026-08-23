@@ -1,0 +1,17 @@
+---
+title: "Impact analysis of using natural language processing and large language model on automated correction of systems engineering requirements"
+date: "2024-07-01"
+author: "Arthur HM de Oliveira, Pedro Almeida Reis, Fernando Sarracini Júnior, Mairon Sena Cavalcante, Jonathan VC de Lima, Luis FC Soares, Lucas Henrique Marchiori"
+scholar-ids: [Grv19eoAAAAJ]
+description: "Arthur HM de Oliveira, Pedro Almeida Reis, Fernando Sarracini Júnior, Mairon Sena Cavalcante, Jonathan VC de Lima, Luis FC Soares, Lucas Henrique Marchiori (2024). INCOSE International Symposium."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=Grv19eoAAAAJ&citation_for_view=Grv19eoAAAAJ:u5HHmVD_uO8C"
+---
+
+## Abstract
+
+The increasing complexity of Electronic Control Units (ECUs) in the Automotive Industry due to the integration of more sophisticated vehicle features has made the Systems Engineering (SE) application a necessity to define and implement efficient solutions. In this context, requirements emerge as a critical part of the communication between cross‐functional teams. Thus, the more complex systems become, the more requirements are needed to define them. However, lack of information, misalignment and ambiguity on requirements impact the entire development process, resulting in issues later, harder to be fixed. Some studies are being applied to evaluate techniques using Natural Language Processing (NLP) and how it can replace extensive peer reviews, identifying weaknesses in requirements earlier in the process, avoiding wasted time and large financial losses. Normally, NLP is combined with templates …
+
+::: {#links}
+:::
+

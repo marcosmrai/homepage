@@ -1,0 +1,37 @@
+---
+title: "Multi-objective Optimization and Ensemble Learning for Machine Learning Models"
+date: "2025-01-10"
+subtitle: "2014 – 2025"
+image: multiobjective-machine-learning.jpg
+description: "Research on continuous and many-objective optimization techniques (NISE/MONISE) applied to regularized machine learning, model selection, ensemble generation, and algorithmic fairness."
+categories: [Multi-objective Optimization, Continuous Optimization, Mathematical Programming, Ensemble Learning, Algorithmic Fairness, Machine Learning]
+participants: [mraimundo, pH1HRJoAAAAJ, WQWg20oAAAAJ, ROLstoAAAAAJ]
+listing:
+  # related-publications-listing:start (gerado por generate_project_pages.py — não editar)
+  - id: related-publications
+    contents: "pubs-by-project/moml/*.qmd"
+    type: default
+    sort: "date desc"
+    fields: [title, description]
+  # related-publications-listing:end
+---
+
+This project addresses the fundamental mathematical and computational challenges of multi-objective optimization (MOO) applied to statistical learning and decision-making problems. Rather than reducing complex, conflicting trade-offs to a single arbitrary scalar objective *a priori*, our research focuses on generating, analyzing, and structuring the full Pareto-optimal frontier.
+
+By leveraging deterministic scalarization algorithms—specifically Non-Inferior Set Estimation (**NISE**) and its high-dimensional extension (**MONISE**)—we map the exact convex curvature of the Pareto front in learning problems. We explore how well-distributed sampling of Pareto-efficient solutions can serve as an adaptive mechanism for hyperparameter tuning, feature/task sharing, model selection, and the synthesis of robust committee machines (ensembles).
+
+### Key Research Topics:
+
+* **Deterministic Pareto Frontier Sampling (NISE & MONISE):** Developing and applying exact adaptive algorithms that exploit problem convexity and Mixed-Integer Linear Programming (MILP) to automatically discover well-spaced Pareto-optimal solutions across two or more conflicting objectives.
+* **Model Selection & Hyperparameter Tuning:** Utilizing the natural curvature of the Pareto front (e.g., training loss vs. $L_2$ regularization) as a flexible, adaptive grid for model selection, avoiding inefficient global or blind grid searches.
+* **Ensemble Generation and Diversity Filtering:** Exploiting the structural diversity inherent in Pareto-optimal models with varying trade-offs to build high-performance ensembles (via voting, distribution summation, and stacking) without relying on random data resampling.
+* **Multitask and Imbalanced Classification:** Formulating multi-class, multi-label, and multi-task learning tasks as many-objective problems where individual class or task losses act as conflicting objectives, mitigating negative transfer and class-imbalance bias.
+* **Algorithmic Fairness & Ethical AI:** Modeling performance metrics alongside group-level fairness metrics (such as Demographic Parity, Equal Opportunity, and group-specific loss risks) into multi-objective frameworks to generate diverse Pareto-optimal trade-offs between accuracy and bias mitigation.
+
+::: {#participants}
+:::
+
+## Related Publications
+
+::: {#related-publications}
+:::

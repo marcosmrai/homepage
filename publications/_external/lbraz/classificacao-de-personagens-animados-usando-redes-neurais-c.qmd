@@ -1,0 +1,16 @@
+---
+title: "Classificação de Personagens Animados usando Redes Neurais Convolucionais Profundas Pré-treinadas e Fine-tuning"
+date: "2018-01-01"
+author: "Leodécio Braz da Silva Segundo"
+description: "Leodécio Braz da Silva Segundo (2018). Preprint."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=oMCF-TAAAAAJ&sortby=pubdate&citation_for_view=oMCF-TAAAAAJ:d1gkVwhDpl0C"
+---
+
+## Abstract
+
+Neste presente trabalho, o autor utiliza a transferência de conhecimento e analisa o uso da técnica de fine-tuning em redes neurais convolucionais para a classificação de personagens da série animada “Os Simpsons”. A transferência de conhecimento é realizada a partir do uso de redes neurais profundas já treinadas sobre um grandes conjuntos de dados de múltiplas classes e a técnica de fine-tuning consiste em realizar um congelamento de alguns pesos e modificar outros de um modelo já treinado, sobre um novo conjunto de dados. Estudos sobre essa técnica relatam que algumas representações aprendidas anteriormente por um modelo são adaptadas a um novo problema. Uma preocupação presente neste trabalho foi quanto a evitar o overfitting durante o processo de aprendizagem dos modelos. Para isso foram introduzidos hiperparâmetros como regularização e dropout. Duas arquiteturas de redes neurais foram utilizadas, o uso do fine-tuning nos modelos, sobre os dados, ocasionou uma melhora significativa nos resultados, melhorando o desempenho da classificação.
+
+::: {#links}
+:::
+

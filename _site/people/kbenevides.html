@@ -37,6 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -73,7 +75,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-publications .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-publications'] = new List('listing-publications', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -155,8 +215,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </header><main class="content page-columns page-full" id="quarto-document-content">
 <p><a href="https://ic.unicamp.br/">Institute of Computing - University of Campinas</a></p>
-<div class="profile-links">
-<p><a href="https://scholar.google.com.br/citations?user=V6h2p5kAAAAJ&amp;hl=pt-BR&amp;oi=ao" class="about-link" target="_blank" rel="me"><i class="bi bi-mortarboard-fill"></i> <span class="about-link-text">Google Scholar</span></a> <a href="https://github.com/KamilaBenevides" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a> <a href="https://www.linkedin.com/in/kamila-benevides/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a> <a href="http://lattes.cnpq.br/5667516041449066" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a></p>
+<div id="links">
+<a href="https://scholar.google.com/citations?user=V6h2p5kAAAAJ&amp;hl=pt-BR" class="about-link" target="_blank" rel="me"><i class="bi bi-mortarboard-fill"></i> <span class="about-link-text">Google Scholar</span></a>
+<a href="https://github.com/KamilaBenevides" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/in/kamila-benevides/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+<a href="http://lattes.cnpq.br/5667516041449066" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
 </div>
 <p>Kamila Benevides is a master’s student at the State University of Campinas (UNICAMP), in the Institute of Computing (IC). She is also a faculty member of the REasoning for COmplex Data (Recod.ai) lab. His research interests include machine learning, computer science in education, data visualization.</p>
 <div class="column-screen band band-gray page-columns page-full">
@@ -181,6 +244,118 @@ ul.task-list li input[type="checkbox"] {
 <div class="section-content">
 <p><strong>MS in Computer science</strong>, current Computer Science Institute - University of Campinas</p>
 <p><strong>BSc in Computer science</strong>, 2022 Federal university of alagoas</p>
+</div>
+</div>
+</div>
+<div class="column-screen band band-gray page-columns page-full">
+<div class="column-body section-row">
+<section id="publications" class="level2 section-label">
+<h2 data-anchor-id="publications">Publications</h2>
+</section>
+<div class="section-content">
+<div id="listing-publications" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1719889200000" data-listing-file-modified-sort="1787438841203" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="122">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/kbenevides/unhappiness-and-demotivation-among-students-in-gamified-tuto.html" class="no-external">Unhappiness and Demotivation Among Students in Gamified Tutoring Systems: Toward Understanding the Gender Gap</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/kbenevides/unhappiness-and-demotivation-among-students-in-gamified-tuto.html" class="no-external">
+<p>Kamila Benevides, Jário Santos, Geiser Chalco, Marcelo Reis, Álvaro Sobrinho, Leonardo Marques, Diego Dermeval, Rafael Mello, Alan Silva, Seiji Isotani, Ig Ibert Bittencourt (2024). International Conference on Artificial Intelligence in Education.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/kbenevides/unhappiness-and-demotivation-among-students-in-gamified-tuto.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1675220400000" data-listing-file-modified-sort="1787438841206" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="131">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/kbenevides/does-gender-stereotype-threat-affects-the-levels-of-aggressi.html" class="no-external">Does gender stereotype threat affects the levels of aggressiveness, learning and flow in gamified learning environments?: An experimental study</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/kbenevides/does-gender-stereotype-threat-affects-the-levels-of-aggressi.html" class="no-external">
+<p>Jário Santos, Ester Andrade, Kamila Benevides, Kelly Silva, João Nascimento, Ig Bittencourt, Marcos Pereira, Sheyla Fernandes, Seiji Isotani (2023). Education and information technologies.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/kbenevides/does-gender-stereotype-threat-affects-the-levels-of-aggressi.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1670382000000" data-listing-file-modified-sort="1787438841205" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/kbenevides/ameaca-de-estereotipo-de-genero-afeta-o-desanimo-fluxo-e-des.html" class="no-external">Ameaça de estereótipo de gênero afeta o desânimo, fluxo e desempenho em um sistema tutor gamificado para lógica?</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/kbenevides/ameaca-de-estereotipo-de-genero-afeta-o-desanimo-fluxo-e-des.html" class="no-external">
+<p>Kamila de Almeida Benevides (2022). Preprint.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/kbenevides/ameaca-de-estereotipo-de-genero-afeta-o-desanimo-fluxo-e-des.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1652065200000" data-listing-file-modified-sort="1787438841205" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="212">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/kbenevides/tecnologias-educacionais-estereotipadas-um-desafio-a-ser-enf.html" class="no-external">Tecnologias Educacionais Estereotipadas: Um desafio a ser enfrentado</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/kbenevides/tecnologias-educacionais-estereotipadas-um-desafio-a-ser-enf.html" class="no-external">
+<p>Jário Santos, Kamila Benevides, Ester Andrade, João Nascimento, Kelly Silva, Ig Bittencourt, Marcos Pereira, Sheyla Fernandes, Cristiana Carina BLD Bittencourt, Seiji Isotani (2022). Revista Brasileira de Informática na Educação.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/kbenevides/tecnologias-educacionais-estereotipadas-um-desafio-a-ser-enf.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1641006000000" data-listing-file-modified-sort="1787438841204" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="120">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/kbenevides/o-projeto-katie-e-o-impacto-de-um-grupo-feminino-na-computac.html" class="no-external">O projeto Katie e o impacto de um grupo feminino na Computação</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/kbenevides/o-projeto-katie-e-o-impacto-de-um-grupo-feminino-na-computac.html" class="no-external">
+<p>Ester de Lima Pontes Andrade, Kamila Almeida Benevides, Luana Júlia Nunes Ferreira, Ullyanne Julia Freire Patriota, Raquel da Silva Cabral, Eliana Silva de Almeida (2022). I Congresso Internacional de Mulheres em STEAM.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/kbenevides/o-projeto-katie-e-o-impacto-de-um-grupo-feminino-na-computac.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1626577200000" data-listing-file-modified-sort="1787438841202" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="113">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/kbenevides/projeto-katie-o-desafio-de-motivar-meninas-para-as-areas-ste.html" class="no-external">Projeto Katie: o desafio de motivar meninas para as áreas STEM em meio à pandemia</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/kbenevides/projeto-katie-o-desafio-de-motivar-meninas-para-as-areas-ste.html" class="no-external">
+<p>Ana Carolina Nesso Guedes, Ester de Lima Pontes Andrade, Kamila Almeida Benevides, Kelly Bianca Araujo Silva, Lilian Giselly Pereira Santos, Luana Júlia Nunes Ferreira, Natália de Assis Sousa, Rebeca de Jesus Brandão, Eliana Almeida (2021). Women in Information Technology (WIT).</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/kbenevides/projeto-katie-o-desafio-de-motivar-meninas-para-as-areas-ste.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1593486000000" data-listing-file-modified-sort="1787438841204" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="106">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/kbenevides/katie-saindo-do-buraco-negro-e-impulsionando-as-meninas-para.html" class="no-external">Katie: saindo do buraco negro e impulsionando as meninas para a computação</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/kbenevides/katie-saindo-do-buraco-negro-e-impulsionando-as-meninas-para.html" class="no-external">
+<p>Ester de Lima Pontes Andrade, Kamila Almeida Benevides, Kelly Bianca Araujo Silva, Letícia Medeiros, Luana Júlia Nunes Ferreira, Natália de Assis Sousa, Eliana Almeida, Sunny Kelma Oliveira Miranda (2020). Women in Information Technology (WIT).</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/kbenevides/katie-saindo-do-buraco-negro-e-impulsionando-as-meninas-para.html" class="no-external">
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
 
 
 <div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">

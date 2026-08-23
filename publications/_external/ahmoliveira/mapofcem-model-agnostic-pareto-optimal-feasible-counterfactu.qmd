@@ -1,0 +1,17 @@
+---
+title: "MAPOFCEM: model-agnostic Pareto-Optimal Feasible Counterfactual Explanations Mining"
+date: "2024-01-01"
+author: "Arthur Hendricks Mendes de Oliveira"
+scholar-ids: [Grv19eoAAAAJ]
+description: "Arthur Hendricks Mendes de Oliveira (2024). [sn]."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=Grv19eoAAAAJ&sortby=pubdate&citation_for_view=Grv19eoAAAAJ:9yKSN-GCB0IC"
+---
+
+## Abstract
+
+Os modelos de aprendizado de máquina estão assumindo um papel cada vez maior na tomada de decisões de pontuação de crédito devido à sua precisão na previsão do reembolso do empréstimo. Contudo, uma crítica relativa à implementação destes modelos é a dificuldade de explicar a tomada de... Ver maisResumo: Os modelos de aprendizado de máquina estão assumindo um papel cada vez maior na tomada de decisões de pontuação de crédito devido à sua precisão na previsão do reembolso do empréstimo. Contudo, uma crítica relativa à implementação destes modelos é a dificuldade de explicar a tomada de decisão do algoritmo para indivíduos cujos pedidos de crédito foram rejeitados. Estudos recentes revelam que explicações contrafactuais fornecem aos usuários o feedback da decisão do modelo através de uma lista de mudanças que eles podem fazer em seu perfil para orientar aplicações futuras. Portanto, fornecer explicações contrafactuais viáveis é um factor crucial para garantir que as alterações propostas estejam ao alcance dos utilizadores. Propomos um método chamado Model-Agnostic Pareto-Optimal Feasible Counterfactual Explanations Mining (MAPOFCEM) para fornecer feedback viável e acionável sobre decisões tomadas por um algoritmo de risco de crédito. Este método permite que indivíduos a quem foi negado um empréstimo façam ajustes específicos em seus perfis, aumentando assim suas chances de aprovação de empréstimos no futuro. Nossa abordagem integra um mecanismo de detecção de valores discrepantes no processo de busca contrafactual para gerar explicações contrafactuais viáveis …
+
+::: {#links}
+:::
+

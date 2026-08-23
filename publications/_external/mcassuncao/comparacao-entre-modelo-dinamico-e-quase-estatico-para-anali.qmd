@@ -1,0 +1,16 @@
+---
+title: "Comparação entre modelo dinâmico e quase-estático para análise de contatos roda-trilho"
+date: "2022-01-01"
+author: "Thiago Leister Sá, Paola Gonzalez Ramos, Philipe Augusto de Paula Pacheco, Maria Clara Assunção Viana, Guilherme Fabiano Mendonça dos Santos, Auteliano Antunes dos Santos Junior, Alfredo Gay Neto"
+description: "Thiago Leister Sá, Paola Gonzalez Ramos, Philipe Augusto de Paula Pacheco, Maria Clara Assunção Viana, Guilherme Fabiano Mendonça dos Santos, Auteliano Antunes dos Santos Junior, Alfredo Gay Neto (2022). Anais."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=ou0eGXAAAAAJ&citation_for_view=ou0eGXAAAAAJ:d1gkVwhDpl0C"
+---
+
+## Abstract
+
+O estudo do contato entre a roda e o trilho de uma ferrovia é fundamental para o gerenciamento e otimização do desempenho de um sistema ferroviário. Uma variedade de forças atua simultaneamente em todas as direções da interface roda-trilho e a tensão gerada por essas forças depende da geometria da região de contato. Esse trabalho tem como objetivo comparar dois métodos de avaliação da interação roda-trilho: modelos quase-estáticos e simulações de dinâmica multicorpos. O primeiro é implementado no programa GIRAFFE e simula a interação de um único rodeiro com a via em uma abordagem quase-estática da dinâmica. O segundo avalia a dinâmica completa de um vagão ferroviário sobre um traçado de via utilizando o programa de simulação de dinâmica multicorpos SIMPACK®. A proposta de um modelo quase-estático visa a redução do tempo e do esforço computacional para aplicação em análises de pummelling, que utilizam milhares de casos de contato roda-trilho. Como resultado, o modelo quase-estático do GIRAFFE forneceu posição lateral do rodeiro, assim como pontos de contato, força normal, área de contato e pressão máxima, equivalentes às do modelo de dinâmica multicorpos do SIMPACK® para o trecho tangente em regime permanente. No entanto, para o trecho em curva as diferenças foram significativas. Assim, verificou-se a necessidade de inclusão das forças de creep lateral e, futuramente, da rigidez e vínculo fornecido pelo truque aos rodeiros nesta modelagem.
+
+::: {#links}
+:::
+

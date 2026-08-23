@@ -1,8 +1,0 @@
----
-title: "Ethical AI"
-date: "2020-05-01"
-subtitle: "2020 – ongoing"
-image: ethical-ai.png
-description: "The goal of this project is to promote trust, transparency and fairness in machine learning models."
-categories: [Machine Learning, Fairness, Interpretability, Privacy, Transparence, Social Good]
----

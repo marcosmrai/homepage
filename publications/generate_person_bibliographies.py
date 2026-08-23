@@ -16,8 +16,8 @@
 
   2. A lista `contents:` do listing de Publications na página de
      Publications (publications/index.qmd) e na home (index.qmd) — só os
-     arquivos de publications/*.qmd de nível superior (nunca _papers/,
-     _external/ nem as pastas por pessoa).
+     arquivos de publications/*.qmd de nível superior (nunca _external/
+     nem as pastas por pessoa).
 
 Sem rede, sem scraping — só lê o que já está no disco. Roda automaticamente
 antes de cada `quarto render`/`quarto preview` via project.pre-render em
@@ -60,7 +60,7 @@ def main() -> None:
     updated = sum(1 for v in has_publications.values() if v)
 
     # listagens principais: só os arquivos de publications/ de nível
-    # superior, nunca _papers/, _external/ nem as pastas por pessoa.
+    # superior, nunca _external/ nem as pastas por pessoa.
     # "./nome.qmd" (com barra) é obrigatório aqui — um nome de arquivo sem
     # nenhuma barra é resolvido pelo Quarto como busca pelo nome em
     # qualquer lugar do projeto (achava as cópias via link simbólico

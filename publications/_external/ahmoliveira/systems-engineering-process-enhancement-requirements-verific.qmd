@@ -1,0 +1,17 @@
+---
+title: "Systems engineering process enhancement: Requirements verification methodology using natural language processing (NLP) for automotive industry"
+date: "2024-01-08"
+author: "Fernando Sarracini Júnior, Pedro Almeida Reis, Mairon Sena Cavalcante, Arthur Hendricks Mendes de Oliveira"
+scholar-ids: [Grv19eoAAAAJ]
+description: "Fernando Sarracini Júnior, Pedro Almeida Reis, Mairon Sena Cavalcante, Arthur Hendricks Mendes de Oliveira (2024). SAE Brasil 2023 Congress 358452."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=Grv19eoAAAAJ&citation_for_view=Grv19eoAAAAJ:u-x6o8ySG0sC"
+---
+
+## Abstract
+
+More sophisticated vehicle features to improve user experience and safety in the Automotive Industry applications have significantly increased the number of Electronic Control Units (ECUs) over the years. These changes were followed by the increased complexity in technical solutions for Embedded Software and interfaces among the ECUs. In this context, Systems Engineering (SE) plays a key role to achieve robustness on definition and implementation of complex systems.The overall system is broken down into lower functions associated to a specific use case, considering user’s input and the expected outputs, in three different abstraction levels – Concept, Logic and Technology. Those functions are described with structure and behavior diagrams and requirements using SysML (Systems Modelling Language), which enables the entire system simulation and validation before being cascaded to ECUs Software …
+
+::: {#links}
+:::
+

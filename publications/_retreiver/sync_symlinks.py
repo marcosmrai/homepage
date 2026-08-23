@@ -12,14 +12,14 @@ Duas fontes por pessoa:
   - externas: publications/_external/<username>/*.qmd (ver
     sync_from_google_scholar.py) — sempre dela, a pasta já é a chave.
 
-publications/_papers/ (rascunho ainda não revisado) NUNCA entra aqui de
-propósito — só author-ids de arquivos já promovidos para publications/
-contam como "oficial". Uma pessoa citada num rascunho não aparece no
-listing dela até você promover o arquivo.
+Só author-ids de arquivos que já estão em publications/ (nível superior)
+contam como "oficial" — não há mais estágio de rascunho intermediário
+(ver render_publication.py: papers com o dono do site vão direto pra lá).
 """
 
 import os
 import re
+import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -58,15 +58,19 @@ def sync_person_folder(username: str, targets: list[Path]) -> bool:
 
     if not wanted:
         if person_dir.exists():
-            for existing in person_dir.iterdir():
-                existing.unlink()
-            person_dir.rmdir()
+            shutil.rmtree(person_dir)
         return False
 
     person_dir.mkdir(exist_ok=True)
     for existing in person_dir.iterdir():
         if existing.name not in wanted:
-            existing.unlink()
+            # o próprio Quarto pode deixar uma pasta de recursos (ex.:
+            # "<slug>_files/") junto da cópia symlinkada ao renderizar —
+            # não é só symlink de arquivo que pode sobrar aqui.
+            if existing.is_dir() and not existing.is_symlink():
+                shutil.rmtree(existing)
+            else:
+                existing.unlink()
 
     for name, target in wanted.items():
         link = person_dir / name

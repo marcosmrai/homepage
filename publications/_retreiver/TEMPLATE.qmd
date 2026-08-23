@@ -3,15 +3,19 @@ title: "{{TITLE}}"
 date: "{{DATE_ISO}}"
 author: "{{AUTHORS_COMMA_SEPARATED}}"
 author-ids: [{{AUTHOR_ID_1}}, {{AUTHOR_ID_2}}]
+scholar-ids: [{{SCHOLAR_ID_1}}, {{SCHOLAR_ID_2}}]
 description: "{{AUTHORS_COMMA_SEPARATED}} ({{YEAR}}). {{VENUE}}."
 categories: [{{CATEGORIES_COMMA_SEPARATED}}]
+links:
+  - scholar: "{{SOURCE_URL}}"
 ---
 
 ## Abstract
 
 {{ABSTRACT}}
 
-[{{SOURCE_LABEL}}]({{SOURCE_URL}})
+::: {#links}
+:::
 
 ## Authors
 

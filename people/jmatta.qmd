@@ -1,0 +1,17 @@
+---
+title: "Joana da Matta"
+subtitle: "M.Sc. Student"
+image: generic-avatar.svg
+description: "Machine Learning"
+about:
+  template: jolla
+  image-shape: round
+group: "Master Students"
+filters:
+  - ../band-sections.lua
+---
+
+[Institute of Computing - University of Campinas](https://ic.unicamp.br/)
+
+::: {#links}
+:::

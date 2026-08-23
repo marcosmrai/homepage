@@ -9,16 +9,27 @@ about:
 group: "Former Researchers"
 filters:
   - ../band-sections.lua
+links:
+  - website: "joaoavanzini.github.io"
+  - github: "joaoavanzini"
+  - linkedin: "joao-avanzini"
+  - lattes: "7839491070550503"
+listing:
+  # publications-listing:start (gerado por generate_person_bibliographies.py — não editar)
+  - id: publications
+    contents: "../publications/jvpbavanzini/*.qmd"
+    type: default
+    sort: "date desc"
+    fields: [title, description]
+  # publications-listing:end
 ---
 
 [Institute of Computing - University of Campinas](https://ic.unicamp.br/)
 
-::: {.profile-links}
-<a href="joaoavanzini.github.io" class="about-link" target="_blank" rel="me"><i class="bi bi-globe2"></i> <span class="about-link-text">Website</span></a>
-<a href="https://github.com/joaoavanzini" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
-<a href="https://www.linkedin.com/in/joao-avanzini/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
-<a href="http://lattes.cnpq.br/7839491070550503" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
+::: {#links}
 :::
+
+
 
 João Avanzini is an M.Sc student at the Institute of Computing (IC), University of Campinas (UNICAMP). He is also a scientific researcher at the laboratory REasoning for Complex Data (Recod.ai). His research concerns medical electrocardiogram data, with a particular emphasis on AI ethics.
 
@@ -39,3 +50,8 @@ Centro de Paula Souza - Fatec Arthur de Azevedo
 
 **Technical Systems Development**, 2019
 Technical College of Limeira (COTIL) - University of Campinas
+
+## Publications
+
+::: {#publications}
+:::

@@ -13,6 +13,9 @@ filters:
 
 [Institute of Computing - University of Campinas](https://ic.unicamp.br/)
 
+::: {#links}
+:::
+
 Beatriz is a master's student at UNICAMP's Institute of Computing (IC) and a faculty member at Recod.ai lab. Her research focuses on applying Probabilistic Machine Learning, Riemannian Optimization, and Multi-objective Optimization in Ethical AI problems.
 
 ## Interests

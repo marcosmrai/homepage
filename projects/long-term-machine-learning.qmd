@@ -1,0 +1,28 @@
+---
+title: "Long-Term Impacts of Machine Learning-Supported Decisions"
+date: "2026-08-23"
+subtitle: "2026 – 2029"
+image: long-term-ml-decisions.jpg
+description: "A two-stage sequential decision-making framework combining offline reinforcement learning, contextual bandits, and multi-objective optimization to eliminate harmful feedback loops, mitigate selective labels (reject inference), and ensure long-term fairness and policy flexibility."
+categories: [Responsible AI, Long-Term Fairness, Sequential Decision-Making, Multi-Objective Optimization, Offline Reinforcement Learning, Contextual Bandits, Performative Prediction]
+participants: [mraimundo, gvaldrighi, dggratti, kttamashiro]
+---
+
+In sequential decision-making environments (such as credit scoring, hiring, and admissions), standard machine learning models often trigger harmful feedback loops. Decisions made under partial information—a phenomenon exemplified by *reject inference*, where the outcomes of denied applicants remain unobserved—create permanent data blind spots. When retrained on historical data filtered by past myopic choices, models suffer from distribution shifts, policy collapse, and systemic amplification of social bias.
+
+This project reframes machine learning decision cycles as a Markov Decision Process (MDP) and an interactive multi-objective problem involving competing stakeholder utilities (e.g., immediate financial profit vs. regulatory equity constraints). To tackle this challenge, we introduce a decoupled, two-stage architecture:
+1. **Supervised Learning Stage:** Trains interpretable predictive scoring models (e.g., EBMs/NAMs) coupled with epistemic uncertainty estimation on selectively observed history.
+2. **Bandit and Sequential Policy Stage:** Operates on top of the predictive models to orchestrate allocation policies that strategically balance exploitation, fairness-driven exploration, and future choice flexibility.
+
+By treating fairness as a strategic mechanism for active data collection into informational blind spots, and formalizing *option value* (the richness and diversity of future Pareto-reachable frontiers) as a forward-looking decision rule, this research moves away from static, single-step constraints toward sustainable, long-term responsible AI.
+
+### Key Research Topics:
+
+* **Sequential Decision Modeling under Partial Information:** Framing automated meta-learning cycles as augmented Markov Decision Processes (MDPs) to explicitly model performative prediction shifts and mitigate selection bias (reject inference) in longitudinal deployment.
+* **Fairness-Driven Strategic Exploration:** Utilizing dynamic fairness requirements (such as demographic parity or equal opportunity trajectories over time) as an active exploration mechanism that forces decision policies into high-uncertainty, data-scarce regions of the feature space.
+* **Flexible Policy Learning & Option Value Optimization:** Formalizing policy flexibility via multi-objective sequential learning and option-value diagnostics (e.g., Pareto front hypervolume and diversity metrics), preventing premature convergence to myopic trade-offs that irreversibly limit future options.
+* **Offline RL & Contextual Bandits with Unbounded Regret Controls:** Designing contextual bandit and safe offline reinforcement learning allocation algorithms that utilize pessimistic uncertainty estimators to guard against world-model inaccuracies and distribution collapse.
+* **Open-Source Responsible AI Infrastructure & Benchmarks:** Developing a general-purpose open-source software library and data-driven simulation benchmark (using longitudinal datasets such as Lending Club) for evaluating the multi-year socio-economic impact of decision policies.
+
+::: {#participants}
+:::

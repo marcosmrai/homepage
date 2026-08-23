@@ -1,0 +1,17 @@
+---
+title: "Does gender stereotype threat affects the levels of aggressiveness, learning and flow in gamified learning environments?: An experimental study"
+date: "2023-02-01"
+author: "Jário Santos, Ester Andrade, Kamila Benevides, Kelly Silva, João Nascimento, Ig Bittencourt, Marcos Pereira, Sheyla Fernandes, Seiji Isotani"
+scholar-ids: [UW2bzhcAAAAJ, V6h2p5kAAAAJ, BSe3NMwAAAAJ]
+description: "Jário Santos, Ester Andrade, Kamila Benevides, Kelly Silva, João Nascimento, Ig Bittencourt, Marcos Pereira, Sheyla Fernandes, Seiji Isotani (2023). Education and information technologies."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=V6h2p5kAAAAJ&citation_for_view=V6h2p5kAAAAJ:2osOgNQ5qMEC"
+---
+
+## Abstract
+
+Studies in the literature reported several positive benefits provided by the use of technology in online education, especially in the gamified tutoring system. However, despite the benefits of intelligent tutoring systems, recent studies indicate the presence of a gender gap not considered in the construction of the attributes present in the gamified tutoring system. To investigate this impact by observing users’ behavioral changes in gamified online educational environments, the present study aims to investigate the effects of the stereotype threats using a quantitative experiment with a Factorial Design in three gamified environments (stereotypical male version, stereotypical female version and control environment). Was conducted an experiment with 150 individuals (high school and undergraduate students) without considering age, ethnicity, or social class. The results show that the participants allocated to the male …
+
+::: {#links}
+:::
+

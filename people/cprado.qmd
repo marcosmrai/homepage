@@ -9,9 +9,20 @@ about:
 group: "Former Researchers"
 filters:
   - ../band-sections.lua
+listing:
+  # projects-listing:start (gerado por generate_project_pages.py — não editar)
+  - id: projects
+    contents: "../projects/cprado/*.qmd"
+    type: default
+    sort: "date desc"
+    fields: [title, description]
+  # projects-listing:end
 ---
 
 [Institute of Computing - University of Campinas]()
+
+::: {#links}
+:::
 
 Member of the REasoning for COmplex Data laboratory (Recod.ai), supervised by Marcos M. Raimundo.
 
@@ -23,3 +34,8 @@ Member of the REasoning for COmplex Data laboratory (Recod.ai), supervised by Ma
 
 **BSc in Computer Science**, 2024
 University of Campinas
+
+## Projects
+
+::: {#projects}
+:::

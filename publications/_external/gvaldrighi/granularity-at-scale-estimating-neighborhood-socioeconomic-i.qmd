@@ -2,12 +2,16 @@
 title: "Granularity at Scale: Estimating Neighborhood Socioeconomic Indicators From High-Resolution Orthographic Imagery and Hybrid Learning"
 date: "2024-02-21"
 author: "Ethan Brewer, Giovani Valdrighi, Parikshit Solunke, Joao Rulff, Yurii Piadyk, Zhonghui Lv, Jorge Poco, Claudio Silva"
+scholar-ids: [iQXEldcAAAAJ, S_88vX4AAAAJ]
 description: "Ethan Brewer, Giovani Valdrighi, Parikshit Solunke, Joao Rulff, Yurii Piadyk, Zhonghui Lv, Jorge Poco, Claudio Silva (2024). IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=iQXEldcAAAAJ&citation_for_view=iQXEldcAAAAJ:2osOgNQ5qMEC"
 ---
 
 ## Abstract
 
 Many areas of the world are without basic information on the socioeconomic well-being of the residing population due to limitations in existing data collection methods. Overhead images obtained remotely, such as from satellite or aircraft, can help serve as windows into the state of life on the ground and help “fill in the gaps” where community information is sparse, with estimates at smaller geographic scales requiring higher resolution sensors. Concurrent with improved sensor resolutions, recent advancements in machine learning and computer vision have made it possible to quickly extract features from and detect patterns in image data, in the process correlating these features with other information. In this work, we explore how well two approaches—a supervised convolutional neural network and semisupervised clustering based on bag-of-visual-words—estimate population density, median household income, and …
 
-[Google Scholar](https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=iQXEldcAAAAJ&citation_for_view=iQXEldcAAAAJ:2osOgNQ5qMEC)
+::: {#links}
+:::
 

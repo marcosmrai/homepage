@@ -103,6 +103,34 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-projects .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-projects'] = new List('listing-projects', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -215,35 +243,13 @@ window.Quarto = {
   </div>
 </header><main class="content page-columns page-full" id="quarto-document-content">
 <p><a href="https://ic.unicamp.br/">Institute of Computing - University of Campinas</a></p>
-<div class="profile-links">
-<p><a href="http://giovanivaldrighi.github.io" class="about-link" target="_blank" rel="me"><i class="bi bi-globe2"></i> <span class="about-link-text">Website</span></a> <a href="https://twitter.com/gvaldrighi1" class="about-link" target="_blank" rel="me"><i class="bi bi-twitter-x"></i> <span class="about-link-text">Twitter</span></a> <a href="https://scholar.google.com.br/citations?user=iQXEldcAAAAJ&amp;hl=pt-BR" class="about-link" target="_blank" rel="me"><i class="bi bi-mortarboard-fill"></i> <span class="about-link-text">Google Scholar</span></a> <a href="https://github.com/giovanivaldrighi" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a> <a href="https://www.linkedin.com/in/giovani-valdrighi/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a> <a href="http://lattes.cnpq.br/5990914095091548" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a></p>
-</div>
-<p>Giovani Valdrighi is a Ph.D.&nbsp;candidate in Computer Science at the Institute of Computing at the University of Campinas (IC - UNICAMP). He is a member of the Hub of Artificial Intelligence and Cognitive Architectures (HIAAC), performing research in Trusthyworth AI, mainly in the area of fairness and explainability.</p>
-<div class="column-screen band band-gray page-columns page-full">
-<div class="column-body section-row">
-<section id="interests" class="level2 section-label">
-<h2 data-anchor-id="interests">Interests</h2>
-</section>
-<div class="section-content">
-<ul>
-<li>Machine Learning</li>
-<li>Data Science</li>
-<li>AI Ethics</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="column-screen band band-white page-columns page-full">
-<div class="column-body section-row">
-<section id="education" class="level2 section-label">
-<h2 data-anchor-id="education">Education</h2>
-</section>
-<div class="section-content">
-<p><strong>PhD in Computer Science</strong>, 2026 Institute of Computing - University of Campinas</p>
-<p><strong>MS in Math Modelling</strong>, 2024 School of Applied Math - Getulio Vargas Foundation</p>
-<p><strong>BSc in Applied Math</strong>, 2022 School of Applied Math - Getulio Vargas Foundation</p>
-</div>
-</div>
+<div id="links">
+<a href="https://scholar.google.com/citations?user=iQXEldcAAAAJ&amp;hl=pt-BR" class="about-link" target="_blank" rel="me"><i class="bi bi-mortarboard-fill"></i> <span class="about-link-text">Google Scholar</span></a>
+<a href="http://giovanivaldrighi.github.io" class="about-link" target="_blank" rel="me"><i class="bi bi-globe2"></i> <span class="about-link-text">Website</span></a>
+<a href="https://twitter.com/gvaldrighi1" class="about-link" target="_blank" rel="me"><i class="bi bi-twitter-x"></i> <span class="about-link-text">Twitter</span></a>
+<a href="https://github.com/giovanivaldrighi" class="about-link" target="_blank" rel="me"><i class="bi bi-github"></i> <span class="about-link-text">GitHub</span></a>
+<a href="https://www.linkedin.com/in/giovani-valdrighi/" class="about-link" target="_blank" rel="me"><i class="bi bi-linkedin"></i> <span class="about-link-text">LinkedIn</span></a>
+<a href="http://lattes.cnpq.br/5990914095091548" class="about-link" target="_blank" rel="me"><i class="bi bi-award"></i> <span class="about-link-text">Lattes</span></a>
 </div>
 <div class="column-screen band band-gray page-columns page-full">
 <div class="column-body section-row">
@@ -253,7 +259,63 @@ window.Quarto = {
 <div class="section-content">
 <div id="listing-publications" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1750647600000" data-listing-file-modified-sort="1787248610074" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="184">
+<div class="quarto-post image-right" data-index="0" data-categories="RXhwbGFpbmFibGUlMjBBSSUyQ0NvdW50ZXJmYWN0dWFsJTIwRXhwbGFuYXRpb25zJTJDTXVsdGktb2JqZWN0aXZlJTIwT3B0aW1pemF0aW9u" data-listing-date-sort="1781578800000" data-listing-file-modified-sort="1787486526467" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="183">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/gvaldrighi/pce-model-agnostic-plausible-pareto-optimal-counterfactual-e.html" class="no-external">PCE: Model-Agnostic Plausible Pareto-Optimal Counterfactual Explanations</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/gvaldrighi/pce-model-agnostic-plausible-pareto-optimal-counterfactual-e.html" class="no-external">
+<p>Arthur Hendricks Mendes de Oliveira, Giovani Valdrighi, Marcos Medeiros Raimundo (2026). arXiv preprint arXiv:2606.18418.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/gvaldrighi/pce-model-agnostic-plausible-pareto-optimal-counterfactual-e.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="RXRoaWNhbCUyMEFJJTJDRmFpciUyMENyZWRpdCUyMFNjb3JpbmclMkNTZWxlY3RpdmUlMjBMYWJlbHMlMkNMb25nLXRlcm0lMjBGYWlybmVzcw==" data-listing-date-sort="1767236400000" data-listing-file-modified-sort="1787486526468" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="227">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/gvaldrighi/long-term-fairness-with-selective-labels.html" class="no-external">Long-term Fairness with Selective Labels</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/gvaldrighi/long-term-fairness-with-selective-labels.html" class="no-external">
+<p>Giovani Valdrighi, Isabel Valera, Marcos M Raimundo (2026). Forty-third International Conference on Machine Learning.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/gvaldrighi/long-term-fairness-with-selective-labels.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="RXRoaWNhbCUyMEFJJTJDTW9kZWwlMjBNdWx0aXBsaWNpdHklMkNGYWlybmVzcw==" data-listing-date-sort="1767236400000" data-listing-file-modified-sort="1787486526468" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="179">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/gvaldrighi/navigating-the-rashomon-set-the-impact-of-score-distribution.html" class="no-external">Navigating the Rashomon Set: The Impact of Score Distributions and Decision Thresholds on Model Agreement</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/gvaldrighi/navigating-the-rashomon-set-the-impact-of-score-distribution.html" class="no-external">
+<p>Giovani Valdrighi, Marcos M Raimundo (2026). Algorithmic Fairness Across Alignment Procedures and Agentic Systems.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/gvaldrighi/navigating-the-rashomon-set-the-impact-of-score-distribution.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="RmFpciUyMENyZWRpdCUyMFNjb3JpbmclMkNSZXNwb25zaWJsZSUyMEFJJTJDQ3JlZGl0JTIwU2NvcmluZw==" data-listing-date-sort="1756695600000" data-listing-file-modified-sort="1787486526468" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="198">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/gvaldrighi/best-practices-for-responsible-machine-learning-in-credit-sc.html" class="no-external">Best practices for responsible machine learning in credit scoring</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/gvaldrighi/best-practices-for-responsible-machine-learning-in-credit-sc.html" class="no-external">
+<p>Giovani Valdrighi, Athyrson M. Ribeiro, Jansen SB Pereira, Vitoria Guardieiro, Arthur Hendricks, Décio Miranda Filho, Juan David Nieto Garcia, Felipe F. Bocca, Thalita B. Veronese, Lucas Wanner, Marcos Medeiros Raimundo (2025). Neural Computing and Applications.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/gvaldrighi/best-practices-for-responsible-machine-learning-in-credit-sc.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="RXRoaWNhbCUyMEFJJTJDU3ViZ3JvdXAlMjBGYWlybmVzcyUyQ0dyYWRpZW50JTIwQm9vc3Rpbmc=" data-listing-date-sort="1750647600000" data-listing-file-modified-sort="1787486526468" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="184">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../publications/gvaldrighi/m2fgb-a-min-max-gradient-boosting-framework-for-subgroup-fai.html" class="no-external">M²FGB: A Min-Max Gradient Boosting Framework for Subgroup Fairness</a>
@@ -267,7 +329,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1708484400000" data-listing-file-modified-sort="1787233833387" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="132">
+<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1708484400000" data-listing-file-modified-sort="1787438841201" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="132">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../publications/gvaldrighi/granularity-at-scale-estimating-neighborhood-socioeconomic-i.html" class="no-external">Granularity at Scale: Estimating Neighborhood Socioeconomic Indicators From High-Resolution Orthographic Imagery and Hybrid Learning</a>
@@ -281,7 +343,21 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1677639600000" data-listing-file-modified-sort="1787233781410" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="138">
+<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1704078000000" data-listing-file-modified-sort="1787438841199" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="2">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../publications/gvaldrighi/visualization-of-multivariate-spatiotemporal-data-through-gr.html" class="no-external">Visualization of multivariate spatiotemporal data through graph wavelet transform</a>
+</h3>
+<div class="delink listing-description"><a href="../publications/gvaldrighi/visualization-of-multivariate-spatiotemporal-data-through-gr.html" class="no-external">
+<p>Giovani de Almeida Valdrighi (2024). Preprint.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../publications/gvaldrighi/visualization-of-multivariate-spatiotemporal-data-through-gr.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1677639600000" data-listing-file-modified-sort="1787438841199" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="138">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../publications/gvaldrighi/morevis-a-visual-summary-for-spatiotemporal-moving-regions.html" class="no-external">MoReVis: A visual summary for spatiotemporal moving regions</a>
@@ -292,6 +368,48 @@ window.Quarto = {
 </div>
 <div class="metadata">
 <a href="../publications/gvaldrighi/morevis-a-visual-summary-for-spatiotemporal-moving-regions.html" class="no-external">
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</div>
+</div>
+</div>
+<div class="column-screen band band-white page-columns page-full">
+<div class="column-body section-row">
+<section id="projects" class="level2 section-label">
+<h2 data-anchor-id="projects">Projects</h2>
+</section>
+<div class="section-content">
+<div id="listing-projects" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="UmVzcG9uc2libGUlMjBBSSUyQ0xvbmctVGVybSUyMEZhaXJuZXNzJTJDU2VxdWVudGlhbCUyMERlY2lzaW9uLU1ha2luZyUyQ011bHRpLU9iamVjdGl2ZSUyME9wdGltaXphdGlvbiUyQ09mZmxpbmUlMjBSZWluZm9yY2VtZW50JTIwTGVhcm5pbmclMkNDb250ZXh0dWFsJTIwQmFuZGl0cyUyQ1BlcmZvcm1hdGl2ZSUyMFByZWRpY3Rpb24=" data-listing-date-sort="1787454000000" data-listing-file-modified-sort="1787498718235" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="358">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../projects/gvaldrighi/long-term-machine-learning.html" class="no-external">Long-Term Impacts of Machine Learning-Supported Decisions</a>
+</h3>
+<div class="delink listing-description"><a href="../projects/gvaldrighi/long-term-machine-learning.html" class="no-external">
+<p>A two-stage sequential decision-making framework combining offline reinforcement learning, contextual bandits, and multi-objective optimization to eliminate harmful feedback loops, mitigate selective labels (reject inference), and ensure long-term fairness and policy flexibility.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../projects/gvaldrighi/long-term-machine-learning.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Q3JlZGl0JTIwU2NvcmluZyUyQ0ZyYXVkJTIwRGV0ZWN0aW9uJTJDRWRnZSUyMENvbXB1dGluZyUyQ0V4cGxhaW5hYmxlJTIwQUklMkNGYWlybmVzcyUyQ0ZpbmFuY2lhbCUyMEluY2x1c2lvbiUyQ01hY2hpbmUlMjBMZWFybmluZyUyQ0ludGVycHJldGFiaWxpdHk=" data-listing-date-sort="1641006000000" data-listing-file-modified-sort="1787486526702" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="103">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../projects/gvaldrighi/ai-for-finance-hiaac.html" class="no-external">AI for Finance - HIAAC</a>
+</h3>
+<div class="delink listing-description"><a href="../projects/gvaldrighi/ai-for-finance-hiaac.html" class="no-external">
+<p>The goal of this research line is to develop robust and transparent AI models for credit analysis and similar problems in the financial sector, such as fraud detection.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../projects/gvaldrighi/ai-for-finance-hiaac.html" class="no-external">
 </a>
 </div>
 </div>

@@ -1,0 +1,1 @@
+../_external/ahmoliveira/model-driven-systems-engineering-automation-with-artificial.qmd

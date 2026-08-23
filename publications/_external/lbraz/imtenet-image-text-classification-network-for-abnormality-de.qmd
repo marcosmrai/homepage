@@ -1,0 +1,17 @@
+---
+title: "ImTeNet: Image-Text Classification Network for Abnormality Detection and Automatic Reporting on Musculoskeletal Radiographs"
+date: "2020-11-23"
+author: "Leodécio Braz, Vinicius Teixeira, Helio Pedrini, Zanoni Dias"
+scholar-ids: [oMCF-TAAAAAJ, kc-wB9QAAAAJ, DI_Wyj0AAAAJ]
+description: "Leodécio Braz, Vinicius Teixeira, Helio Pedrini, Zanoni Dias (2020). Brazilian Symposium on Bioinformatics."
+links:
+  - scholar: "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=oMCF-TAAAAAJ&citation_for_view=oMCF-TAAAAAJ:IjCSPb-OGe4C"
+---
+
+## Abstract
+
+Deep learning techniques have been increasingly applied to provide more accurate results in the classification of medical images and in the classification and generation of report texts. The main objective of this paper is to investigate the influence of fusing several features of heterogeneous modalities to improve musculoskeletal abnormality detection in comparison with the individual results of image and text classification. In this work, we propose a novel image-text classification framework, named ImTeNet, to learn relevant features from image and text information for binary classification of musculoskeletal radiography. Initially, we use a caption generator model to artificially create textual data for a dataset lacking text information. Then, we apply the ImTeNet, a multi-modal information model that consists of two distinct networks, DenseNet-169 and BERT, to perform image and text classification tasks respectively …
+
+::: {#links}
+:::
+

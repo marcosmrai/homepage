@@ -9,13 +9,16 @@ about:
 group: "Ph.D. Students"
 filters:
   - ../band-sections.lua
+links:
+  - email: "a189593@dac.unicamp.br"
 ---
 
 [Institute of Computing - University of Campinas](https://ic.unicamp.br/)
 
-::: {.profile-links}
-<a href="mailto:a189593@dac.unicamp.br" class="about-link" target="_blank" rel="me"><i class="bi bi-envelope"></i> <span class="about-link-text">Email</span></a>
+::: {#links}
 :::
+
+
 
 Aline Azevedo is a master's student at the State University of Campinas (UNICAMP), in the Institute of Computing (IC). She is also a faculty member of the REasoning for COmplex Data (Recod.ai) lab. Her research interests includes Machine Learning, Multi-objective Optimization, Ethical AI.
 
