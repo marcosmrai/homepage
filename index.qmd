@@ -79,8 +79,10 @@ Marcos M. Raimundo is an Assistant Professor at University of Campinas (UNICAMP)
 
 [SEE ALL PUBLICATIONS →](publications/index.qmd){.see-all}
 
-::: {.column-screen .band .band-white}
-::: {.column-body .text-center}
-[Meet the team →](people/index.qmd){.btn .btn-outline-secondary}
-:::
+## Meet the team {.team-band-heading}
+
+::: {.team-band-content .text-center}
+A growing group of students and collaborators working on machine learning, optimization, and fairness.
+
+[Meet the team →](people/index.qmd){.btn .btn-outline-light}
 :::

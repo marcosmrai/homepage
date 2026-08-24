@@ -103,69 +103,132 @@ h2 {
    `grid-column: body-end / page-end` (ver _bootstrap-rules.scss): duas
    linhas iguais viram uma coluna de largura zero, e a barra lateral acaba
    se sobrepondo ao conteúdo (visto ao vivo em Publications, com
-   `filter-ui: true`). A solução: tirar só ESSA barra lateral (a de
-   categorias) do fluxo do grid (`position: fixed`, ancorada à direita da
-   viewport) — ela deixa de disputar espaço com a coluna de conteúdo,
-   então a reserva de coluna não é mais necessária. A margem direita da
-   página (fora dos 75vw de conteúdo) é (100vw-75vw)/2 = 12.5vw de cada
-   lado — largura suficiente para a barra viver dentro dela sem invadir o
-   conteúdo.
+   `filter-ui: true`).
+   A solução (pedido explícito: a barra deve rolar junto com a página como
+   uma coluna normal, não flutuar fixa nem ficar "sticky" acompanhando o
+   scroll) é reabrir, só para essa variante, uma coluna de verdade entre
+   "body-content-end" e "page-end" — tirada de dentro dos mesmos 75vw de
+   conteúdo (não somados a eles), pra manter a regra de 75% de tela
+   ocupada: ~77% do bloco pra a lista de publicações, uma faixa de
+   respiro, e ~20% pra a barra de categorias.
    Importante: #quarto-margin-sidebar também é usado, em QUALQUER página
    de conteúdo com `toc: true` (todas as aulas), para o sumário (#TOC) —
    um elemento completamente diferente, que já funciona bem no grid
    padrão do Quarto e nunca teve o problema de sobreposição (não convive
-   com uma barra de categorias na mesma página). Aplicar position:fixed
-   ali também já quebrou esse TOC uma vez nesta sessão. Por isso o
-   seletor abaixo usa `:has()` para mirar só a variante com a nuvem de
-   categorias (`.quarto-listing-category`, adicionada logo abaixo) —
-   nunca a variante com `#TOC`. */
-#quarto-margin-sidebar:has(.quarto-listing-category) {
-  position: fixed;
-  top: 6rem;
-  right: 1vw;
-  width: min(260px, 11vw);
-  max-height: calc(100vh - 8rem);
-  overflow-y: auto;
+   com uma barra de categorias na mesma página). Por isso o seletor usa
+   `:has()` para mirar só a variante com a nuvem de categorias
+   (`.quarto-listing-category`, adicionada logo abaixo) — nunca a
+   variante com `#TOC`, que continua usando a regra .page-columns comum
+   (75vw colapsados) acima. */
+.page-columns:has(.quarto-listing-category) {
+  grid-template-columns:
+    [screen-start] 1fr
+    [screen-start-inset page-start page-start-inset body-start-outset body-start body-content-start] minmax(0, 58vw)
+    [body-content-end body-end-outset body-end] minmax(0, 2vw)
+    [page-end-inset page-end] minmax(0, 15vw)
+    [screen-end-inset screen-end] 1fr
+    !important;
 }
 
-/* Nuvem de categorias (Publications: `categories: cloud`) como pastilhas
-   arredondadas, no mesmo estilo dos ícones de contato (#links) — em vez
-   da lista simples e sem graça do Quarto. */
+/* Categorias de Publications: painel fechado por padrão (cartão
+   delimitado — fundo + borda —, título clicável com ícone de seta
+   inserido via JS em publications/categories-accordion.html, e lista de
+   texto simples em vez das pílulas antigas — pílulas quebrando em 2-3
+   linhas numa coluna estreita, com nomes como "Multi-objective
+   Optimization", é o que deixava a barra lateral com aparência
+   desleixada; texto simples quebra linha normalmente, sem parecer
+   quebrado).
+   Também: sem position fixed/sticky (herdado de `.sidebar.margin-sidebar`
+   no CSS padrão do Quarto) — a barra cresce com o próprio conteúdo e
+   rola junto com o resto da página, como pedido.
+   align-self:start é necessário porque, sem ele, o item de grid estica
+   (comportamento padrão) até a altura da linha inteira — que vai até o
+   fim da lista de publicações —, e com fundo/borda isso virava um
+   painel cinza enorme e vazio ocupando a coluna toda até o rodapé.
+   width:15vw é necessário porque, de volta ao grid normal (sem
+   position:fixed), o item por padrão NÃO estica na largura: fica do
+   tamanho do próprio conteúdo (~41px), bem mais estreito que a coluna
+   "page-end" reservada pra ele (15vw, definida em
+   .page-columns:has(...) acima). `width:100%` (percentual) não resolve
+   certo aqui — testado isoladamente, dá os mesmos ~41px, aparentemente
+   um caso em que o Chrome não trata "%" como relativo à área do grid
+   neste elemento em particular — mas `vw` (absoluto, não percentual)
+   funciona, por isso repetimos aqui o mesmo valor da coluna. */
+#quarto-margin-sidebar:has(.quarto-listing-category) {
+  position: static;
+  top: auto;
+  max-height: none;
+  overflow-y: visible;
+  align-self: start;
+  width: 15vw;
+  box-sizing: border-box;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
+}
 
 .quarto-listing-category-title {
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
   color: #212529;
-  margin-bottom: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.quarto-listing-category-title .bi-chevron-down {
+  color: #6c757d;
+  font-size: 0.8rem;
+  transition: transform 0.15s ease-in-out;
+}
+
+#quarto-margin-sidebar.categories-collapsed .quarto-listing-category-title .bi-chevron-down {
+  transform: rotate(-90deg);
+}
+
+#quarto-margin-sidebar.categories-collapsed .quarto-listing-category.category-cloud {
+  display: none;
 }
 
 .quarto-listing-category.category-cloud {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  flex-direction: column;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e9ecef;
 }
 
 .quarto-listing-category.category-cloud .category {
-  padding: 0.3rem 0.75rem;
-  border-radius: 999px;
-  background: #f4f5f6;
+  padding: 0.35rem 0;
   color: #495057;
-  font-size: 0.8rem;
   line-height: 1.3;
-  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  cursor: pointer;
+  transition: color 0.15s ease-in-out;
+}
+
+/* A nuvem varia o tamanho da fonte pela frequência de cada categoria
+   (category-cloud-1 a -4) — nivelamos, senão a lista de texto simples
+   fica com tamanhos de linha inconsistentes, o mesmo efeito "poluído"
+   que estávamos tentando eliminar, só que sem as pílulas. */
+.quarto-listing-category.category-cloud .category span {
+  font-size: 0.85rem !important;
 }
 
 .quarto-listing-category.category-cloud .category:hover {
-  background: #0085ca;
-  color: #ffffff;
+  color: #0085ca;
 }
 
 .quarto-listing-category.category-cloud .category.active {
-  background: #0085ca;
-  color: #ffffff;
+  color: #0085ca;
   font-weight: 600;
 }
 
-/* Foto do IC no topo de Teaching / embaixo de Projects. */
+/* Foto do IC no topo de Teaching / embaixo de Projects / Contact. */
 .page-banner {
   width: 100%;
   height: auto;
@@ -173,6 +236,37 @@ h2 {
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 1.5rem;
+}
+
+/* Contact: cada dado (email, telefone, endereço, horário) como uma linha
+   com ícone à esquerda, em vez do bloco de texto corrido com só
+   **negrito** que a página tinha antes — mesmo espírito visual dos
+   ícones de #links na home, mas em lista (cada item já tem um rótulo
+   textual ao lado, então não faz sentido o mesmo tratamento circular). */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contact-item i {
+  flex-shrink: 0;
+  width: 1.5rem;
+  margin-top: 0.2rem;
+  font-size: 1.3rem;
+  color: #0085ca;
+  text-align: center;
+}
+
+.contact-item p {
+  margin-bottom: 0;
 }
 
 /* Período (ano de início/fim) de cada projeto, no mesmo estilo discreto
@@ -338,6 +432,87 @@ h2 {
   margin-bottom: 0;
 }
 
+/* Título "Publications", o campo de busca (dentro de #listing-listing,
+   antes da lista) e "Categories" (na barra lateral, fora de
+   #listing-listing) vivem em três containers diferentes — por padrão o
+   título fica numa linha, o campo de busca embaixo dele, e Categories
+   solto na barra lateral. Pedido: os três na mesma linha.
+   `display: contents` no container da listagem "acha as próprias
+   bordas" para o grid: os filhos de #listing-listing (o campo de busca e
+   a lista de cards) passam a competir direto pelas linhas/colunas do
+   grid de <main>, como se não houvesse essa div no meio. Com isso, dá
+   pra colocar o título (linha 1, coluna 1) e o campo de busca (linha 1,
+   coluna 2) na mesma linha, e a lista ocupando a linha 2 inteira. Só
+   falta “Categories”: ela já mora fora de <main> (é irmã dele, na barra
+   lateral #quarto-margin-sidebar), então não participa desse grid — mas
+   como as duas colunas (conteúdo e barra lateral) começam no mesmo topo
+   dentro do grid maior de #quarto-content, e ambas têm o mesmo respiro
+   no topo, o título "Categories" acaba caindo naturalmente na mesma
+   altura visual, sem precisar entrar no mesmo grid. */
+#quarto-document-content:has(#listing-listing) {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 1.5rem;
+}
+
+#quarto-document-content:has(#listing-listing) > header#title-block-header {
+  grid-column: 1;
+  grid-row: 1;
+  margin-bottom: 0;
+}
+
+#listing-listing {
+  display: contents;
+}
+
+#listing-listing .listing-actions-group {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  margin-bottom: 0;
+  /* Sem isso, o item de grid não encolhe abaixo da largura mínima do
+     próprio conteúdo (o <input> tem uma largura intrínseca ~ 170-200px),
+     e em telas estreitas isso empurra a coluna "1fr" pra fora do
+     viewport em vez de encolher o campo de busca. */
+  min-width: 0;
+  max-width: 100%;
+}
+
+#listing-listing .list.grid {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin-top: 1.5rem;
+}
+
+/* Em telas estreitas não há largura pra dividir título e busca numa
+   linha só sem espremer o campo de busca a ponto de ficar ilegível (o
+   <input> chegava a uns 30px de largura) — volta ao empilhado normal:
+   título, depois busca em largura total, depois a lista. */
+@media (max-width: 767.98px) {
+  #quarto-document-content:has(#listing-listing) {
+    display: block;
+  }
+
+  #quarto-document-content:has(#listing-listing) > header#title-block-header {
+    margin-bottom: 1rem;
+  }
+
+  #listing-listing {
+    display: block;
+  }
+
+  #listing-listing .listing-actions-group {
+    justify-self: stretch;
+    max-width: none;
+    margin-bottom: 1rem;
+  }
+
+  #listing-listing .list.grid {
+    margin-top: 0;
+  }
+}
+
 /* Zebra branco/cinza entre os cards da listagem de teaching (um card por
    disciplina), para diferenciar visualmente cada entrada. */
 #teaching-listing .quarto-grid-item.card:nth-child(odd) {
@@ -372,6 +547,75 @@ body {
   margin-top: 0;
 }
 
+/* Faixa final da home ("Meet the team"): foto (team.jpg, um mural do IC)
+   como fundo full-bleed (mesmo tratamento de ponta-a-ponta das faixas
+   cinza/branco das outras seções) em vez de só o botão solto num fundo
+   branco liso que a seção tinha antes.
+   Precisa ser uma seção "##" de verdade (`## Meet the team
+   {.team-band-heading}`, processada pelo band-sections.lua como as
+   demais) — um `::: {.column-screen} :::` manual sem heading própria
+   antes dele fica acumulado dentro do CONTEÚDO da seção anterior
+   ("Latest Publications"), porque o filtro só fecha uma seção quando
+   encontra o próximo "##" no nível raiz do documento. Aninhado assim
+   dentro de `.section-content` (que é display:block, não mais
+   full-bleed), o `.column-screen` não tem mais um ancestral
+   `.page-columns` de verdade pra caber ponta-a-ponta — ele fica travado
+   na largura da coluna de conteúdo (~977px), não da tela cheia. Foi
+   exatamente esse bug visível quando a imagem apareceu: a foto ficava
+   dentro de uma caixa mais estreita, "num quadro dentro de
+   publications", em vez de ocupar a tela toda como as outras faixas.
+   Sendo uma seção "##" de verdade, o band-sections.lua gera a mesma
+   estrutura de duas colunas (rótulo + conteúdo) das demais seções —
+   removida abaixo só pra esta faixa (:has() mirando a classe do
+   heading), porque aqui o título faz parte do herói centralizado, não
+   de um rótulo fixo à esquerda.
+   O gradiente escuro por cima garante contraste pro texto branco
+   independente de onde a foto for mais clara/colorida (o mural tem
+   muita cor, um overlay uniforme é mais confiável do que contar com um
+   ponto específico da imagem estar escuro). */
+.column-screen:has(.team-band-heading) {
+  position: relative;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(15, 23, 32, 0.6),
+      rgba(15, 23, 32, 0.72)
+    ),
+    url("team.jpg");
+  background-size: cover;
+  background-position: center 35%;
+  padding: 4.5rem 0;
+}
+
+.column-screen:has(.team-band-heading) .section-row {
+  flex-direction: column !important;
+  align-items: center;
+  gap: 0.6rem !important;
+  text-align: center;
+}
+
+.column-screen:has(.team-band-heading) .section-label,
+.column-screen:has(.team-band-heading) .section-content {
+  flex: none !important;
+  width: 100%;
+  text-align: center;
+}
+
+.team-band-heading {
+  margin: 0;
+  color: #ffffff;
+}
+
+.team-band-content p {
+  max-width: 34em;
+  margin: 0 auto 1.5rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.team-band-content .btn-outline-light {
+  border-width: 1.5px;
+  font-weight: 600;
+}
+
 /* Cada seção da home vira duas colunas: título sozinho, fixo no topo à
    esquerda (com espaço vazio embaixo), e todo o conteúdo (listagem) à
    direita, numa coluna mais larga.
@@ -387,11 +631,18 @@ body {
    a linha inteira até a borda da tela em vez de ficar dentro da coluna de
    conteúdo centralizada — por isso o título/lista ficavam grudados à
    esquerda. Fixamos o grid-column de volta para a coluna de conteúdo
-   normal (a mesma que .column-body já usa), também com !important. */
+   normal (a mesma que .column-body já usa), também com !important.
+   Essa mesma regra do Quarto (`body.listing:not(.floating):not(.docked)
+   .page-columns`) também zera o "gap" — e como nem ela nem a nossa regra
+   original tinham !important, quem ganhava era só a especificidade (a
+   regra do Quarto, bem mais específica, vencia mesmo carregando antes) —
+   por isso a seção de Publications ficava sem o respiro entre o título e
+   a lista, coladas uma na outra, só nessa seção. Daí o !important
+   também no gap abaixo. */
 .section-row {
   display: flex !important;
   grid-column: body-content-start / body-content-end !important;
-  gap: 2.5rem;
+  gap: 2.5rem !important;
   align-items: flex-start;
 }
 
