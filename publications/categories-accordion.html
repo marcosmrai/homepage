@@ -14,11 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
   title.setAttribute("aria-expanded", "false");
   sidebar.classList.add("categories-collapsed");
 
-  // Ícone real do Bootstrap Icons (já carregado no site inteiro), em vez
-  // de um triângulo desenhado com border+rotate em CSS — este último
-  // rendeirizava como um traço solto ("\"), não como uma seta legível.
+  // Ícone de hambúrguer (bi-list) do Bootstrap Icons, já carregado no
+  // site inteiro — pedido explícito, no lugar da seta/chevron.
   var icon = document.createElement("i");
-  icon.className = "bi bi-chevron-down";
+  icon.className = "bi bi-list";
   icon.setAttribute("aria-hidden", "true");
   title.appendChild(icon);
 
@@ -34,5 +33,21 @@ document.addEventListener("DOMContentLoaded", function () {
       toggle();
     }
   });
+
+  // Move o campo de busca ("Filter") pra dentro do cartão de categorias,
+  // entre o título e a lista — pedido explícito. Só em telas onde a
+  // barra lateral de fato existe (o próprio Quarto a esconde por
+  // completo abaixo de 768px, ver styles.css); abaixo disso o campo
+  // fica onde já estava, acima da lista de publicações. O List.js (que
+  // faz a busca funcionar) já terminou de se ligar ao <input> antes
+  // deste ponto (seu script roda mais acima no <body>), e mover um nó
+  // no DOM não desliga os listeners já presos a ele — o filtro continua
+  // funcionando normalmente na nova posição.
+  var filterGroup = document.querySelector(
+    "#listing-listing .listing-actions-group"
+  );
+  if (filterGroup && window.matchMedia("(min-width: 768px)").matches) {
+    sidebar.insertBefore(filterGroup, cloud);
+  }
 });
 </script>
