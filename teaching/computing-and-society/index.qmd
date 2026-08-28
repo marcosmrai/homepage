@@ -4,7 +4,12 @@ date: "2026-08-09T00:00:00Z"
 author: "Marcos M. Raimundo"
 description: "A critical and applied reflection on the transformative role of technology in the contemporary world, integrating ethics, social values, and human impact into the software development lifecycle."
 categories: [Computing, Ethics, Technology and Society, Responsible Innovation, Human-Centered Design]
+include-after-body:
+  text: |
+    <script src="../toc-accordion.js"></script>
 ---
+
+[PDD](./pdd.qmd){.see-all .pdd-link aria-label="View the official Course Development Plan (PDD)" title="Course Development Plan (PDD)"}
 
 This course proposes a critical and applied reflection on the transformative role of technology in the contemporary world. Far from being a purely technical or neutral activity, computing is approached as a deeply human and social practice whose architectural choices, algorithms, and business models directly impact people's lives, democracy, the environment, and labor relations.
 
